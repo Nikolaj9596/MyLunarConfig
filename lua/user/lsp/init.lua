@@ -8,9 +8,6 @@ require "user.lsp.languages.emmet"
 lvim.lsp.diagnostics.virtual_text = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
-lvim.builtin.treesitter.ensure_installed = {
-  "java",
-}
 
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "jdtls" })
 
@@ -56,6 +53,7 @@ lvim.lsp.installer.setup.automatic_installation = false
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   -- { command = "google_java_format", filetypes = { "java" } },
+  { command = "google_java_format", filetypes = { "java" } },
   { command = "stylua", filetypes = { "lua" } },
   { command = "shfmt", filetypes = { "sh", "zsh" } },
 }
@@ -63,19 +61,7 @@ formatters.setup {
 -- lvim.lsp.on_attach_callback = function(client, bufnr)
 -- end
 
-local linters = require "lvim.lsp.null-ls.linters"
-linters.setup {
-  { command = "eslint_d", filetypes = { "javascript" } },
-  {
-    -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
-    command = "shellcheck",
-    ---@usage arguments to pass to the formatter
-    -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
-    extra_args = { "--severity", "warning" },
-  },
-  {
-    command = "codespell",
-    ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-    filetypes = { "javascript", "python", "lua", "bash", "yaml"},
-  },
-}
+-- local linters = require "lvim.lsp.null-ls.linters"
+-- linters.setup {
+--   { command = "eslint_d", filetypes = { "javascript" } },
+-- }

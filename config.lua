@@ -21,10 +21,10 @@ reload "user.numb"
 reload "user.lsp"
 reload "user.keymaps"
 reload "user.whichkey"
+reload "user.neogit"
+reload "user.bqf"
 -- reload "user.harpoon"
 -- reload "user.jaq"
--- reload "user.bqf"
--- reload "user.neogit"
 
 
 

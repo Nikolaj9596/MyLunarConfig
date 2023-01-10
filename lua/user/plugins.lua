@@ -46,35 +46,40 @@ lvim.plugins = {
   "sindrets/diffview.nvim",
   "renerocksai/telekasten.nvim",
   "mattn/vim-gist",
-  { "christianchiarulli/telescope-tabs", branch = "chris" },
+  "TimUntersberger/neogit",
   "monaqa/dial.nvim",
+  "kevinhwang91/nvim-bqf",
+  { "christianchiarulli/telescope-tabs", branch = "chris" },
   {
     "0x100101/lab.nvim",
     run = "cd js && npm ci",
   },
+  'aklt/plantuml-syntax',
+  'weirongxu/plantuml-previewer.vim',
+  'tyru/open-browser.vim',
+  {
+    "jinh0/eyeliner.nvim",
+    config = function()
+      require("eyeliner").setup {
+        highlight_on_key = true,
+      }
+    end,
+  },
+  -- https://github.com/jose-elias-alvarez/typescript.nvim
+  -- "rmagatti/auto-session",
+  -- "rmagatti/session-lens"
   -- "j-hui/fidget.nvim",
   -- "christianchiarulli/harpoon",
   -- "mattn/webapi-vim",
   -- "is0n/jaq-nvim",
-  -- "TimUntersberger/neogit",
-  -- "kevinhwang91/nvim-bqf",
   -- "ggandor/leap.nvim",
   -- "simrat39/rust-tools.nvim",
-
   -- "olexsmir/gopher.nvim",
   -- {
   --   "jackMort/ChatGPT.nvim",
   --   config = function()
   --     require("chatgpt").setup {
   --       -- optional configuration
-  --     }
-  --   end,
-  -- },
-  -- {
-  --   "jinh0/eyeliner.nvim",
-  --   config = function()
-  --     require("eyeliner").setup {
-  --       highlight_on_key = true,
   --     }
   --   end,
   -- },
@@ -109,7 +114,4 @@ lvim.plugins = {
   --   end,
   -- },
 
-  -- https://github.com/jose-elias-alvarez/typescript.nvim
-  -- "rmagatti/auto-session",
-  -- "rmagatti/session-lens"
 }
