@@ -65,24 +65,25 @@ lvim.plugins = {
       }
     end,
   },
+  {
+    "jackMort/ChatGPT.nvim",
+    config = function()
+      require("chatgpt").setup {
+        -- optional configuration
+      }
+    end,
+  },
+  "is0n/jaq-nvim",
+  "christianchiarulli/harpoon",
+ "folke/trouble.nvim",
   -- https://github.com/jose-elias-alvarez/typescript.nvim
   -- "rmagatti/auto-session",
   -- "rmagatti/session-lens"
   -- "j-hui/fidget.nvim",
-  -- "christianchiarulli/harpoon",
   -- "mattn/webapi-vim",
-  -- "is0n/jaq-nvim",
   -- "ggandor/leap.nvim",
   -- "simrat39/rust-tools.nvim",
   -- "olexsmir/gopher.nvim",
-  -- {
-  --   "jackMort/ChatGPT.nvim",
-  --   config = function()
-  --     require("chatgpt").setup {
-  --       -- optional configuration
-  --     }
-  --   end,
-  -- },
   -- { "tzachar/cmp-tabnine", run = "./install.sh" },
   -- {
   --   "zbirenbaum/copilot.lua",
