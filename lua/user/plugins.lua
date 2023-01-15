@@ -77,11 +77,11 @@ lvim.plugins = {
   "christianchiarulli/harpoon",
  "folke/trouble.nvim",
   -- https://github.com/jose-elias-alvarez/typescript.nvim
-  -- "rmagatti/auto-session",
-  -- "rmagatti/session-lens"
-  -- "j-hui/fidget.nvim",
-  -- "mattn/webapi-vim",
-  -- "ggandor/leap.nvim",
+  "rmagatti/auto-session",
+  "rmagatti/session-lens",
+  "j-hui/fidget.nvim",
+  "mattn/webapi-vim",
+  "ggandor/leap.nvim",
   -- "simrat39/rust-tools.nvim",
   -- "olexsmir/gopher.nvim",
   -- { "tzachar/cmp-tabnine", run = "./install.sh" },

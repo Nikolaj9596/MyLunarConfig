@@ -3,7 +3,7 @@ lvim.builtin.which_key.mappings["v"] = { "<cmd>vsplit<cr>", "vsplit" }
 lvim.builtin.which_key.mappings["h"] = { "<cmd>nohlsearch<cr>", "nohl" }
 lvim.builtin.which_key.mappings["q"] = { '<cmd>lua require("user.functions").smart_quit()<CR>', "Quit" }
 lvim.builtin.which_key.mappings["/"] = { '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', "Comment" }
--- lvim.builtin.which_key.mappings["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" }
+lvim.builtin.which_key.mappings["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" }
 lvim.builtin.which_key.mappings["gy"] = "Link"
 lvim.builtin.which_key.mappings["r"] = {
   name = "Replace",
@@ -32,6 +32,7 @@ lvim.builtin.which_key.mappings["d"] = {
   u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
   x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
 }
+
 lvim.builtin.which_key.mappings["f"] = {
   name = "Find",
   b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -121,17 +122,17 @@ lvim.builtin.which_key.mappings["l"] = {
   t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
   u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
 }
--- lvim.builtin.which_key.mappings["t"] = {
---   name = "Tab",
---   t = {
---     "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
---     "Find Tab",
---   },
---   n = { "<cmd>tabnew %<cr>", "New Tab" },
---   c = { "<cmd>tabclose<cr>", "Close Tab" },
---   o = { "<cmd>tabonly<cr>", "Only Tab" },
--- }
--- lvim.builtin.cmp.enabled = false
+lvim.builtin.which_key.mappings["t"] = {
+  name = "Tab",
+  t = {
+    "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
+    "Find Tab",
+  },
+  n = { "<cmd>tabnew %<cr>", "New Tab" },
+  c = { "<cmd>tabclose<cr>", "Close Tab" },
+  o = { "<cmd>tabonly<cr>", "Only Tab" },
+}
+lvim.builtin.cmp.enabled = false
 lvim.builtin.which_key.mappings["o"] = {
   name = "Options",
   c = { "<cmd>lua lvim.builtin.cmp.active = false<cr>", "Completion off" },
@@ -155,7 +156,7 @@ lvim.builtin.which_key.mappings["n"] = {
 }
 
 -- lvim.builtin.which_key.mappings[";"] = nil
--- lvim.builtin.which_key.mappings["c"] = nil
+lvim.builtin.which_key.mappings["c"] = nil
 lvim.builtin.which_key.mappings["L"] = nil
 lvim.builtin.which_key.mappings["s"] = nil
 -- lvim.builtin.which_key.mappings["w"] = nil

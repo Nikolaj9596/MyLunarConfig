@@ -11,11 +11,11 @@ keymap("n", "<C-i>", "<C-i>", opts)
 
 -- Normal --
 -- Better window navigation
-keymap("n", "<m-h>", "<C-w>h", opts)
-keymap("n", "<m-j>", "<C-w>j", opts)
-keymap("n", "<m-k>", "<C-w>k", opts)
-keymap("n", "<m-l>", "<C-w>l", opts)
-keymap("n", "<m-tab>", "<c-6>", opts)
+keymap("n", "<S-h>", "<C-w>h", opts)
+keymap("n", "<S-j>", "<C-w>j", opts)
+keymap("n", "<S-k>", "<C-w>k", opts)
+keymap("n", "<S-l>", "<C-w>l", opts)
+keymap("n", "<S-tab>", "<c-6>", opts)
 
 function _G.set_terminal_keymaps()
   vim.api.nvim_buf_set_keymap(0, "t", "<m-h>", [[<C-\><C-n><C-W>h]], opts)

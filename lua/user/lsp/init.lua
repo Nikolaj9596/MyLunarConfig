@@ -23,6 +23,6 @@ linters.setup {
   -- { command = "eslint_d", filetypes = { "javascript" } },
   {
     command = "codespell",
-    filetypes = {"lua", "javascript", "typescript", "tsx", "python", "cs", "scss", "html", "yaml"}
+    filetypes = {"lua", "javascript", "typescript", "tsx", "python", "cs", "scss", "html", "yaml", "sh", "zsh"}
   }
 }
