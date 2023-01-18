@@ -1,8 +1,9 @@
 -- Set a formatter.
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  { command = "black", filetypes = { "python" } },
+  -- { command = "black", filetypes = { "python" } },
   { command = "isort", filetypes = { "python" } },
+  { command = "autopep8", filetypes = { "python" } },
 }
 
 -- Set a linter.

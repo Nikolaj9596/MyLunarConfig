@@ -132,7 +132,7 @@ lvim.builtin.which_key.mappings["t"] = {
   c = { "<cmd>tabclose<cr>", "Close Tab" },
   o = { "<cmd>tabonly<cr>", "Only Tab" },
 }
-lvim.builtin.cmp.enabled = false
+-- lvim.builtin.cmp.enabled = false
 lvim.builtin.which_key.mappings["o"] = {
   name = "Options",
   c = { "<cmd>lua lvim.builtin.cmp.active = false<cr>", "Completion off" },
