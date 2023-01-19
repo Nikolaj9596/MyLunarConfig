@@ -87,8 +87,8 @@ lvim.builtin.which_key.mappings["g"] = {
 lvim.builtin.which_key.mappings["l"] = {
   name = "LSP",
   a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-  c = { "<cmd>lua require('copilot.suggestion').toggle_auto_trigger()<cr>", "Get Capabilities" },
-  -- c = { "<cmd>lua require('user.lsp').server_capabilities()<cr>", "Get Capabilities" },
+  -- c = { "<cmd>lua require('copilot.suggestion').toggle_auto_trigger()<cr>", "Get Capabilities" },
+  c = { "<cmd>lua require('user.lsp').server_capabilities()<cr>", "Get Capabilities" },
   d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
   w = {
     "<cmd>Telescope lsp_workspace_diagnostics<cr>",
@@ -153,6 +153,15 @@ lvim.builtin.which_key.mappings["n"] = {
   j = { "<cmd>Telekasten goto_today<cr>", "Journal" },
   p = { "<cmd>Telekasten panel<cr>", "Panel" },
   t = { "<cmd>Telekasten toggle_todo<cr>", "Toggle Todo" },
+}
+
+lvim.builtin.which_key.mappings["a"] = {
+  name = "Preview",
+  o = { "<cmd>PlantumlOpen<cr>", "Preview Plantuml Open" },
+  s = { "<cmd>PlantumlStop<cr>", "Preview Plantuml Stop" },
+  t = { "<cmd>PlantumlStart<cr>", "Preview Plantuml Start" },
+  r = { "<cmd>MarkdownPreview<cr>", "Preview Markdown Start" },
+  g = { "<cmd>MarkdownPreviewStop<cr>", "Preview Markdown Stop" }
 }
 
 -- lvim.builtin.which_key.mappings[";"] = nil
