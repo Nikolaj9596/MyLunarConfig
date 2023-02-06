@@ -8,6 +8,7 @@ lvim.reload_config_on_save = false
 lvim.builtin.illuminate.active = false
 lvim.builtin.bufferline.active = true
 lvim.builtin.alpha.mode = "dashboard"
+vim.g.indent_blankline_char = "▏"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
