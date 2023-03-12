@@ -1,4 +1,4 @@
-if lvim.colorscheme == "darkplus" then
+if lvim.colorscheme == "tokyonight-night" then
 	lvim.builtin.treesitter.rainbow = {
 		enable = true,
 		extended_mode = false,

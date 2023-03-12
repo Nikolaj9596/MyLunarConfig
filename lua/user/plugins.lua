@@ -1,5 +1,6 @@
 -- Additional Plugins
 lvim.plugins = {
+  "folke/tokyonight.nvim",
   "ellisonleao/gruvbox.nvim",
   "lunarvim/darkplus.nvim",
   "lunarvim/github.nvim",
@@ -84,8 +85,8 @@ lvim.plugins = {
   "mattn/webapi-vim",
   "ggandor/leap.nvim",
   "olexsmir/gopher.nvim",
-  -- "simrat39/rust-tools.nvim",
   -- { "tzachar/cmp-tabnine", run = "./install.sh" },
+  -- "simrat39/rust-tools.nvim",
   -- {
   --   "zbirenbaum/copilot.lua",
   --   -- event = { "VimEnter" },

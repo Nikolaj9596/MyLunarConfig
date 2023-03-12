@@ -1,28 +1,28 @@
-reload "user.plugins"
-reload "user.options"
-reload "user.cybu"
-reload "user.treesitter"
-reload "user.todo-comments"
-reload "user.colorizer"
-reload "user.telescope"
-reload "user.autocommands"
-reload "user.surround"
-reload "user.smoothie"
-reload "user.zen-mode"
-reload "user.inlay-hints"
-reload "user.scrollbar"
-reload "user.zk"
-reload "user.dial"
-reload "user.bookmark"
-reload "user.lualine"
-reload "user.lab"
-reload "user.git"
-reload "user.numb"
-reload "user.lsp"
-reload "user.keymaps"
-reload "user.whichkey"
-reload "user.neogit"
-reload "user.bqf"
-reload "user.harpoon"
-reload "user.jaq"
-reload "user.chatgpt"
+reload("user.plugins")
+reload("user.options")
+reload("user.cybu")
+reload("user.treesitter")
+reload("user.todo-comments")
+reload("user.colorizer")
+reload("user.telescope")
+reload("user.autocommands")
+reload("user.surround")
+reload("user.smoothie")
+-- reload "user.zen-mode"
+reload("user.inlay-hints")
+reload("user.scrollbar")
+reload("user.zk")
+reload("user.dial")
+reload("user.bookmark")
+reload("user.lualine")
+reload("user.lab")
+reload("user.git")
+reload("user.numb")
+reload("user.lsp")
+reload("user.keymaps")
+reload("user.whichkey")
+-- reload "user.neogit"
+reload("user.bqf")
+-- reload "user.harpoon"
+reload("user.jaq")
+reload("user.chatgpt")

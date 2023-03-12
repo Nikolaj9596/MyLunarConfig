@@ -33,6 +33,7 @@ lvim.builtin.which_key.mappings["d"] = {
   x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
 }
 
+
 lvim.builtin.which_key.mappings["f"] = {
   name = "Find",
   b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -50,6 +51,12 @@ lvim.builtin.which_key.mappings["f"] = {
   k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
   C = { "<cmd>Telescope commands<cr>", "Commands" },
 }
+
+lvim.builtin.which_key.mappings["D"] = {
+  name = "Docker",
+  d = { "<cmd>lua require 'lvim.core.terminal'<cmd>lazydocker<cr>", "Lazydocker" },
+}
+
 lvim.builtin.which_key.mappings["g"] = {
   name = "Git",
   g = { "<cmd>lua require 'lvim.core.terminal'.lazygit_toggle(12000)<cr>", "Lazygit" },
