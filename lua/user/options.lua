@@ -1,7 +1,9 @@
-lvim.colorscheme = "darkplus"
+-- lvim.colorscheme = "darkplus"
+lvim.colorscheme = "lunar"
 lvim.log.level = "warn"
 lvim.builtin.alpha.active = true
 lvim.lsp.diagnostics.float.focusable = true
+lvim.lsp.diagnostics.virtual_text = false
 lvim.reload_config_on_save = false
 lvim.builtin.illuminate.active = false
 lvim.builtin.bufferline.active = false
@@ -14,7 +16,7 @@ lvim.builtin.breadcrumbs.active = true
 -- lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.dap.active = true
 lvim.keys.term_mode = { ["<C-l>"] = false }
--- lvim.builtin.cmp.cmdline.enable = false
+lvim.builtin.cmp.cmdline.enable = false
 -- lvim.builtin.cmp.window.documentation = false
 -- lvim.builtin.cmp.window.documentation = {
 --   border = "rounded",
@@ -37,14 +39,14 @@ lvim.keys.term_mode = { ["<C-l>"] = false }
 --   copilot = "",
 --   treesitter = "",
 -- }
--- lvim.builtin.cmp.formatting = {
---     format = require("tailwindcss-colorizer-cmp").formatter
--- }
+lvim.builtin.cmp.formatting = {
+    format = require("tailwindcss-colorizer-cmp").formatter
+}
 -- lvim.builtin.autopairs.active = false
 -- vim.g.netrw_browse_split = 0
 -- vim.g.netrw_banner = 0
 -- vim.g.netrw_winsize = 25
-vim.opt.showtabline = 0
+-- vim.opt.showtabline = 0
 
 local options = {
   backup = false, -- creates a backup file

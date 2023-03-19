@@ -3,7 +3,7 @@ lvim.builtin.which_key.mappings["v"] = { "<cmd>vsplit<cr>", "vsplit" }
 lvim.builtin.which_key.mappings["h"] = { "<cmd>nohlsearch<cr>", "nohl" }
 lvim.builtin.which_key.mappings["q"] = { '<cmd>lua require("user.functions").smart_quit()<CR>', "Quit" }
 lvim.builtin.which_key.mappings["/"] = { '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', "Comment" }
--- lvim.builtin.which_key.mappings["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" }
+lvim.builtin.which_key.mappings["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" }
 lvim.builtin.which_key.mappings["gy"] = "Link"
 lvim.builtin.which_key.mappings["r"] = {
   name = "Replace",
@@ -11,13 +11,13 @@ lvim.builtin.which_key.mappings["r"] = {
   w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word" },
   f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
 }
-lvim.builtin.which_key.mappings["c"] = {
-  name = "ChatGPT",
-  c = { "<cmd>ChatGPT<cr>", "Chat" },
-  a = { "<cmd>ChatGPTActAs<cr>", "Act As" },
-  e = { "<cmd>ChatGPTEditWithInstructions<cr>", "Edit" },
-  r = { "<cmd>ChatRunCustomCodeAction<cr>", "Code Action" },
-}
+-- lvim.builtin.which_key.mappings["c"] = {
+--   name = "ChatGPT",
+--   c = { "<cmd>ChatGPT<cr>", "Chat" },
+--   a = { "<cmd>ChatGPTActAs<cr>", "Act As" },
+--   e = { "<cmd>ChatGPTEditWithInstructions<cr>", "Edit" },
+--   r = { "<cmd>ChatRunCustomCodeAction<cr>", "Code Action" },
+-- }
 lvim.builtin.which_key.mappings["d"] = {
   name = "Debug",
   b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
@@ -96,7 +96,7 @@ lvim.builtin.which_key.mappings["l"] = {
   i = { "<cmd>LspInfo<cr>", "Info" },
   h = { "<cmd>lua require('lsp-inlayhints').toggle()<cr>", "Toggle Hints" },
   H = { "<cmd>IlluminationToggle<cr>", "Toggle Doc HL" },
-  I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+  I = { "<cmd>Mason<cr>", "Mason" },
   j = {
     "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>",
     "Next Diagnostic",
@@ -130,16 +130,16 @@ lvim.builtin.which_key.mappings["t"] = {
   o = { "<cmd>tabonly<cr>", "Only Tab" },
 }
 -- lvim.builtin.cmp.enabled = false
-lvim.builtin.which_key.mappings["o"] = {
-  name = "Options",
-  c = { "<cmd>lua lvim.builtin.cmp.active = false<cr>", "Completion off" },
-  C = { "<cmd>lua lvim.builtin.cmp.active = true<cr>", "Completion on" },
+-- lvim.builtin.which_key.mappings["o"] = {
+--   name = "Options",
+--   c = { "<cmd>lua lvim.builtin.cmp.active = false<cr>", "Completion off" },
+--   C = { "<cmd>lua lvim.builtin.cmp.active = true<cr>", "Completion on" },
   -- w = { '<cmd>lua require("user.functions").toggle_option("wrap")<cr>', "Wrap" },
   -- r = { '<cmd>lua require("user.functions").toggle_option("relativenumber")<cr>', "Relative" },
   -- l = { '<cmd>lua require("user.functions").toggle_option("cursorline")<cr>', "Cursorline" },
   -- s = { '<cmd>lua require("user.functions").toggle_option("spell")<cr>', "Spell" },
   -- t = { '<cmd>lua require("user.functions").toggle_tabline()<cr>', "Tabline" },
-}
+-- }
 
 lvim.builtin.which_key.mappings["n"] = {
   name = "Notes",
@@ -156,7 +156,7 @@ lvim.builtin.which_key.mappings[";"] = nil
 -- lvim.builtin.which_key.mappings["c"] = nil
 lvim.builtin.which_key.mappings["L"] = nil
 lvim.builtin.which_key.mappings["s"] = nil
-lvim.builtin.which_key.mappings["w"] = nil
+-- lvim.builtin.which_key.mappings["w"] = nil
 
 local m_opts = {
   mode = "n", -- NORMAL mode
@@ -175,21 +175,21 @@ end
 local m_mappings = {
   a = { "<cmd>silent BookmarkAnnotate<cr>", "Annotate" },
   c = { "<cmd>silent BookmarkClear<cr>", "Clear" },
-  b = { "<cmd>silent BookmarkToggle<cr>", "Toggle" },
-  m = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
+  m = { "<cmd>silent BookmarkToggle<cr>", "Toggle" },
+  j = { "<cmd>silent BookmarkNext<cr>", "Next" },
+  k = { "<cmd>silent BookmarkPrev<cr>", "Prev" },
+  x = { "<cmd>BookmarkClearAll<cr>", "Clear All" },
+  s = { "<cmd>Telescope harpoon marks<cr>", "Search Files" },
+  b = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
+  S = { "<cmd>silent BookmarkShowAll<cr>", "Prev" },
   ["."] = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', "Harpoon Next" },
   [","] = { '<cmd>lua require("harpoon.ui").nav_prev()<cr>', "Harpoon Prev" },
-  l = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
-  j = { "<cmd>silent BookmarkNext<cr>", "Next" },
-  s = { "<cmd>Telescope harpoon marks<cr>", "Search Files" },
-  k = { "<cmd>silent BookmarkPrev<cr>", "Prev" },
-  S = { "<cmd>silent BookmarkShowAll<cr>", "Prev" },
+  [";"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon UI" },
+  -- l = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
   -- s = {
   --   "<cmd>lua require('telescope').extensions.vim_bookmarks.all({ hide_filename=false, prompt_title=\"bookmarks\", shorten_path=false })<cr>",
   --   "Show",
   -- },
-  x = { "<cmd>BookmarkClearAll<cr>", "Clear All" },
-  [";"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon UI" },
 }
 
 which_key.register(m_mappings, m_opts)
