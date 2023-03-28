@@ -1,4 +1,4 @@
-if lvim.colorscheme == "lunar" then
+if lvim.colorscheme == "darkplus" then
   lvim.builtin.treesitter.rainbow = {
     enable = true,
     extended_mode = false,
@@ -39,9 +39,9 @@ lvim.builtin.treesitter.ensure_installed = {
   "htmldjango",
 }
 lvim.builtin.treesitter.autotag.enable = true
-lvim.builtin.treesitter.auto_install = false
+lvim.builtin.treesitter.auto_install = true
 
-lvim.builtin.treesitter.ignore_install = { "markdown" }
+-- lvim.builtin.treesitter.ignore_install = { "markdown" }
 
 lvim.builtin.treesitter.textobjects = {
   select = {

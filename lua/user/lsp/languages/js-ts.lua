@@ -35,6 +35,12 @@ formatters.setup {
   { command = "prettier", filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "css" } },
 }
 
+-- Set a linter.
+local linters = require("lvim.lsp.null-ls.linters")
+linters.setup({
+  { command = "eslint_d", filetypes = { "javascript", "typescript" } },
+})
+
 local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
 require("dap-vscode-js").setup {
   -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
@@ -63,8 +69,3 @@ for _, language in ipairs { "typescript", "javascript" } do
   }
 end
 
--- Set a linter.
--- local linters = require("lvim.lsp.null-ls.linters")
--- linters.setup({
---   { command = "eslint", filetypes = { "javascript", "typescript" } },
--- })

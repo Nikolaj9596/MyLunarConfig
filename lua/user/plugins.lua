@@ -1,5 +1,6 @@
 -- Additional Plugins
 lvim.plugins = {
+  "tyru/open-browser.vim",
   "ellisonleao/gruvbox.nvim",
   "LunarVim/synthwave84.nvim",
   "roobert/tailwindcss-colorizer-cmp.nvim",
@@ -42,6 +43,11 @@ lvim.plugins = {
 -- Auto Session
   "rmagatti/auto-session",
   "rmagatti/session-lens",
+-- Doc String
+  {
+    'kkoomen/vim-doge',
+    -- run = ':call doge#install()'
+  },
 
   {
     "saecki/crates.nvim",

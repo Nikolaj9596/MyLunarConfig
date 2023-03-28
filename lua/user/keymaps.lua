@@ -49,6 +49,9 @@ keymap("n", "#", "#zz", opts)
 keymap("n", "g*", "g*zz", opts)
 keymap("n", "g#", "g#zz", opts)
 
+-- Doc String
+keymap("n", "cd", "<cmd>DogeGenerate<CR>", opts)
+
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
@@ -75,6 +78,7 @@ keymap("n", "<m-v>", "<cmd>lua require('lsp_lines').toggle()<cr>", opts)
 
 keymap("n", "<m-/>", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 keymap("x", "<m-/>", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', opts)
+
 
 vim.api.nvim_set_keymap(
   "n",
@@ -114,5 +118,8 @@ M.show_documentation = function()
   end
 end
 vim.api.nvim_set_keymap("n", "K", ":lua require('user.keymaps').show_documentation()<CR>", opts)
+
+--Insert--
+keymap("i", "jk", '<ESC>', opts)
 
 return M

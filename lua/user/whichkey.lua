@@ -49,8 +49,8 @@ lvim.builtin.which_key.mappings["f"] = {
 }
 lvim.builtin.which_key.mappings["g"] = {
   name = "Git",
-  -- g = { "<cmd>lua require 'lvim.core.terminal'.lazygit_toggle(12000)<cr>", "Lazygit" },
-  g = { "<cmd>Neogit<cr>", "Neogit" },
+  g = { "<cmd>lua require 'user.terminal'.lazygit_toggle()<cr>", "Lazygit" },
+  -- g = { "<cmd>Neogit<cr>", "Neogit" },
   j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
   k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
   l = { "<cmd>GitBlameToggle<cr>", "Blame" },
@@ -119,16 +119,29 @@ lvim.builtin.which_key.mappings["l"] = {
   t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
   u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
 }
+-- lvim.builtin.which_key.mappings["t"] = {
+--   name = "Tab",
+--   t = {
+--     "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
+--     "Find Tab",
+--   },
+--   n = { "<cmd>tabnew %<cr>", "New Tab" },
+--   c = { "<cmd>tabclose<cr>", "Close Tab" },
+--   o = { "<cmd>tabonly<cr>", "Only Tab" },
+-- }
+
 lvim.builtin.which_key.mappings["t"] = {
-  name = "Tab",
-  t = {
-    "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
-    "Find Tab",
-  },
-  n = { "<cmd>tabnew %<cr>", "New Tab" },
-  c = { "<cmd>tabclose<cr>", "Close Tab" },
-  o = { "<cmd>tabonly<cr>", "Only Tab" },
-}
+    name = "Terminal",
+    u = { "<cmd>lua require 'user.terminal'.ncdu_toggle()<cr>", "NCDU" },
+    n = { "<cmd>lua require 'user.terminal'.node_toggle()<cr>", "Node" },
+    t = { "<cmd>lua require 'user.terminal'.htop_toggle()<cr>", "Htop" },
+    c = { "<cmd>lua require 'user.terminal'.ctop_toggle()<cr>", "Ctop" },
+    d = { "<cmd>lua require 'user.terminal'.lazydocker_toggle()<cr>", "Lazydocker" },
+    p = { "<cmd>lua require 'user.terminal'.ipython_toggle()<cr>", "IPython" },
+    f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
+    h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
+    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+  }
 -- lvim.builtin.cmp.enabled = false
 -- lvim.builtin.which_key.mappings["o"] = {
 --   name = "Options",

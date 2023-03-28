@@ -11,7 +11,8 @@ formatters.setup {
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
   { command = "flake8", filetypes = { "python" } },
-  { command = "codespell", filetypes = { "python", "lua", "yaml", "sh", "cs"} },
+  { command = "codespell", filetypes = { "python", "lua", "yaml", "sh", "cs", "javascript", "typescript"} },
+  { command = "cspell", filetypes = { "python" } },
 }
 
 -- Setup dap for python

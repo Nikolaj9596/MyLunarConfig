@@ -1,4 +1,4 @@
-if lvim.colorscheme == "lunar" then
+if lvim.colorscheme == "darkplus" then
 	local normal_hl = vim.api.nvim_get_hl_by_name("Normal", true)
 	vim.api.nvim_create_autocmd({ "Colorscheme" }, {
 		callback = function()
