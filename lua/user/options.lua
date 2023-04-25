@@ -1,5 +1,5 @@
-lvim.colorscheme = "darkplus"
--- lvim.colorscheme = "lunar"
+-- lvim.colorscheme = "darkplus"
+lvim.colorscheme = "lunar"
 lvim.log.level = "warn"
 lvim.builtin.alpha.active = true
 lvim.lsp.diagnostics.float.focusable = true
@@ -13,10 +13,11 @@ lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 -- lvim.builtin.nvimtree.setup.view.mappings.custom_only = true
 lvim.builtin.breadcrumbs.active = true
--- lvim.builtin.treesitter.highlight.enabled = true
+lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.dap.active = true
 lvim.keys.term_mode = { ["<C-l>"] = false }
 lvim.builtin.cmp.cmdline.enable = false
+lvim.diagnostics.virtual_text = false
 -- lvim.builtin.cmp.window.documentation = false
 -- lvim.builtin.cmp.window.documentation = {
 --   border = "rounded",

@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-local icons = require "user.icons"
+local icons = lvim.icons
 
 local error_red = "#F44747"
 local warning_orange = "#ff8800"
@@ -16,6 +16,13 @@ todo_comments.setup {
   signs = true, -- show icons in the signs column
   sign_priority = 8, -- sign priority
   -- keywords recognized as todo comments
+
+  keys = {
+    { "]t", function() require("todo-comments").jump_next() end, desc = "Next ToDo" },
+    { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous ToDo" },
+    { "<leader>ct", "<cmd>TodoTrouble<cr>", desc = "ToDo (Trouble)" },
+    { "<leader>cT", "<cmd>TodoTelescope<cr>", desc = "ToDo" },
+  },
   keywords = {
     FIX = {
       icon = icons.ui.Bug, -- icon used for the sign, and in search results

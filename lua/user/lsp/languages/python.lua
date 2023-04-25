@@ -3,15 +3,17 @@ vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
 -- Set a formatter.
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  { command = "autopep8", filetypes = { "python" } },
+  -- { command = "autopep8", filetypes = { "python" } },
+  { command = "blue", filetypes = { "python" } },
   { command = "isort", filetypes = { "python" } },
 }
 
 -- Set a linter.
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-  { command = "flake8", filetypes = { "python" } },
-  { command = "codespell", filetypes = { "python", "lua", "yaml", "sh", "cs", "javascript", "typescript"} },
+  -- { command = "flake8", filetypes = { "python" } },
+  { command = "ruff", filetypes = { "python" } },
+  { command = "codespell", filetypes = { "python", "lua", "yaml", "sh", "cs", "javascript", "typescript" } },
   { command = "cspell", filetypes = { "python" } },
 }
 
