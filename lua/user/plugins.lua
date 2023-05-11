@@ -1,7 +1,21 @@
-
 lvim.plugins = {
+  -- Remote --
+  -- {
+  --   'chipsenkbeil/distant.nvim',
+  --   branch = 'v0.2',
+  --   config = function()
+  --     require('distant').setup {
+  --       -- Applies Chip's personal settings to every machine you connect to
+  --       --
+  --       -- 1. Ensures that distant servers terminate with no connections
+  --       -- 2. Provides navigation bindings for remote directories
+  --       -- 3. Provides keybinding to jump into a remote file's parent directory
+  --       ['*'] = require('distant.settings').chip_default()
+  --     }
+  --   end
+  -- },
   -- LSP --
-  "lvimuser/lsp-inlayhints.nvim", -- Partial implementation of LSP inlay hint.
+  "lvimuser/lsp-inlayhints.nvim", -- Partial implementation of LSP inlay hint.pl
 
   -- Lang --
   "christianchiarulli/nvim-ts-autotag",
@@ -13,19 +27,14 @@ lvim.plugins = {
   "christianchiarulli/harpoon",
   "MattesGroeger/vim-bookmarks",
   "moll/vim-bbye", -- For close buffer
-  "windwp/nvim-spectre",  -- Spectre find the enemy and replace them with dark power.
+  "windwp/nvim-spectre", -- Spectre find the enemy and replace them with dark power.
   "mattn/webapi-vim",
   "folke/zen-mode.nvim",
   "kevinhwang91/nvim-bqf", -- The goal of nvim-bqf is to make Neovim's quickfix window better.
-  -- Leap is a general-purpose motion plugin for Neovim, with the ultimate goal of establishing a 
+  -- Leap is a general-purpose motion plugin for Neovim, with the ultimate goal of establishing a
   -- new standard interface for moving around in the visible area in Vim-like modal editors.
   "ggandor/leap.nvim",
   "nacro90/numb.nvim", -- plugin that peeks lines of the buffer in non-obtrusive way.
-
-  -- CMP --
-  "roobert/tailwindcss-colorizer-cmp.nvim",
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/cmp-nvim-lsp-signature-help",
 
   -- Scroll --
   "petertriho/nvim-scrollbar",
@@ -40,7 +49,7 @@ lvim.plugins = {
 
   -- Treesitter --
   "nvim-treesitter/playground",
-  "nvim-treesitter/nvim-treesitter-textobjects",
+  -- "nvim-treesitter/nvim-treesitter-textobjects",
 
   -- DAP --
   -- "leoluz/nvim-dap-go",
@@ -140,10 +149,10 @@ lvim.plugins = {
   "j-hui/fidget.nvim", -- Standalone UI for nvim-lsp progress. Eye candy for the impatient.
   "renerocksai/telekasten.nvim",
   {
-    'lukas-reineke/headlines.nvim',
-    after = 'nvim-treesitter',
+    "lukas-reineke/headlines.nvim",
+    after = "nvim-treesitter",
     config = function()
-        require('headlines').setup()
+      require("headlines").setup()
     end,
   }, -- This plugin adds highlights for text filetypes, like markdown, orgmode, and neorg.
 
@@ -179,10 +188,10 @@ lvim.plugins = {
   "rmagatti/session-lens",
 
   -- Doc String
-  {
-    "kkoomen/vim-doge",
-    -- run = ':call doge#install()'
-  },
+  -- {
+  --   "kkoomen/vim-doge",
+  --   -- run = ':call doge#install()'
+  -- },
 
   {
     "saecki/crates.nvim",
@@ -209,6 +218,276 @@ lvim.plugins = {
   { "christianchiarulli/telescope-tabs", branch = "chris" },
 
   -- AI --
+  {
+    "jackMort/ChatGPT.nvim",
+    cmd = { "ChatGPT", "ChatGPTRun", "ChatGPTActAs", "ChatGPTCompleteCode", "ChatGPTEditWithInstructions" },
+    config = true,
+    enabled = true,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+  },
+  {
+    "Bryley/neoai.nvim",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+    cmd = {
+      "NeoAI",
+      "NeoAIOpen",
+      "NeoAIClose",
+      "NeoAIToggle",
+      "NeoAIContext",
+      "NeoAIContextOpen",
+      "NeoAIContextClose",
+      "NeoAIInject",
+      "NeoAIInjectCode",
+      "NeoAIInjectContext",
+      "NeoAIInjectContextCode",
+    },
+    -- keys = {
+    --   { "<leader>as", desc = "Summarize Text" },
+    --   { "<leader>ag", desc = "Generate Git Message" },
+    -- },
+    config = function()
+      require("neoai").setup {
+        -- Options go here
+      }
+    end,
+  },
+  -- {
+  --   "tzachar/cmp-tabnine",
+  --   build = "./install.sh",
+  -- },
+  -- {
+  --   "jcdickinson/codeium.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "hrsh7th/nvim-cmp",
+  --   },
+  --   config = function()
+  --     require("codeium").setup {}
+  --   end,
+  -- },
+  {
+    "Exafunction/codeium.vim",
+    enabled = true,
+    event = "InsertEnter",
+    -- stylua: ignore
+    config = function()
+      vim.g.codeium_disable_bindings = 1
+      vim.keymap.set("i", "<A-i>", function() return vim.fn["codeium#Accept"]() end, { expr = true })
+      vim.keymap.set("i", "<A-f>", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true })
+      vim.keymap.set("i", "<A-b>", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true })
+      vim.keymap.set("i", "<A-x>", function() return vim.fn["codeium#Clear"]() end, { expr = true })
+      vim.keymap.set("i", "<A-s>", function() return vim.fn["codeium#Complete"]() end, { expr = true })
+    end,
+  },
+
+  -- CMP --
+  "roobert/tailwindcss-colorizer-cmp.nvim",
+  "hrsh7th/cmp-nvim-lsp-signature-help",
+  {
+    "jcdickinson/http.nvim",
+    build = "cargo build --workspace --release",
+    enabled = false,
+  },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   event = "InsertEnter",
+  --   dependencies = {
+  --     "hrsh7th/cmp-nvim-lsp",
+  --     "saadparwaiz1/cmp_luasnip",
+  --     "hrsh7th/cmp-buffer",
+  --     "hrsh7th/cmp-path",
+  --     "hrsh7th/cmp-cmdline",
+  --     "petertriho/cmp-git",
+  --     {
+  --       "tzachar/cmp-tabnine",
+  --       build = "./install.sh",
+  --     },
+  --     { "jcdickinson/codeium.nvim", config = true, enabled = false },
+  --     {
+  --       "jcdickinson/http.nvim",
+  --       build = "cargo build --workspace --release",
+  --       enabled = false,
+  --     },
+  --   },
+  --   config = function()
+  --     local cmp = require "cmp"
+  --     local luasnip = require "luasnip"
+  --     -- local neogen = require "neogen"
+  --     local icons = require "lvim.icons"
+  --     local compare = require "cmp.config.compare"
+  --     local source_names = {
+  --       nvim_lsp = "(LSP)",
+  --       luasnip = "(Snippet)",
+  --       cmp_tabnine = "(TabNine)",
+  --       codeium = "(Codeium)",
+  --       buffer = "(Buffer)",
+  --       path = "(Path)",
+  --     }
+
+  --     local duplicates = {
+  --       buffer = 1,
+  --       path = 1,
+  --       nvim_lsp = 0,
+  --       luasnip = 1,
+  --     }
+
+  --     local has_words_before = function()
+  --       local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  --       return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
+  --     end
+
+  --     cmp.setup {
+  --       completion = {
+  --         completeopt = "menu,menuone,noinsert",
+  --       },
+  --       sorting = {
+  --         priority_weight = 2,
+  --         comparators = {
+  --           -- require "cmp_tabnine.compare",
+  --           compare.score,
+  --           compare.recently_used,
+  --           compare.offset,
+  --           compare.exact,
+  --           compare.kind,
+  --           compare.sort_text,
+  --           compare.length,
+  --           compare.order,
+  --         },
+  --       },
+  --       snippet = {
+  --         expand = function(args)
+  --           require("luasnip").lsp_expand(args.body)
+  --         end,
+  --       },
+  --       mapping = cmp.mapping.preset.insert {
+  --         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+  --         ["<C-f>"] = cmp.mapping.scroll_docs(4),
+  --         ["<C-Space>"] = cmp.mapping.complete(),
+  --         ["<C-e>"] = cmp.mapping.abort(),
+  --         ["<CR>"] = cmp.mapping {
+  --           i = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false },
+  --           c = function(fallback)
+  --             if cmp.visible() then
+  --               cmp.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false }
+  --             else
+  --               fallback()
+  --             end
+  --           end,
+  --         },
+  --         ["<C-j>"] = cmp.mapping(function(fallback)
+  --           if cmp.visible() then
+  --             cmp.select_next_item()
+  --           elseif luasnip.expand_or_jumpable() then
+  --             luasnip.expand_or_jump()
+  --             -- elseif neogen.jumpable() then
+  --             -- neogen.jump_next()
+  --           elseif has_words_before() then
+  --             cmp.complete()
+  --           else
+  --             fallback()
+  --           end
+  --         end, {
+  --           "i",
+  --           "s",
+  --           "c",
+  --         }),
+  --         ["<C-k>"] = cmp.mapping(function(fallback)
+  --           if cmp.visible() then
+  --             cmp.select_prev_item()
+  --           elseif luasnip.jumpable(-1) then
+  --             luasnip.jump(-1)
+  --             -- elseif neogen.jumpable(true) then
+  --             --   neogen.jump_prev()
+  --           else
+  --             fallback()
+  --           end
+  --         end, {
+  --           "i",
+  --           "s",
+  --           "c",
+  --         }),
+  --       },
+  --       sources = cmp.config.sources {
+  --         { name = "nvim_lsp_signature_help", group_index = 1 },
+  --         { name = "nvim_lsp", group_index = 1 },
+  --         { name = "cmp_tabnine", group_index = 1 },
+  --         { name = "codeium", group_index = 1 },
+  --         { name = "luasnip", group_index = 1 },
+  --         { name = "buffer", group_index = 2 },
+  --         { name = "path", group_index = 2 },
+  --         { name = "git", group_index = 2 },
+  --         { name = "orgmode", group_index = 2 },
+  --       },
+
+  --       formatting = {
+  --         fields = { "kind", "abbr", "menu" },
+  --         format = function(entry, item)
+  --           local max_width = 80
+  --           local duplicates_default = 0
+  --           if max_width ~= 0 and #item.abbr > max_width then
+  --             item.abbr = string.sub(item.abbr, 1, max_width - 1) .. icons.ui.Ellipsis
+  --           end
+  --           item.kind = icons.kind[item.kind]
+  --           item.menu = source_names[entry.source.name]
+  --           item.dup = duplicates[entry.source.name] or duplicates_default
+
+  --           if entry.source.name == "cmp_tabnine" then
+  --             item.kind = ""
+  --           elseif entry.source.name == "codeium" then
+  --             item.kind = ""
+  --           end
+  --           return item
+  --         end,
+  --       },
+  --     }
+
+  --     -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+  --     cmp.setup.cmdline({ "/", "?" }, {
+  --       mapping = cmp.mapping.preset.cmdline(),
+  --       sources = {
+  --         { name = "buffer" },
+  --       },
+  --     })
+
+  --     -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  --     -- cmp.setup.cmdline(":", {
+  --     --   mapping = cmp.mapping.preset.cmdline(),
+  --     --   sources = cmp.config.sources({
+  --     --     { name = "path" },
+  --     --   }, {
+  --     --     { name = "cmdline" },
+  --     --   }),
+  --     -- })
+
+  --     -- Auto pairs
+  --     local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+  --     cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
+
+  --     -- Git
+  --     require("cmp_git").setup { filetypes = { "NeogitCommitMessage" } }
+
+  --     -- TabNine
+  --     local tabnine = require "cmp_tabnine.config"
+  --     tabnine:setup {
+  --       max_lines = 1000,
+  --       max_num_results = 20,
+  --       sort = true,
+  --       run_on_every_keystroke = true,
+  --       snippet_placeholder = "..",
+  --       ignored_file_types = { -- default is not to ignore
+  --         -- uncomment to ignore in lua:
+  --         -- lua = true
+  --       },
+  --     }
+  --   end,
+  -- },
+
   -- { "tzachar/cmp-tabnine", build = "./install.sh" },
   -- "jackMort/ChatGPT.nvim",
   -- {

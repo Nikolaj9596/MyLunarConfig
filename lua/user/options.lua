@@ -1,23 +1,24 @@
--- lvim.colorscheme = "darkplus"
-lvim.colorscheme = "lunar"
+lvim.colorscheme = "darkplus"
+-- lvim.colorscheme = "lunar"
+-- lvim.colorscheme = "gruvbox"
 lvim.log.level = "warn"
-lvim.builtin.alpha.active = true
+lvim.builtin.alpha.active = false
 lvim.lsp.diagnostics.float.focusable = true
-lvim.lsp.diagnostics.virtual_text = false
 lvim.reload_config_on_save = false
 lvim.builtin.illuminate.active = false
 lvim.builtin.bufferline.active = false
 -- lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 -- lvim.builtin.nvimtree.setup.view.mappings.custom_only = true
 lvim.builtin.breadcrumbs.active = true
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.dap.active = true
 lvim.keys.term_mode = { ["<C-l>"] = false }
-lvim.builtin.cmp.cmdline.enable = false
+lvim.builtin.cmp.cmdline.enable = true
 lvim.diagnostics.virtual_text = false
+lvim.lsp.diagnostics.virtual_text = false
 -- lvim.builtin.cmp.window.documentation = false
 -- lvim.builtin.cmp.window.documentation = {
 --   border = "rounded",
@@ -41,7 +42,7 @@ lvim.diagnostics.virtual_text = false
 --   treesitter = "",
 -- }
 lvim.builtin.cmp.formatting = {
-    format = require("tailwindcss-colorizer-cmp").formatter
+  format = require("tailwindcss-colorizer-cmp").formatter,
 }
 -- lvim.builtin.autopairs.active = false
 -- vim.g.netrw_browse_split = 0

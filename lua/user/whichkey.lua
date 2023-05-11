@@ -142,6 +142,13 @@ lvim.builtin.which_key.mappings["t"] = {
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   }
+
+lvim.builtin.which_key.mappings["a"] = {
+    name = "AI",
+    t = { "<cmd>NeoAI<cr>", "NeoAI" },
+    i = { "<cmd>NeoAIInjectCode<cr>", "NeoAIInjectCode" },
+    c = { "<cmd>ChatGPT<cr>", "ChatGPT" },
+  }
 -- lvim.builtin.cmp.enabled = false
 -- lvim.builtin.which_key.mappings["o"] = {
 --   name = "Options",

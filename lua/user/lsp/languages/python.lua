@@ -13,7 +13,10 @@ local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
   -- { command = "flake8", filetypes = { "python" } },
   { command = "ruff", filetypes = { "python" } },
-  { command = "codespell", filetypes = { "python", "lua", "yaml", "sh", "cs", "javascript", "typescript" } },
+  {
+    command = "codespell",
+    filetypes = { "python", "lua", "yaml", "sh", "cs", "javascript", "typescript", "markdown" },
+  },
   { command = "cspell", filetypes = { "python" } },
 }
 
