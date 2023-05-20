@@ -1,4 +1,5 @@
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
+-- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "ruff-ls" })
 
 -- Set a formatter.
 local formatters = require "lvim.lsp.null-ls.formatters"

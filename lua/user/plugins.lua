@@ -14,6 +14,8 @@ lvim.plugins = {
   --     }
   --   end
   -- },
+  "kristijanhusak/vim-dadbod-ui",
+  "kristijanhusak/vim-dadbod-completion",
   -- LSP --
   "lvimuser/lsp-inlayhints.nvim", -- Partial implementation of LSP inlay hint.pl
 

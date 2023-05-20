@@ -3,7 +3,6 @@ lvim.colorscheme = "darkplus"
 -- lvim.colorscheme = "gruvbox"
 lvim.log.level = "warn"
 lvim.builtin.alpha.active = false
-lvim.lsp.diagnostics.float.focusable = true
 lvim.reload_config_on_save = false
 lvim.builtin.illuminate.active = false
 lvim.builtin.bufferline.active = false
@@ -17,8 +16,12 @@ lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.dap.active = true
 lvim.keys.term_mode = { ["<C-l>"] = false }
 lvim.builtin.cmp.cmdline.enable = true
-lvim.diagnostics.virtual_text = false
-lvim.lsp.diagnostics.virtual_text = false
+vim.diagnostic.config({
+  virtual_text = false,
+  float = {
+    focusable = true
+  }
+})
 -- lvim.builtin.cmp.window.documentation = false
 -- lvim.builtin.cmp.window.documentation = {
 --   border = "rounded",

@@ -7,8 +7,8 @@ require "user.lsp.languages.emmet"
 require "user.lsp.languages.css"
 require "user.lsp.languages.yaml"
 require "user.lsp.languages.md"
+require "user.lsp.languages.docker"
 
-lvim.lsp.diagnostics.virtual_text = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
 -- lvim.builtin.treesitter.ensure_installed = {
