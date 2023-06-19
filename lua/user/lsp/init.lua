@@ -8,6 +8,7 @@ require "user.lsp.languages.css"
 require "user.lsp.languages.yaml"
 require "user.lsp.languages.md"
 require "user.lsp.languages.docker"
+require "user.lsp.languages.json"
 
 
 -- if you don't want all the parsers change this to a table of the ones you want
@@ -15,7 +16,7 @@ require "user.lsp.languages.docker"
 --   "java",
 -- }
 
--- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "jdtls" })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
 
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {

@@ -48,10 +48,12 @@ lvim.plugins = {
   "lunarvim/github.nvim",
   "sindrets/diffview.nvim",
   "ruifm/gitlinker.nvim",
+  "f-person/git-blame.nvim",
 
   -- Treesitter --
   "nvim-treesitter/playground",
-  -- "nvim-treesitter/nvim-treesitter-textobjects",
+  "nvim-treesitter/nvim-treesitter-textobjects",
+  'nvim-treesitter/nvim-treesitter-refactor',
 
   -- DAP --
   -- "leoluz/nvim-dap-go",
@@ -190,10 +192,10 @@ lvim.plugins = {
   "rmagatti/session-lens",
 
   -- Doc String
-  -- {
-  --   "kkoomen/vim-doge",
-  --   -- run = ':call doge#install()'
-  -- },
+  {
+    "kkoomen/vim-doge",
+    -- run = ':call doge#install()'
+  },
 
   {
     "saecki/crates.nvim",
@@ -506,7 +508,6 @@ lvim.plugins = {
   --   end,
   -- },
 
-  -- "f-person/git-blame.nvim",
   -- "christianchiarulli/nvim-ts-rainbow",
   -- "mfussenegger/nvim-jdtls",
   -- "karb94/neoscroll.nvim",

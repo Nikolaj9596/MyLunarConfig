@@ -1,3 +1,4 @@
+-- if lvim.colorscheme == "gruvbox" then
 if lvim.colorscheme == "darkplus" then
   lvim.builtin.treesitter.rainbow = {
     enable = true,

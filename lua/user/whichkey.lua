@@ -30,6 +30,18 @@ lvim.builtin.which_key.mappings["d"] = {
   u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
   x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
 }
+-- Database
+lvim.builtin.which_key.mappings["D"] = {
+  name = "Database",
+  u = { "<Cmd>DBUIToggle<Cr>", "Toggle UI" },
+  f = { "<Cmd>DBUIFindBuffer<Cr>", "Find buffer" },
+  r = { "<Cmd>DBUIRenameBuffer<Cr>", "Rename buffer" },
+  q = { "<Cmd>DBUILastQueryInfo<Cr>", "Last query info" },
+    -- 'postgres://postgres:mypassword@localhost:5432/my-dev-db',
+    -- 'mysql://root@localhost/wp_awesome',
+    -- 'redis:///localhost:5432/my-dev-db',
+}
+
 lvim.builtin.which_key.mappings["f"] = {
   name = "Find",
   b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -131,34 +143,34 @@ lvim.builtin.which_key.mappings["l"] = {
 -- }
 
 lvim.builtin.which_key.mappings["t"] = {
-    name = "Terminal",
-    u = { "<cmd>lua require 'user.terminal'.ncdu_toggle()<cr>", "NCDU" },
-    n = { "<cmd>lua require 'user.terminal'.node_toggle()<cr>", "Node" },
-    t = { "<cmd>lua require 'user.terminal'.htop_toggle()<cr>", "Htop" },
-    c = { "<cmd>lua require 'user.terminal'.ctop_toggle()<cr>", "Ctop" },
-    d = { "<cmd>lua require 'user.terminal'.lazydocker_toggle()<cr>", "Lazydocker" },
-    p = { "<cmd>lua require 'user.terminal'.ipython_toggle()<cr>", "IPython" },
-    f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-    h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
-  }
+  name = "Terminal",
+  u = { "<cmd>lua require 'user.terminal'.ncdu_toggle()<cr>", "NCDU" },
+  n = { "<cmd>lua require 'user.terminal'.node_toggle()<cr>", "Node" },
+  t = { "<cmd>lua require 'user.terminal'.htop_toggle()<cr>", "Htop" },
+  c = { "<cmd>lua require 'user.terminal'.ctop_toggle()<cr>", "Ctop" },
+  d = { "<cmd>lua require 'user.terminal'.lazydocker_toggle()<cr>", "Lazydocker" },
+  p = { "<cmd>lua require 'user.terminal'.ipython_toggle()<cr>", "IPython" },
+  f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
+  h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
+  v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+}
 
 lvim.builtin.which_key.mappings["a"] = {
-    name = "AI",
-    t = { "<cmd>NeoAI<cr>", "NeoAI" },
-    i = { "<cmd>NeoAIInjectCode<cr>", "NeoAIInjectCode" },
-    c = { "<cmd>ChatGPT<cr>", "ChatGPT" },
-  }
+  name = "AI",
+  t = { "<cmd>NeoAI<cr>", "NeoAI" },
+  i = { "<cmd>NeoAIInjectCode<cr>", "NeoAIInjectCode" },
+  c = { "<cmd>ChatGPT<cr>", "ChatGPT" },
+}
 -- lvim.builtin.cmp.enabled = false
 -- lvim.builtin.which_key.mappings["o"] = {
 --   name = "Options",
 --   c = { "<cmd>lua lvim.builtin.cmp.active = false<cr>", "Completion off" },
 --   C = { "<cmd>lua lvim.builtin.cmp.active = true<cr>", "Completion on" },
-  -- w = { '<cmd>lua require("user.functions").toggle_option("wrap")<cr>', "Wrap" },
-  -- r = { '<cmd>lua require("user.functions").toggle_option("relativenumber")<cr>', "Relative" },
-  -- l = { '<cmd>lua require("user.functions").toggle_option("cursorline")<cr>', "Cursorline" },
-  -- s = { '<cmd>lua require("user.functions").toggle_option("spell")<cr>', "Spell" },
-  -- t = { '<cmd>lua require("user.functions").toggle_tabline()<cr>', "Tabline" },
+-- w = { '<cmd>lua require("user.functions").toggle_option("wrap")<cr>', "Wrap" },
+-- r = { '<cmd>lua require("user.functions").toggle_option("relativenumber")<cr>', "Relative" },
+-- l = { '<cmd>lua require("user.functions").toggle_option("cursorline")<cr>', "Cursorline" },
+-- s = { '<cmd>lua require("user.functions").toggle_option("spell")<cr>', "Spell" },
+-- t = { '<cmd>lua require("user.functions").toggle_tabline()<cr>', "Tabline" },
 -- }
 
 lvim.builtin.which_key.mappings["n"] = {
