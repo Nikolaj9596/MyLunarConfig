@@ -11,13 +11,6 @@ lvim.builtin.which_key.mappings["r"] = {
   w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word" },
   f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
 }
--- lvim.builtin.which_key.mappings["c"] = {
---   name = "ChatGPT",
---   c = { "<cmd>ChatGPT<cr>", "Chat" },
---   a = { "<cmd>ChatGPTActAs<cr>", "Act As" },
---   e = { "<cmd>ChatGPTEditWithInstructions<cr>", "Edit" },
---   r = { "<cmd>ChatRunCustomCodeAction<cr>", "Code Action" },
--- }
 lvim.builtin.which_key.mappings["d"] = {
   name = "Debug",
   b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
@@ -37,9 +30,9 @@ lvim.builtin.which_key.mappings["D"] = {
   f = { "<Cmd>DBUIFindBuffer<Cr>", "Find buffer" },
   r = { "<Cmd>DBUIRenameBuffer<Cr>", "Rename buffer" },
   q = { "<Cmd>DBUILastQueryInfo<Cr>", "Last query info" },
-    -- 'postgres://postgres:mypassword@localhost:5432/my-dev-db',
-    -- 'mysql://root@localhost/wp_awesome',
-    -- 'redis:///localhost:5432/my-dev-db',
+  -- 'postgres://postgres:mypassword@localhost:5432/my-dev-db',
+  -- 'mysql://root@localhost/wp_awesome',
+  -- 'redis:///localhost:5432/my-dev-db',
 }
 
 lvim.builtin.which_key.mappings["f"] = {
@@ -58,6 +51,7 @@ lvim.builtin.which_key.mappings["f"] = {
   R = { "<cmd>Telescope registers<cr>", "Registers" },
   k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
   C = { "<cmd>Telescope commands<cr>", "Commands" },
+  e = { "<cmd>Telescope emoji<cr>", "Emoji" },
 }
 lvim.builtin.which_key.mappings["g"] = {
   name = "Git",
@@ -96,52 +90,42 @@ lvim.builtin.which_key.mappings["g"] = {
 lvim.builtin.which_key.mappings["l"] = {
   name = "LSP",
   a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-  c = { "<cmd>lua require('copilot.suggestion').toggle_auto_trigger()<cr>", "Get Capabilities" },
-  -- c = { "<cmd>lua require('user.lsp').server_capabilities()<cr>", "Get Capabilities" },
-  d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
-  w = {
-    "<cmd>Telescope lsp_workspace_diagnostics<cr>",
-    "Workspace Diagnostics",
-  },
   f = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
-  F = { "<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat" },
   i = { "<cmd>LspInfo<cr>", "Info" },
   h = { "<cmd>lua require('lsp-inlayhints').toggle()<cr>", "Toggle Hints" },
-  H = { "<cmd>IlluminationToggle<cr>", "Toggle Doc HL" },
   I = { "<cmd>Mason<cr>", "Mason" },
-  j = {
-    "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>",
-    "Next Diagnostic",
-  },
-  k = {
-    "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>",
-    "Prev Diagnostic",
-  },
-  v = { "<cmd>lua require('lsp_lines').toggle()<cr>", "Virtual Text" },
   l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-  o = { "<cmd>SymbolsOutline<cr>", "Outline" },
-  q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-  r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-  R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
   s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
   S = {
     "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
     "Workspace Symbols",
   },
-  t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
-  u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
+  -- TODO: Remove not needed
+  -- F = { "<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat" },
+  -- c = { "<cmd>lua require('copilot.suggestion').toggle_auto_trigger()<cr>", "Get Capabilities" },
+  -- c = { "<cmd>lua require('user.lsp').server_capabilities()<cr>", "Get Capabilities" },
+  -- d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
+  -- w = {
+  --   "<cmd>Telescope lsp_workspace_diagnostics<cr>",
+  --   "Workspace Diagnostics",
+  -- },
+  -- H = { "<cmd>IlluminationToggle<cr>", "Toggle Doc HL" },
+  -- j = {
+  --   "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>",
+  --   "Next Diagnostic",
+  -- },
+  -- k = {
+  --   "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>",
+  --   "Prev Diagnostic",
+  -- },
+  -- v = { "<cmd>lua require('lsp_lines').toggle()<cr>", "Virtual Text" },
+  -- t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
+  -- u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
+  -- o = { "<cmd>SymbolsOutline<cr>", "Outline" },
+  -- q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+  -- r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+  -- R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
 }
--- lvim.builtin.which_key.mappings["t"] = {
---   name = "Tab",
---   t = {
---     "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
---     "Find Tab",
---   },
---   n = { "<cmd>tabnew %<cr>", "New Tab" },
---   c = { "<cmd>tabclose<cr>", "Close Tab" },
---   o = { "<cmd>tabonly<cr>", "Only Tab" },
--- }
-
 lvim.builtin.which_key.mappings["t"] = {
   name = "Terminal",
   u = { "<cmd>lua require 'user.terminal'.ncdu_toggle()<cr>", "NCDU" },
@@ -154,24 +138,6 @@ lvim.builtin.which_key.mappings["t"] = {
   h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
   v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 }
-
-lvim.builtin.which_key.mappings["a"] = {
-  name = "AI",
-  t = { "<cmd>NeoAI<cr>", "NeoAI" },
-  i = { "<cmd>NeoAIInjectCode<cr>", "NeoAIInjectCode" },
-  c = { "<cmd>ChatGPT<cr>", "ChatGPT" },
-}
--- lvim.builtin.cmp.enabled = false
--- lvim.builtin.which_key.mappings["o"] = {
---   name = "Options",
---   c = { "<cmd>lua lvim.builtin.cmp.active = false<cr>", "Completion off" },
---   C = { "<cmd>lua lvim.builtin.cmp.active = true<cr>", "Completion on" },
--- w = { '<cmd>lua require("user.functions").toggle_option("wrap")<cr>', "Wrap" },
--- r = { '<cmd>lua require("user.functions").toggle_option("relativenumber")<cr>', "Relative" },
--- l = { '<cmd>lua require("user.functions").toggle_option("cursorline")<cr>', "Cursorline" },
--- s = { '<cmd>lua require("user.functions").toggle_option("spell")<cr>', "Spell" },
--- t = { '<cmd>lua require("user.functions").toggle_tabline()<cr>', "Tabline" },
--- }
 
 lvim.builtin.which_key.mappings["n"] = {
   name = "Notes",
@@ -225,3 +191,39 @@ local m_mappings = {
 }
 
 which_key.register(m_mappings, m_opts)
+-- TODO: Remove not needed
+-- lvim.builtin.which_key.mappings["c"] = {
+--   name = "ChatGPT",
+--   c = { "<cmd>ChatGPT<cr>", "Chat" },
+--   a = { "<cmd>ChatGPTActAs<cr>", "Act As" },
+--   e = { "<cmd>ChatGPTEditWithInstructions<cr>", "Edit" },
+--   r = { "<cmd>ChatRunCustomCodeAction<cr>", "Code Action" },
+-- }
+-- lvim.builtin.which_key.mappings["t"] = {
+--   name = "Tab",
+--   t = {
+--     "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
+--     "Find Tab",
+--   },
+--   n = { "<cmd>tabnew %<cr>", "New Tab" },
+--   c = { "<cmd>tabclose<cr>", "Close Tab" },
+--   o = { "<cmd>tabonly<cr>", "Only Tab" },
+-- }
+
+-- lvim.builtin.which_key.mappings["a"] = {
+--   name = "AI",
+--   t = { "<cmd>NeoAI<cr>", "NeoAI" },
+--   i = { "<cmd>NeoAIInjectCode<cr>", "NeoAIInjectCode" },
+--   c = { "<cmd>ChatGPT<cr>", "ChatGPT" },
+-- }
+-- lvim.builtin.cmp.enabled = false
+-- lvim.builtin.which_key.mappings["o"] = {
+--   name = "Options",
+--   c = { "<cmd>lua lvim.builtin.cmp.active = false<cr>", "Completion off" },
+--   C = { "<cmd>lua lvim.builtin.cmp.active = true<cr>", "Completion on" },
+-- w = { '<cmd>lua require("user.functions").toggle_option("wrap")<cr>', "Wrap" },
+-- r = { '<cmd>lua require("user.functions").toggle_option("relativenumber")<cr>', "Relative" },
+-- l = { '<cmd>lua require("user.functions").toggle_option("cursorline")<cr>', "Cursorline" },
+-- s = { '<cmd>lua require("user.functions").toggle_option("spell")<cr>', "Spell" },
+-- t = { '<cmd>lua require("user.functions").toggle_tabline()<cr>', "Tabline" },
+-- }

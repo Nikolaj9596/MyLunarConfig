@@ -1,7 +1,7 @@
 lvim.colorscheme = "darkplus"
 -- lvim.colorscheme = "lunar"
 -- lvim.colorscheme = "gruvbox"
-lvim.log.level = "warn"
+lvim.log.level = "warning"
 lvim.builtin.alpha.active = false
 lvim.reload_config_on_save = false
 lvim.builtin.illuminate.active = false
@@ -22,6 +22,7 @@ vim.diagnostic.config({
     focusable = true
   }
 })
+
 -- lvim.builtin.cmp.window.documentation = false
 -- lvim.builtin.cmp.window.documentation = {
 --   border = "rounded",

@@ -11,17 +11,17 @@ keymap("n", "<C-i>", "<C-i>", opts)
 
 -- Normal --
 -- Better window navigation
-keymap("n", "<m-h>", "<C-w>h", opts)
-keymap("n", "<m-j>", "<C-w>j", opts)
-keymap("n", "<m-k>", "<C-w>k", opts)
-keymap("n", "<m-l>", "<C-w>l", opts)
-keymap("n", "<m-tab>", "<c-6>", opts)
+keymap("n", "<S-h>", "<C-w>h", opts)
+keymap("n", "<S-j>", "<C-w>j", opts)
+keymap("n", "<S-k>", "<C-w>k", opts)
+keymap("n", "<S-l>", "<C-w>l", opts)
+keymap("n", "<S-tab>", "<c-6>", opts)
 
 function _G.set_terminal_keymaps()
-  vim.api.nvim_buf_set_keymap(0, "t", "<m-h>", [[<C-\><C-n><C-W>h]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<m-j>", [[<C-\><C-n><C-W>j]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<m-k>", [[<C-\><C-n><C-W>k]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<m-l>", [[<C-\><C-n><C-W>l]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<S-h>", [[<C-\><C-n><C-W>h]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<S-j>", [[<C-\><C-n><C-W>j]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<S-k>", [[<C-\><C-n><C-W>k]], opts)
+  vim.api.nvim_buf_set_keymap(0, "t", "<S-l>", [[<C-\><C-n><C-W>l]], opts)
 end
 
 vim.cmd "autocmd! TermOpen term://* lua set_terminal_keymaps()"
@@ -50,7 +50,7 @@ keymap("n", "g*", "g*zz", opts)
 keymap("n", "g#", "g#zz", opts)
 
 -- Doc String
-keymap("n", "cd", "<cmd>DogeGenerate<CR>", opts)
+-- keymap("n", "cd", "<cmd>DogeGenerate<CR>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -73,8 +73,9 @@ keymap(
 keymap("n", "<F7>", "<cmd>TSHighlightCapturesUnderCursor<cr>", opts)
 keymap("n", "<C-z>", "<cmd>ZenMode<cr>", opts)
 keymap("n", "-", ":lua require'lir.float'.toggle()<cr>", opts)
-keymap("n", "gx", [[:silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<CR>]], opts)
-keymap("n", "<m-v>", "<cmd>lua require('lsp_lines').toggle()<cr>", opts)
+
+-- keymap("n", "gx", [[:silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 0)<CR>]], opts)
+keymap("n", "<i-v>", "<cmd>lua require('lsp_lines').toggle()<cr>", opts)
 
 keymap("n", "<m-/>", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 keymap("x", "<m-/>", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', opts)
@@ -103,7 +104,7 @@ vim.cmd [[
   endfunction
 ]]
 
-keymap("n", "<m-q>", ":call QuickFixToggle()<cr>", opts)
+keymap("n", "<S-q>", ":call QuickFixToggle()<cr>", opts)
 
 M.show_documentation = function()
   local filetype = vim.bo.filetype

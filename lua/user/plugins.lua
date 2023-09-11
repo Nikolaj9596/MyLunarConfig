@@ -1,21 +1,5 @@
 lvim.plugins = {
-  -- Remote --
-  -- {
-  --   'chipsenkbeil/distant.nvim',
-  --   branch = 'v0.2',
-  --   config = function()
-  --     require('distant').setup {
-  --       -- Applies Chip's personal settings to every machine you connect to
-  --       --
-  --       -- 1. Ensures that distant servers terminate with no connections
-  --       -- 2. Provides navigation bindings for remote directories
-  --       -- 3. Provides keybinding to jump into a remote file's parent directory
-  --       ['*'] = require('distant.settings').chip_default()
-  --     }
-  --   end
-  -- },
-  "kristijanhusak/vim-dadbod-ui",
-  "kristijanhusak/vim-dadbod-completion",
+  { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } },
   -- LSP --
   "lvimuser/lsp-inlayhints.nvim", -- Partial implementation of LSP inlay hint.pl
 
@@ -35,7 +19,7 @@ lvim.plugins = {
   "kevinhwang91/nvim-bqf", -- The goal of nvim-bqf is to make Neovim's quickfix window better.
   -- Leap is a general-purpose motion plugin for Neovim, with the ultimate goal of establishing a
   -- new standard interface for moving around in the visible area in Vim-like modal editors.
-  "ggandor/leap.nvim",
+  "ggandor/leap.nvim", -- plugin fore very fas finc character in line
   "nacro90/numb.nvim", -- plugin that peeks lines of the buffer in non-obtrusive way.
 
   -- Scroll --
@@ -43,7 +27,7 @@ lvim.plugins = {
   "opalmay/vim-smoothie",
 
   -- GIT --
-  "TimUntersberger/neogit",
+  -- "TimUntersberger/neogit",
   "mattn/vim-gist",
   "lunarvim/github.nvim",
   "sindrets/diffview.nvim",
@@ -53,7 +37,7 @@ lvim.plugins = {
   -- Treesitter --
   "nvim-treesitter/playground",
   "nvim-treesitter/nvim-treesitter-textobjects",
-  'nvim-treesitter/nvim-treesitter-refactor',
+  "nvim-treesitter/nvim-treesitter-refactor",
 
   -- DAP --
   -- "leoluz/nvim-dap-go",
@@ -65,9 +49,259 @@ lvim.plugins = {
   "lunarvim/darkplus.nvim",
   "LunarVim/synthwave84.nvim",
   "NvChad/nvim-colorizer.lua",
-  -- "lunarvim/templeos.nvim",
+  "lunarvim/templeos.nvim",
+
+  -- Auto Session
+  "rmagatti/auto-session",
+  "rmagatti/session-lens",
 
   -- UI --
+  {
+    "rcarriga/nvim-notify",
+    event = "VeryLazy",
+    opts = {
+      background_colour = "#A3CCBE",
+      timeout = 3000,
+      max_height = function()
+        return math.floor(vim.o.lines * 0.75)
+      end,
+      max_width = function()
+        return math.floor(vim.o.columns * 0.75)
+      end,
+      priority = 100,
+    },
+    config = function(_, opts)
+      require("notify").setup(opts)
+      vim.notify = require "notify"
+    end,
+  }, -- Notification plu-- lazy.nvim
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    enabled = true,
+    opts = {
+      lsp = {
+        -- override markdown rendering so that **cmp** and other plougins use **Treesitter**
+        progress = {
+          enabled = true,
+          -- Lsp Progress is formatted using the builtins for lsp_progress. See config.format.builtin
+          -- See the section on formatting for more details on how to customize.
+          format = "lsp_progress",
+          format_done = "lsp_progress_done",
+          throttle = 1000 / 30, -- frequency to update lsp progress message
+          view = "mini",
+        },
+        override = {
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          ["vim.lsp.util.stylize_markdown"] = true,
+          ["cmp.entry.get_documentation"] = true,
+        },
+        hover = {
+          enabled = false,
+          silent = true, -- set to true to not show a message if hover is not available
+          view = nil, -- when nil, use defaults from documentation
+          opts = {}, -- merged with defaults from documentation
+        },
+        signature = {
+          enabled = false,
+          auto_open = {
+            enabled = true,
+            trigger = true, -- Automatically show signature help when typing a trigger character from the LSP
+            luasnip = true, -- Will open signature help when jumping to Luasnip insert nodes
+            throttle = 50, -- Debounce lsp signature help request by 50ms
+          },
+          view = nil, -- when nil, use defaults from documentation
+          opts = {}, -- merged with defaults from documentation
+        },
+        message = {
+          -- Messages shown by lsp servers
+          enabled = true,
+          view = "notify",
+          opts = {},
+        },
+        -- defaults for hover and signature help
+        documentation = {
+          view = "hover",
+          opts = {
+            lang = "markdown",
+            replace = true,
+            render = "plain",
+            format = { "{message}" },
+            win_options = { concealcursor = "n", conceallevel = 3 },
+          },
+        },
+      },
+      -- you can enable a preset for easier configuration
+      presets = {
+        bottom_search = true, -- use a classic bottom cmdline for search
+        command_palette = true, -- position the cmdline and popupmenu together
+        long_message_to_split = true, -- long messages will be sent to a split
+        inc_rename = true, -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = true, -- add a border to hover docs and signature help
+      },
+
+      cmdline = {
+        enabled = true, -- enables the Noice cmdline UI
+        view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
+        opts = {}, -- global options for the cmdline. See section on views
+        format = {
+          -- conceal: (default=true) This will hide the text in the cmdline that matches the pattern.
+          -- view: (default is cmdline view)
+          -- opts: any options passed to the view
+          -- icon_hl_group: optional hl_group for the icon
+          -- title: set to anything or empty string to hide
+          cmdline = { pattern = "^:", icon = "", lang = "vim" },
+          search_down = { kind = "search", pattern = "^/", icon = " ", lang = "regex" },
+          search_up = { kind = "search", pattern = "^%?", icon = " ", lang = "regex" },
+          filter = { pattern = "^:%s*!", icon = "$", lang = "bash" },
+          lua = { pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" }, icon = "", lang = "lua" },
+          help = { pattern = "^:%s*he?l?p?%s+", icon = "" },
+          input = {}, -- Used by input()
+          -- lua = false, -- to disable a format, set to `false`
+        },
+      },
+      messages = {
+        -- NOTE: If you enable messages, then the cmdline is enabled automatically.
+        -- This is a current Neovim limitation.
+        enabled = true, -- enables the Noice messages UI
+        view = "notify", -- default view for messages
+        view_error = "notify", -- view for errors
+        view_warn = "notify", -- view for warnings
+        view_history = "messages", -- view for :messages
+        view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
+      },
+      popupmenu = {
+        enabled = true, -- enables the Noice popupmenu UI
+        backend = "nui", -- backend to use to show regular cmdline completions
+        kind_icons = {}, -- set to `false` to disable icons
+      },
+      -- default options for require('noice').redirect
+      -- see the section on Command Redirection
+      redirect = {
+        view = "popup",
+        filter = { event = "msg_show" },
+      },
+      -- You can add any custom commands below that will be available with `:Noice command`
+      commands = {
+        history = {
+          -- options for the message history that you get with `:Noice`
+          view = "split",
+          opts = { enter = true, format = "details" },
+          filter = {
+            any = {
+              { event = "notify" },
+              { error = true },
+              { warning = true },
+              { event = "msg_show", kind = { "" } },
+              { event = "lsp", kind = "message" },
+            },
+          },
+        },
+        -- :Noice last
+        last = {
+          view = "popup",
+          opts = { enter = true, format = "details" },
+          filter = {
+            any = {
+              { event = "notify" },
+              { error = true },
+              { warning = true },
+              { event = "msg_show", kind = { "" } },
+              { event = "lsp", kind = "message" },
+            },
+          },
+          filter_opts = { count = 1 },
+        },
+        -- :Noice errors
+        errors = {
+          -- options for the message history that you get with `:Noice`
+          view = "popup",
+          opts = { enter = true, format = "details" },
+          filter = { error = true },
+          filter_opts = { reverse = true },
+        },
+      },
+      routes = {
+        {
+          filter = {
+            event = "msg_show",
+            any = {
+              { find = "%d+L, %d+B" },
+              { find = "; after #%d+" },
+              { find = "; before #%d+" },
+            },
+          },
+          view = "mini",
+        },
+      },
+      notify = {
+        -- Noice can be used as `vim.notify` so you can route any notification like other messages
+        -- Notification messages have their level and other properties set.
+        -- event is always "notify" and kind can be any log level as a string
+        -- The default routes will forward notifications to nvim-notify
+        -- Benefit of using Noice for this is the routing and consistent history view
+        enabled = true,
+        view = "notify",
+      },
+      markdown = {
+        hover = {
+          ["|(%S-)|"] = vim.cmd.help, -- vim help links
+          ["%[.-%]%((%S-)%)"] = require("noice.util").open, -- markdown links
+        },
+        highlights = {
+          ["|%S-|"] = "@text.reference",
+          ["@%S+"] = "@parameter",
+          ["^%s*(Parameters:)"] = "@text.title",
+          ["^%s*(Return:)"] = "@text.title",
+          ["^%s*(See also:)"] = "@text.title",
+          ["{%S-}"] = "@parameter",
+        },
+      },
+      health = {
+        checker = true, -- Disable if you don't want health checks to run
+      },
+
+      smart_move = {
+        -- noice tries to move out of the way of existing floating windows.
+        enabled = true, -- you can disable this behaviour here
+        -- add any filetypes here, that shouldn't trigger smart move.
+        excluded_filetypes = { "cmp_menu", "cmp_docs", "notify" },
+      },
+
+      keys = {
+        {
+          "<S-Enter>",
+          function()
+            require("noice").redirect(vim.fn.getcmdline())
+          end,
+          mode = "c",
+          desc = "Redirect Cmdline",
+        },
+        {
+          "<c-f>",
+          function()
+            if not require("noice.lsp").scroll(4) then
+              return "<c-f>"
+            end
+          end,
+          silent = true,
+          expr = true,
+          desc = "Scroll forward",
+        },
+        {
+          "<c-b>",
+          function()
+            if not require("noice.lsp").scroll(-4) then
+              return "<c-b>"
+            end
+          end,
+          silent = true,
+          expr = true,
+          desc = "Scroll backward",
+        },
+      },
+    },
+  },
   {
     "echasnovski/mini.indentscope",
     event = { "BufReadPre", "BufNewFile" },
@@ -123,33 +357,7 @@ lvim.plugins = {
       end,
     },
   },
-  {
-    "RRethy/vim-illuminate",
-    event = "BufReadPost",
-    opts = { delay = 200 },
-    config = function(_, opts)
-      require("illuminate").configure(opts)
-    end,
-  },
-  {
-    "rcarriga/nvim-notify",
-    event = "VeryLazy",
-    opts = {
-      -- background_colour = "#A3CCBE",
-      timeout = 3000,
-      max_height = function()
-        return math.floor(vim.o.lines * 0.75)
-      end,
-      max_width = function()
-        return math.floor(vim.o.columns * 0.75)
-      end,
-    },
-    config = function(_, opts)
-      require("notify").setup(opts)
-      vim.notify = require "notify"
-    end,
-  },
-  "folke/todo-comments.nvim",
+  "folke/todo-comments.nvim", -- Highlights todo comments
   "j-hui/fidget.nvim", -- Standalone UI for nvim-lsp progress. Eye candy for the impatient.
   "renerocksai/telekasten.nvim",
   {
@@ -176,6 +384,7 @@ lvim.plugins = {
   -- Plantuml --
   "aklt/plantuml-syntax",
   "weirongxu/plantuml-previewer.vim",
+
   -- Markdown --
   { "AckslD/nvim-FeMaco.lua", ft = { "markdown" }, opts = {} },
   {
@@ -187,29 +396,6 @@ lvim.plugins = {
     end,
   },
 
-  -- Auto Session
-  "rmagatti/auto-session",
-  "rmagatti/session-lens",
-
-  -- Doc String
-  {
-    "kkoomen/vim-doge",
-    -- run = ':call doge#install()'
-  },
-
-  {
-    "saecki/crates.nvim",
-    version = "v0.3.0",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("crates").setup {
-        null_ls = {
-          enabled = true,
-          name = "crates.nvim",
-        },
-      }
-    end,
-  },
   "MunifTanjim/nui.nvim",
   {
     "jinh0/eyeliner.nvim",
@@ -220,47 +406,171 @@ lvim.plugins = {
     end,
   },
   { "christianchiarulli/telescope-tabs", branch = "chris" },
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  { "nvim-telescope/telescope-media-files.nvim" },
+  -- CMP --
+  "roobert/tailwindcss-colorizer-cmp.nvim",
 
+  -- Remote --
+  -- {
+  --   'chipsenkbeil/distant.nvim',
+  --   branch = 'v0.2',
+  --   config = function()
+  --     require('distant').setup {
+  --       -- Applies Chip's personal settings to every machine you connect to
+  --       --
+  --       -- 1. Ensures that distant servers terminate with no connections
+  --       -- 2. Provides navigation bindings for remote directories
+  --       -- 3. Provides keybinding to jump into a remote file's parent directory
+  --       ['*'] = require('distant.settings').chip_default()
+  --     }
+  --   end
+  -- },
+  -- DB connector --
+  -- "kristijanhusak/vim-dadbod-ui",
+  -- "kristijanhusak/vim-dadbod-completion",
+  -- AI
+  -- {
+  --   "Exafunction/codeium.vim",
+  --   enabled = true,
+  --   event = "InsertEnter",
+  --   -- stylua: ignore
+  --   config = function()
+  --     vim.g.codeium_disable_bindings = 1
+  --     vim.keymap.set("i", "<A-i>", function() return vim.fn["codeium#Accept"]() end, { expr = true })
+  --     vim.keymap.set("i", "<A-f>", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true })
+  --     vim.keymap.set("i", "<A-b>", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true })
+  --     vim.keymap.set("i", "<A-x>", function() return vim.fn["codeium#Clear"]() end, { expr = true })
+  --     vim.keymap.set("i", "<A-s>", function() return vim.fn["codeium#Complete"]() end, { expr = true })
+  --   end,
+  -- },
+
+  -- "hrsh7th/cmp-nvim-lsp-signature-help", -- nvim-cmp source for displaying function signatures with the current parameter emphasized:
+  -- {
+  --   "RRethy/vim-illuminate",
+  --   event = "BufReadPost",
+  --   opts = { delay = 200 },
+  --   config = function(_, opts)
+  --     require("illuminate").configure(opts)
+  --   end,
+  -- }, -- Vim plugin for automatically highlighting other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching.
+  -- {
+  --   "xiyaowong/nvim-transparent",
+  --   cmd = { "TransparentEnable", "TransparentDisable", "TransparentToggle" },
+  --   opts = {
+  --     extra_groups = { -- table/string: additional groups that should be cleared
+  --       -- In particular, when you set it to 'all', that means all available groups
+
+  --       -- example of akinsho/nvim-bufferline.lua
+  --       "BufferLineTabClose",
+  --       "BufferlineBufferSelected",
+  --       "BufferLineFill",
+  --       "BufferLineBackground",
+  --       "BufferLineSeparator",
+  --       "BufferLineIndicatorSelected",
+  --     },
+  --     exclude_groups = {}, -- table: groups you don't want to clear
+  --   },
+  --   config = function(_, opts)
+  --     require("transparent").setup(opts)
+  --   end,
+  -- },
+  -- {
+  --   "catppuccin/nvim",
+  --   lazy = true,
+  --   name = "catppuccin",
+  --   opts = {
+  --     integrations = {
+  --       alpha = true,
+  --       cmp = true,
+  --       gitsigns = true,
+  --       illuminate = true,
+  --       indent_blankline = { enabled = true },
+  --       lsp_trouble = true,
+  --       mason = true,
+  --       mini = true,
+  --       native_lsp = {
+  --         enabled = true,
+  --         underlines = {
+  --           errors = { "undercurl" },
+  --           hints = { "undercurl" },
+  --           warnings = { "undercurl" },
+  --           information = { "undercurl" },
+  --         },
+  --       },
+  --       navic = { enabled = true, custom_bg = "lualine" },
+  --       neotest = true,
+  --       noice = true,
+  --       notify = true,
+  --       neotree = true,
+  --       semantic_tokens = true,
+  --       telescope = true,
+  --       treesitter = true,
+  --       which_key = true,
+  --     },
+  --   },
+  -- },
+
+
+  -- {
+  --   "jcdickinson/http.nvim",
+  --   build = "cargo build --workspace --release",
+  --   enabled = false,
+  -- },
+
+  -- {
+  --   "saecki/crates.nvim",
+  --   version = "v0.3.0",
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --   config = function()
+  --     require("crates").setup {
+  --       null_ls = {
+  --         enabled = true,
+  --         name = "crates.nvim",
+  --       },
+  --     }
+  --   end,
+  -- },
   -- AI --
-  {
-    "jackMort/ChatGPT.nvim",
-    cmd = { "ChatGPT", "ChatGPTRun", "ChatGPTActAs", "ChatGPTCompleteCode", "ChatGPTEditWithInstructions" },
-    config = true,
-    enabled = true,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-  },
-  {
-    "Bryley/neoai.nvim",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-    },
-    cmd = {
-      "NeoAI",
-      "NeoAIOpen",
-      "NeoAIClose",
-      "NeoAIToggle",
-      "NeoAIContext",
-      "NeoAIContextOpen",
-      "NeoAIContextClose",
-      "NeoAIInject",
-      "NeoAIInjectCode",
-      "NeoAIInjectContext",
-      "NeoAIInjectContextCode",
-    },
-    -- keys = {
-    --   { "<leader>as", desc = "Summarize Text" },
-    --   { "<leader>ag", desc = "Generate Git Message" },
-    -- },
-    config = function()
-      require("neoai").setup {
-        -- Options go here
-      }
-    end,
-  },
+  -- {
+  --   "jackMort/ChatGPT.nvim",
+  --   cmd = { "ChatGPT", "ChatGPTRun", "ChatGPTActAs", "ChatGPTCompleteCode", "ChatGPTEditWithInstructions" },
+  --   config = true,
+  --   enabled = true,
+  --   dependencies = {
+  --     "MunifTanjim/nui.nvim",
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-telescope/telescope.nvim",
+  --   },
+  -- },
+  -- {
+  --   "Bryley/neoai.nvim",
+  --   dependencies = {
+  --     "MunifTanjim/nui.nvim",
+  --   },
+  --   cmd = {
+  --     "NeoAI",
+  --     "NeoAIOpen",
+  --     "NeoAIClose",
+  --     "NeoAIToggle",
+  --     "NeoAIContext",
+  --     "NeoAIContextOpen",
+  --     "NeoAIContextClose",
+  --     "NeoAIInject",
+  --     "NeoAIInjectCode",
+  --     "NeoAIInjectContext",
+  --     "NeoAIInjectContextCode",
+  --   },
+  -- keys = {
+  --   { "<leader>as", desc = "Summarize Text" },
+  --   { "<leader>ag", desc = "Generate Git Message" },
+  -- },
+  --   config = function()
+  --     require("neoai").setup {
+  --       -- Options go here
+  --     }
+  --   end,
+  -- },
   -- {
   --   "tzachar/cmp-tabnine",
   --   build = "./install.sh",
@@ -275,29 +585,12 @@ lvim.plugins = {
   --     require("codeium").setup {}
   --   end,
   -- },
-  {
-    "Exafunction/codeium.vim",
-    enabled = true,
-    event = "InsertEnter",
-    -- stylua: ignore
-    config = function()
-      vim.g.codeium_disable_bindings = 1
-      vim.keymap.set("i", "<A-i>", function() return vim.fn["codeium#Accept"]() end, { expr = true })
-      vim.keymap.set("i", "<A-f>", function() return vim.fn["codeium#CycleCompletions"](1) end, { expr = true })
-      vim.keymap.set("i", "<A-b>", function() return vim.fn["codeium#CycleCompletions"](-1) end, { expr = true })
-      vim.keymap.set("i", "<A-x>", function() return vim.fn["codeium#Clear"]() end, { expr = true })
-      vim.keymap.set("i", "<A-s>", function() return vim.fn["codeium#Complete"]() end, { expr = true })
-    end,
-  },
 
-  -- CMP --
-  "roobert/tailwindcss-colorizer-cmp.nvim",
-  "hrsh7th/cmp-nvim-lsp-signature-help",
-  {
-    "jcdickinson/http.nvim",
-    build = "cargo build --workspace --release",
-    enabled = false,
-  },
+  -- Doc String
+  -- {
+  -- "kkoomen/vim-doge",
+  -- run = ':call doge#install()'
+  -- },
   -- {
   --   "hrsh7th/nvim-cmp",
   --   event = "InsertEnter",

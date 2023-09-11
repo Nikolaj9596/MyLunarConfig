@@ -34,18 +34,19 @@ local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
   -- { command = "flake8", filetypes = { "python" } },
   { command = "ruff", filetypes = { "python" } },
-  {
-    command = "codespell",
-    filetypes = { "python", "lua", "yaml", "sh", "cs", "javascript", "typescript", "markdown" },
-  },
-  { command = "cspell", filetypes = { "python" } },
+  { command = "cspell", filetypes = { "python", "lua", "yaml", "sh", "cs", "javascript", "typescript", "markdown" }},
+  -- {
+  --   command = "codespell",
+  --   filetypes = { "python", "lua", "yaml", "sh", "cs", "javascript", "typescript", "markdown" },
+  -- },
 }
 
 -- Setup dap for python
-local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
+
+local current_directory = vim.fn.getcwd()
 pcall(function()
-  require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
-  -- require("dap-python").setup("python")
+  require("dap-python").setup(current_directory .. '/.venv/bin/python3.11')
+  require("dap-python").setup("python")
 end)
 
 -- Supported test frameworks are unittest, pytest and django. By default it

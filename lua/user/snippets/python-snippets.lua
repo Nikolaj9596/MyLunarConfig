@@ -101,7 +101,6 @@ class {}({}):
   ),
 })
 
-
 -- Python serializer class
 ls.add_snippets("python", {
   s(
@@ -128,7 +127,6 @@ class {}Serializer(serializers.Serializer):
   ),
 })
 
-
 -- Python serializer class model
 ls.add_snippets("python", {
   s(
@@ -151,12 +149,11 @@ class {}Serializer(serializers.ModelSerializer):
         i(1, "ClassName"),
         i(2, "[TODO enter description]"),
         i(3, "# [TODO enter fields]"),
-        rep(1)
+        rep(1),
       }
     )
   ),
 })
-
 
 -- Python viewset class
 ls.add_snippets("python", {
@@ -193,7 +190,6 @@ class {}ViewSet(viewsets.GenericViewSet):
   ),
 })
 
-
 -- Python viewset action
 ls.add_snippets("python", {
   s(
@@ -225,7 +221,6 @@ ls.add_snippets("python", {
   ),
 })
 
-
 -- Python Django get queryset
 ls.add_snippets("python", {
   s(
@@ -236,8 +231,7 @@ ls.add_snippets("python", {
         queryset = super().get_queryset()
         return queryset
   ]],
-      {
-      }
+      {}
     )
   ),
 })
@@ -251,7 +245,7 @@ ls.add_snippets("python", {
     def get_permissions(self):
         permissions = None
         if self.action == '{}':
-            permissions = {} | {} 
+            permissions = {} | {}
         return [permissions()] if permissions else super().get_permissions()
   ]],
       {
@@ -262,7 +256,6 @@ ls.add_snippets("python", {
     )
   ),
 })
-
 
 -- Python Django get serializer_class
 ls.add_snippets("python", {
@@ -283,5 +276,44 @@ ls.add_snippets("python", {
   ),
 })
 
+ls.add_snippets("python", {
+  s(
+    { trig = "#i", snippetType = "autosnippet" },
+    fmt(
+      [[
+# INFO: {}
+      ]],
+      {
+        i(1, "Comment"),
+      }
+    )
+  ),
+})
 
+ls.add_snippets("python", {
+  s(
+    { trig = "#t", snippetType = "autosnippet" },
+    fmt(
+      [[
+# TODO: {}
+      ]],
+      {
+        i(1, "Comment"),
+      }
+    )
+  ),
+})
 
+ls.add_snippets("python", {
+  s(
+    { trig = "#w", snippetType = "autosnippet" },
+    fmt(
+      [[
+# WARNING: {}
+      ]],
+      {
+        i(1, "Comment"),
+      }
+    )
+  ),
+})

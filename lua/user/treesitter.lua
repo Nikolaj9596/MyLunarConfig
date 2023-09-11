@@ -1,4 +1,5 @@
 -- if lvim.colorscheme == "gruvbox" then
+-- if lvim.colorscheme == "lunar" then
 if lvim.colorscheme == "darkplus" then
   lvim.builtin.treesitter.rainbow = {
     enable = true,
@@ -11,6 +12,11 @@ if lvim.colorscheme == "darkplus" then
     disable = { "html" },
   }
 end
+
+lvim.builtin.treesitter.highlight = {
+  enable = true,
+  additional_vim_regex_highlighting = { "php" },
+}
 
 lvim.builtin.treesitter.ensure_installed = {
   "javascript",
