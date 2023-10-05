@@ -24,16 +24,16 @@ lvim.builtin.which_key.mappings["d"] = {
   x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
 }
 -- Database
-lvim.builtin.which_key.mappings["D"] = {
-  name = "Database",
-  u = { "<Cmd>DBUIToggle<Cr>", "Toggle UI" },
-  f = { "<Cmd>DBUIFindBuffer<Cr>", "Find buffer" },
-  r = { "<Cmd>DBUIRenameBuffer<Cr>", "Rename buffer" },
-  q = { "<Cmd>DBUILastQueryInfo<Cr>", "Last query info" },
+-- lvim.builtin.which_key.mappings["D"] = {
+--   name = "Database",
+--   u = { "<Cmd>DBUIToggle<Cr>", "Toggle UI" },
+--   f = { "<Cmd>DBUIFindBuffer<Cr>", "Find buffer" },
+--   r = { "<Cmd>DBUIRenameBuffer<Cr>", "Rename buffer" },
+--   q = { "<Cmd>DBUILastQueryInfo<Cr>", "Last query info" },
   -- 'postgres://postgres:mypassword@localhost:5432/my-dev-db',
   -- 'mysql://root@localhost/wp_awesome',
   -- 'redis:///localhost:5432/my-dev-db',
-}
+-- }
 
 lvim.builtin.which_key.mappings["f"] = {
   name = "Find",

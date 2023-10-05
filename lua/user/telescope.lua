@@ -208,9 +208,7 @@ lvim.builtin.telescope.extensions = {
   },
 }
 
-require("telescope").load_extension "fzf"
-require("telescope").load_extension "media_files"
-require("telescope").load_extension "emoji"
+require("telescope").load_extension("fzf", "media_files", "emoji", "session-lens")
 
 require("telescope-tabs").setup {
   show_preview = false,

@@ -1,4 +1,4 @@
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright", "jsonls" })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "jsonls", "pyright", "sourcery" })
 
 local pyright_opts = {
   single_file_support = true,
@@ -19,14 +19,17 @@ local pyright_opts = {
   },
 }
 
+-- require("lvim.lsp.manager").setup("ruff_lsp")
 require("lvim.lsp.manager").setup("pyright", pyright_opts)
+require("lvim.lsp.manager").setup "sourcery"
 
 -- Set a formatter.
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  -- { command = "autopep8", filetypes = { "python" } },
+  -- { command = "black", filetypes = { "python" } },
   { command = "blue", filetypes = { "python" } },
-  { command = "isort", filetypes = { "python" } },
+  -- { command = "isort", filetypes = { "python" } },
+  { command = "ruff", filetypes = { "python" } },
 }
 
 -- Set a linter.
@@ -34,19 +37,19 @@ local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
   -- { command = "flake8", filetypes = { "python" } },
   { command = "ruff", filetypes = { "python" } },
-  { command = "cspell", filetypes = { "python", "lua", "yaml", "sh", "cs", "javascript", "typescript", "markdown" }},
-  -- {
-  --   command = "codespell",
-  --   filetypes = { "python", "lua", "yaml", "sh", "cs", "javascript", "typescript", "markdown" },
-  -- },
+  { command = "cspell", filetypes = { "python", "sh", "cs", "javascript", "typescript", "markdown" } },
+  {
+    command = "codespell",
+    filetypes = { "lua" },
+  },
 }
 
 -- Setup dap for python
 
 local current_directory = vim.fn.getcwd()
 pcall(function()
-  require("dap-python").setup(current_directory .. '/.venv/bin/python3.11')
-  require("dap-python").setup("python")
+  require("dap-python").setup(current_directory .. "/.venv/bin/python3.11")
+  require("dap-python").setup "python"
 end)
 
 -- Supported test frameworks are unittest, pytest and django. By default it

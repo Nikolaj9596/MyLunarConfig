@@ -48,7 +48,6 @@ keymap("n", "*", "*zz", opts)
 keymap("n", "#", "#zz", opts)
 keymap("n", "g*", "g*zz", opts)
 keymap("n", "g#", "g#zz", opts)
-
 -- Doc String
 -- keymap("n", "cd", "<cmd>DogeGenerate<CR>", opts)
 

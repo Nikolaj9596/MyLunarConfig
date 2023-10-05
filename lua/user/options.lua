@@ -1,58 +1,58 @@
-lvim.colorscheme = "darkplus"
 -- lvim.colorscheme = "lunar"
 -- lvim.colorscheme = "gruvbox"
+lvim.colorscheme = "darkplus"
 lvim.log.level = "warning"
 lvim.builtin.alpha.active = false
-lvim.reload_config_on_save = false
-lvim.builtin.illuminate.active = false
+lvim.reload_config_on_save = true
+lvim.builtin.illuminate.active = true
 lvim.builtin.bufferline.active = false
--- lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
--- lvim.builtin.nvimtree.setup.view.mappings.custom_only = true
 lvim.builtin.breadcrumbs.active = true
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.dap.active = true
-lvim.keys.term_mode = { ["<C-l>"] = false }
 lvim.builtin.cmp.cmdline.enable = true
-vim.diagnostic.config({
+-- lvim.builtin.alpha.mode = "dashboard"
+-- lvim.builtin.nvimtree.setup.view.mappings.custom_only = true
+-- lvim.keys.term_mode = { ["<C-l>"] = false }
+
+vim.diagnostic.config {
   virtual_text = false,
   float = {
-    focusable = true
-  }
-})
-
--- lvim.builtin.cmp.window.documentation = false
--- lvim.builtin.cmp.window.documentation = {
---   border = "rounded",
---   winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
--- }
--- lvim.builtin.cmp.window.completion = {
---   border = "rounded",
---   winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
--- }
--- lvim.builtin.cmp.formatting.source_names = {
---   nvim_lsp = "",
---   emoji = "",
---   path = "",
---   calc = "",
---   cmp_tabnine = "",
---   vsnip = "",
---   luasnip = "",
---   buffer = "",
---   tmux = "",
---   copilot = "",
---   treesitter = "",
--- }
+    focusable = true,
+  },
+}
+lvim.builtin.cmp.window.documentation = true
+lvim.builtin.cmp.window.documentation = {
+  border = "rounded",
+  winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+}
+lvim.builtin.cmp.window.completion = {
+  border = "rounded",
+  winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+}
+lvim.builtin.cmp.formatting.source_names = {
+  nvim_lsp = "",
+  emoji = "",
+  path = "",
+  calc = "",
+  cmp_tabnine = "",
+  vsnip = "",
+  luasnip = "",
+  buffer = "",
+  tmux = "",
+  copilot = "",
+  treesitter = "",
+}
 lvim.builtin.cmp.formatting = {
   format = require("tailwindcss-colorizer-cmp").formatter,
 }
--- lvim.builtin.autopairs.active = false
--- vim.g.netrw_browse_split = 0
--- vim.g.netrw_banner = 0
--- vim.g.netrw_winsize = 25
--- vim.opt.showtabline = 0
+lvim.builtin.autopairs.active = true
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
+vim.opt.showtabline = 0
 
 local options = {
   backup = false, -- creates a backup file

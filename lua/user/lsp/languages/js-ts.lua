@@ -18,7 +18,7 @@ require("typescript").setup {
         inlayHints = {
           includeInlayEnumMemberValueHints = true,
           includeInlayFunctionLikeReturnTypeHints = true,
-          includeInlayFunctionParameterTypeHints = false,
+          includeInlayFunctionParameterTypeHints = true,
           includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
           includeInlayParameterNameHintsWhenArgumentMatchesName = true,
           includeInlayPropertyDeclarationTypeHints = true,
@@ -36,10 +36,10 @@ formatters.setup {
 }
 
 -- Set a linter.
-local linters = require("lvim.lsp.null-ls.linters")
-linters.setup({
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
   { command = "eslint_d", filetypes = { "javascript", "typescript" } },
-})
+}
 
 local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
 require("dap-vscode-js").setup {
@@ -68,4 +68,3 @@ for _, language in ipairs { "typescript", "javascript" } do
     },
   }
 end
-
