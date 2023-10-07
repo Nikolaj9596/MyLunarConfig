@@ -204,15 +204,8 @@ lvim.plugins = {
     config = true,
     --stylua: ignore
     keys = {
-      { "<leader>vz", function() require("mini.misc").zoom() end, desc = "Toggle Zoom" },
+      { "<leader>z", function() require("mini.misc").zoom() end, desc = "Toggle Zoom" },
     },
-  },
-  {
-    "echasnovski/mini.bracketed",
-    event = "VeryLazy",
-    config = function()
-      require("mini.bracketed").setup()
-    end,
   },
   {
     "m-demare/hlargs.nvim",
@@ -235,6 +228,7 @@ lvim.plugins = {
       end,
     },
   },
+
   "folke/todo-comments.nvim", -- Highlights todo comments
   "j-hui/fidget.nvim",        -- Standalone UI for nvim-lsp progress. Eye candy for the impatient.
   "renerocksai/telekasten.nvim",
