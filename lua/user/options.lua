@@ -2,17 +2,21 @@
 -- lvim.colorscheme = "gruvbox"
 lvim.colorscheme = "darkplus"
 lvim.log.level = "warning"
+
 lvim.builtin.alpha.active = false
 lvim.reload_config_on_save = true
 lvim.builtin.illuminate.active = true
 lvim.builtin.bufferline.active = false
 lvim.builtin.terminal.active = true
+lvim.builtin.breadcrumbs.active = false
+lvim.builtin.dap.active = true
+lvim.builtin.autopairs.active = true
+
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
-lvim.builtin.breadcrumbs.active = true
 lvim.builtin.treesitter.highlight.enabled = true
-lvim.builtin.dap.active = true
 lvim.builtin.cmp.cmdline.enable = true
+
 -- lvim.builtin.alpha.mode = "dashboard"
 -- lvim.builtin.nvimtree.setup.view.mappings.custom_only = true
 -- lvim.keys.term_mode = { ["<C-l>"] = false }
@@ -23,36 +27,23 @@ vim.diagnostic.config {
     focusable = true,
   },
 }
-lvim.builtin.cmp.window.documentation = true
-lvim.builtin.cmp.window.documentation = {
-  border = "rounded",
-  winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
-}
-lvim.builtin.cmp.window.completion = {
-  border = "rounded",
-  winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
-}
-lvim.builtin.cmp.formatting.source_names = {
-  nvim_lsp = "",
-  emoji = "",
-  path = "",
-  calc = "",
-  cmp_tabnine = "",
-  vsnip = "",
-  luasnip = "",
-  buffer = "",
-  tmux = "",
-  copilot = "",
-  treesitter = "",
-}
-lvim.builtin.cmp.formatting = {
-  format = require("tailwindcss-colorizer-cmp").formatter,
-}
-lvim.builtin.autopairs.active = true
+
+-- lvim.builtin.nvimtree.setup.view.mappings.list = {
+--   { key = { "l", "<CR>", "o" }, action = "edit", mode = "n" },
+--   { key = "h", action = "close_node" },
+--   { key = "v", action = "vsplit" },
+--   { key = "<C-k>", action = "" },
+--   { key = "C", action = "cd" }
+-- }
+
+
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 vim.opt.showtabline = 0
+
+-- foldmethod = "indent",
+-- foldlevel = 0,
 
 local options = {
   backup = false, -- creates a backup file
@@ -96,11 +87,13 @@ local options = {
   -- colorcolumn = "80",
   -- colorcolumn = "120",
 }
--- vim.g.loaded_netrw = 1
--- vim.g.loaded_netrwPlugin = 1
--- vim.opt.fillchars.eob = " "
--- vim.opt.fillchars = vim.opt.fillchars + "vertleft: "
--- vim.opt.fillchars = vim.opt.fillchars + "vertright: "
+
+vim.g.gitblame_enabled = 1
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.fillchars.eob = " "
+vim.opt.fillchars = vim.opt.fillchars + "vertleft: "
+vim.opt.fillchars = vim.opt.fillchars + "vertright: "
 vim.opt.fillchars = vim.opt.fillchars + "eob: "
 vim.opt.fillchars:append {
   stl = " ",
@@ -122,10 +115,3 @@ vim.filetype.add {
   },
 }
 
-lvim.builtin.nvimtree.setup.view.mappings.list = {
-  { key = { "l", "<CR>", "o" }, action = "edit", mode = "n" },
-  { key = "h", action = "close_node" },
-  { key = "v", action = "vsplit" },
-  { key = "<C-k>", action = "" },
-  { key = "C", action = "cd" },
-}

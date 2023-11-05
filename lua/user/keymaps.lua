@@ -70,7 +70,7 @@ keymap(
   opts
 )
 keymap("n", "<F7>", "<cmd>TSHighlightCapturesUnderCursor<cr>", opts)
-keymap("n", "<C-z>", "<cmd>ZenMode<cr>", opts)
+-- keymap("n", "<C-z>", "<cmd>ZenMode<cr>", opts)
 keymap("n", "-", ":lua require'lir.float'.toggle()<cr>", opts)
 
 -- keymap("n", "gx", [[:silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 0)<CR>]], opts)
@@ -117,9 +117,9 @@ M.show_documentation = function()
     vim.lsp.buf.hover()
   end
 end
-vim.api.nvim_set_keymap("n", "K", ":lua require('user.keymaps').show_documentation()<CR>", opts)
+-- vim.api.nvim_set_keymap("n", "K", ":lua require('user.keymaps').show_documentation()<CR>", opts)
+vim.api.nvim_set_keymap("n", "K", "<cmd>Lspsaga hover_doc", opts)
 
 --Insert--
 keymap("i", "jk", '<ESC>', opts)
-
 return M

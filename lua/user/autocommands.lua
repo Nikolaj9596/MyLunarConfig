@@ -7,6 +7,17 @@
 --   end,
 -- })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "lua", "python" }, -- Optional, you can specify a file pattern here.
+  command = function()
+    vim.cmd [[
+        setlocal foldmethod=indent
+        setlocal foldlevel=2
+      ]]
+  end,
+})
+
+
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   callback = function()
     vim.cmd "set formatoptions-=cro"
@@ -28,9 +39,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   },
   callback = function()
     vim.cmd [[
-      nnoremap <silent> <buffer> q :close<CR> 
-      nnoremap <silent> <buffer> <esc> :close<CR> 
-      set nobuflisted 
+      nnoremap <silent> <buffer> q :close<CR>
+      nnoremap <silent> <buffer> <esc> :close<CR>
+      set nobuflisted
     ]]
   end,
 })
@@ -40,8 +51,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   callback = function()
     vim.cmd [[
       nnoremap <silent> <buffer> <m-r> :close<CR>
-      " nnoremap <silent> <buffer> <m-r> <NOP> 
-      set nobuflisted 
+      " nnoremap <silent> <buffer> <m-r> <NOP>
+      set nobuflisted
     ]]
   end,
 })
@@ -52,10 +63,10 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     local buf_ft = vim.bo.filetype
     if buf_ft == "" or buf_ft == nil then
       vim.cmd [[
-      nnoremap <silent> <buffer> q :close<CR> 
-      " nnoremap <silent> <buffer> <c-j> j<CR> 
-      " nnoremap <silent> <buffer> <c-k> k<CR> 
-      set nobuflisted 
+      nnoremap <silent> <buffer> q :close<CR>
+      " nnoremap <silent> <buffer> <c-j> j<CR>
+      " nnoremap <silent> <buffer> <c-k> k<CR>
+      set nobuflisted
     ]]
     end
   end,
@@ -125,12 +136,12 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   end,
 })
 
--- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
---   pattern = { "*.java" },
---   callback = function()
---     vim.lsp.codelens.refresh()
---   end,
--- })
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  pattern = { "*.java" },
+  callback = function()
+    vim.lsp.codelens.refresh()
+  end,
+})
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
   callback = function()

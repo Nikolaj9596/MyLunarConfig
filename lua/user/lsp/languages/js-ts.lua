@@ -38,7 +38,7 @@ formatters.setup {
 -- Set a linter.
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-  { command = "eslint_d", filetypes = { "javascript", "typescript" } },
+  { command = "eslint_d", filetypes = { "javascript", "typescript", "typescriptreact"} },
 }
 
 local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")

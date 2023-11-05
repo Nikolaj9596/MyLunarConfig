@@ -206,14 +206,42 @@ lvim.builtin.telescope.extensions = {
       -- vim.api.nvim_put({ emoji.value }, 'c', false, true)
     end,
   },
+  telescope_tabs = {
+
+    show_preview = false,
+    close_tab_shortcut = "C-d",
+    initial_mode = "normal",
+    theme = "dropdown",
+    -- Your custom config :^)
+  },
+  lsp_handlers = {
+    disable = {},
+    location = {
+      telescope = {},
+      no_results_message = "No references found",
+    },
+    symbol = {
+      telescope = {},
+      no_results_message = "No symbols found",
+    },
+    call_hierarchy = {
+      telescope = {},
+      no_results_message = "No calls found",
+    },
+    code_action = {
+      telescope = require("telescope.themes").get_dropdown {},
+      no_results_message = "No code actions available",
+      prefix = "",
+    },
+  },
 }
 
-require("telescope").load_extension("fzf", "media_files", "emoji", "session-lens")
-
-require("telescope-tabs").setup {
-  show_preview = false,
-  close_tab_shortcut = "C-d",
-  initial_mode = "normal",
-  theme = "dropdown",
-  -- Your custom config :^)
-}
+lvim.builtin.telescope.load_extension(
+  "fzf",
+  "media_files",
+  "emoji",
+  "session-lens",
+  "telescope-tabs",
+  "lsp_handlers",
+  "harpoon"
+)

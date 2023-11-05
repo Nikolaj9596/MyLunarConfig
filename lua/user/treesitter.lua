@@ -17,24 +17,23 @@ if lvim.colorscheme == "darkplus" then
   }
 end
 
-lvim.builtin.treesitter.highlight = {
-  enable = true,
-  additional_vim_regex_highlighting = { "php" },
-}
+-- lvim.builtin.treesitter.highlight = {
+--   enable = true,
+--   additional_vim_regex_highlighting = { "php" },
+-- }
 
 lvim.builtin.treesitter.ensure_installed = {
   "javascript",
   "bash",
   "c",
-  "javascript",
   "json",
+  "java",
   "lua",
   "python",
   "typescript",
   "tsx",
   "css",
   "rust",
-  "java",
   "yaml",
   "markdown",
   "markdown_inline",

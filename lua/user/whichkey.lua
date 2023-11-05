@@ -24,16 +24,16 @@ lvim.builtin.which_key.mappings["d"] = {
   x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
 }
 -- Database
--- lvim.builtin.which_key.mappings["D"] = {
---   name = "Database",
---   u = { "<Cmd>DBUIToggle<Cr>", "Toggle UI" },
---   f = { "<Cmd>DBUIFindBuffer<Cr>", "Find buffer" },
---   r = { "<Cmd>DBUIRenameBuffer<Cr>", "Rename buffer" },
---   q = { "<Cmd>DBUILastQueryInfo<Cr>", "Last query info" },
+lvim.builtin.which_key.mappings["D"] = {
+  name = "Database",
+  u = { "<Cmd>DBUIToggle<Cr>", "Toggle UI" },
+  f = { "<Cmd>DBUIFindBuffer<Cr>", "Find buffer" },
+  r = { "<Cmd>DBUIRenameBuffer<Cr>", "Rename buffer" },
+  q = { "<Cmd>DBUILastQueryInfo<Cr>", "Last query info" },
   -- 'postgres://postgres:mypassword@localhost:5432/my-dev-db',
   -- 'mysql://root@localhost/wp_awesome',
   -- 'redis:///localhost:5432/my-dev-db',
--- }
+}
 
 lvim.builtin.which_key.mappings["f"] = {
   name = "Find",
@@ -44,14 +44,13 @@ lvim.builtin.which_key.mappings["f"] = {
   s = { "<cmd>Telescope grep_string<cr>", "Find String" },
   h = { "<cmd>Telescope help_tags<cr>", "Help" },
   H = { "<cmd>Telescope highlights<cr>", "Highlights" },
-  i = { "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", "Media" },
   l = { "<cmd>Telescope resume<cr>", "Last Search" },
   M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
   r = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
   R = { "<cmd>Telescope registers<cr>", "Registers" },
   k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
   C = { "<cmd>Telescope commands<cr>", "Commands" },
-  e = { "<cmd>Telescope emoji<cr>", "Emoji" },
+  i = { "<cmd>IconPickerNormal<cr>", "Icon" },
 }
 lvim.builtin.which_key.mappings["g"] = {
   name = "Git",
@@ -77,15 +76,15 @@ lvim.builtin.which_key.mappings["g"] = {
     "<cmd>Gitsigns diffthis HEAD<cr>",
     "Diff",
   },
-  G = {
-    name = "Gist",
-    a = { "<cmd>Gist -b -a<cr>", "Create Anon" },
-    d = { "<cmd>Gist -d<cr>", "Delete" },
-    f = { "<cmd>Gist -f<cr>", "Fork" },
-    g = { "<cmd>Gist -b<cr>", "Create" },
-    l = { "<cmd>Gist -l<cr>", "List" },
-    p = { "<cmd>Gist -b -p<cr>", "Create Private" },
-  },
+  -- G = {
+  --   name = "Gist",
+  --   a = { "<cmd>Gist -b -a<cr>", "Create Anon" },
+  --   d = { "<cmd>Gist -d<cr>", "Delete" },
+  --   f = { "<cmd>Gist -f<cr>", "Fork" },
+  --   g = { "<cmd>Gist -b<cr>", "Create" },
+  --   l = { "<cmd>Gist -l<cr>", "List" },
+  --   p = { "<cmd>Gist -b -p<cr>", "Create Private" },
+  -- },
 }
 lvim.builtin.which_key.mappings["l"] = {
   name = "LSP",
@@ -100,31 +99,31 @@ lvim.builtin.which_key.mappings["l"] = {
     "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
     "Workspace Symbols",
   },
+  w = {
+    "<cmd>Telescope lsp_workspace_diagnostics<cr>",
+    "Workspace Diagnostics",
+  },
+  H = { "<cmd>IlluminationToggle<cr>", "Toggle Doc HL" },
+  j = {
+    "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>",
+    "Next Diagnostic",
+  },
+  k = {
+    "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>",
+    "Prev Diagnostic",
+  },
+  q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+  r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+  R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
+  u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
+  o = { "<cmd>SymbolsOutline<cr>", "Outline" },
+  t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
+  d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
   -- TODO: Remove not needed
   -- F = { "<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat" },
   -- c = { "<cmd>lua require('copilot.suggestion').toggle_auto_trigger()<cr>", "Get Capabilities" },
   -- c = { "<cmd>lua require('user.lsp').server_capabilities()<cr>", "Get Capabilities" },
-  -- d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
-  -- w = {
-  --   "<cmd>Telescope lsp_workspace_diagnostics<cr>",
-  --   "Workspace Diagnostics",
-  -- },
-  -- H = { "<cmd>IlluminationToggle<cr>", "Toggle Doc HL" },
-  -- j = {
-  --   "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>",
-  --   "Next Diagnostic",
-  -- },
-  -- k = {
-  --   "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>",
-  --   "Prev Diagnostic",
-  -- },
   -- v = { "<cmd>lua require('lsp_lines').toggle()<cr>", "Virtual Text" },
-  -- t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
-  -- u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
-  -- o = { "<cmd>SymbolsOutline<cr>", "Outline" },
-  -- q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-  -- r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-  -- R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
 }
 lvim.builtin.which_key.mappings["t"] = {
   name = "Terminal",
@@ -210,12 +209,24 @@ which_key.register(m_mappings, m_opts)
 --   o = { "<cmd>tabonly<cr>", "Only Tab" },
 -- }
 
--- lvim.builtin.which_key.mappings["a"] = {
---   name = "AI",
---   t = { "<cmd>NeoAI<cr>", "NeoAI" },
---   i = { "<cmd>NeoAIInjectCode<cr>", "NeoAIInjectCode" },
---   c = { "<cmd>ChatGPT<cr>", "ChatGPT" },
--- }
+lvim.builtin.which_key.mappings["a"] = {
+  name = "AI",
+  --   t = { "<cmd>NeoAI<cr>", "NeoAI" },
+  --   i = { "<cmd>NeoAIInjectCode<cr>", "NeoAIInjectCode" },
+  c = { "<cmd>ChatGPT<cr>", "ChatGPT" },
+  e = { "<cmd>ChatGPTEditWithInstruction<CR>", "Edit with instruction", mode = { "n", "v" } },
+  g = { "<cmd>ChatGPTRun grammar_correction<CR>", "Grammar Correction", mode = { "n", "v" } },
+  t = { "<cmd>ChatGPTRun translate<CR>", "Translate", mode = { "n", "v" } },
+  k = { "<cmd>ChatGPTRun keywords<CR>", "Keywords", mode = { "n", "v" } },
+  d = { "<cmd>ChatGPTRun docstring<CR>", "Docstring", mode = { "n", "v" } },
+  a = { "<cmd>ChatGPTRun add_tests<CR>", "Add Tests", mode = { "n", "v" } },
+  o = { "<cmd>ChatGPTRun optimize_code<CR>", "Optimize Code", mode = { "n", "v" } },
+  s = { "<cmd>ChatGPTRun summarize<CR>", "Summarize", mode = { "n", "v" } },
+  f = { "<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs", mode = { "n", "v" } },
+  x = { "<cmd>ChatGPTRun explain_code<CR>", "Explain Code", mode = { "n", "v" } },
+  r = { "<cmd>ChatGPTRun roxygen_edit<CR>", "Roxygen Edit", mode = { "n", "v" } },
+  l = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "Code Readability Analysis", mode = { "n", "v" } },
+}
 -- lvim.builtin.cmp.enabled = false
 -- lvim.builtin.which_key.mappings["o"] = {
 --   name = "Options",

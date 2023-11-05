@@ -1,4 +1,4 @@
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "jsonls", "pyright", "sourcery" })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "jsonls", "pyright" })
 
 local pyright_opts = {
   single_file_support = true,
@@ -21,7 +21,7 @@ local pyright_opts = {
 
 -- require("lvim.lsp.manager").setup("ruff_lsp")
 require("lvim.lsp.manager").setup("pyright", pyright_opts)
-require("lvim.lsp.manager").setup "sourcery"
+-- require("lvim.lsp.manager").setup "sourcery"
 
 -- Set a formatter.
 local formatters = require "lvim.lsp.null-ls.formatters"
