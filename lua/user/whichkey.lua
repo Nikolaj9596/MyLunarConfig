@@ -138,15 +138,31 @@ lvim.builtin.which_key.mappings["t"] = {
   v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 }
 
+-- INFO: this config for Telekasten plugin
+-- lvim.builtin.which_key.mappings["n"] = {
+--   name = "Notes",
+--   c = { "<cmd>Telekasten show_calendar<cr>", "Calendar" },
+--   n = { "<cmd>Telekasten new_note<cr>", "Note" },
+--   f = { "<cmd>Telekasten find_notes<cr>", "Find" },
+--   F = { "<cmd>Telekasten find_daily_notes<cr>", "Find Journal" },
+--   j = { "<cmd>Telekasten goto_today<cr>", "Journal" },
+--   p = { "<cmd>Telekasten panel<cr>", "Panel" },
+--   t = { "<cmd>Telekasten toggle_todo<cr>", "Toggle Todo" },
+-- }
+
 lvim.builtin.which_key.mappings["n"] = {
   name = "Notes",
-  c = { "<cmd>Telekasten show_calendar<cr>", "Calendar" },
-  n = { "<cmd>Telekasten new_note<cr>", "Note" },
-  f = { "<cmd>Telekasten find_notes<cr>", "Find" },
-  F = { "<cmd>Telekasten find_daily_notes<cr>", "Find Journal" },
-  j = { "<cmd>Telekasten goto_today<cr>", "Journal" },
-  p = { "<cmd>Telekasten panel<cr>", "Panel" },
-  t = { "<cmd>Telekasten toggle_todo<cr>", "Toggle Todo" },
+  n = { "<cmd>ObsNvimFollowLink<cr>", "ObsFollowLink" },
+  -- r = { "<cmd>ObsNvimRandomNote<cr>", "ObsRandomNote" },
+  N = { "<cmd>ObsNvimNewNote<cr>", "ObsNewNote" },
+  d = { "<cmd>ObsNvimDailyNote<cr>", "ObsDailyNote" },
+  r = { "<cmd>ObsNvimRename<cr>", "ObsRename" },
+  T = { "<cmd>ObsNvimTemplate<cr>", "ObsTemplate" },
+  M = { "<cmd>ObsNvimMove<cr>", "ObsMove" },
+  b = { "<cmd>ObsNvimBacklinks<cr>", "ObsBacklinks" },
+  j = { "<cmd>ObsNvimFindInJournal<cr>", "ObsFindInJournal" },
+  f = { "<cmd>ObsNvimFindNote<cr>", "ObsFindNote" },
+  g = { "<cmd>ObsNvimFindInNotes<cr>", "ObsFindInNotes" },
 }
 
 lvim.builtin.which_key.mappings[";"] = nil
@@ -176,12 +192,12 @@ local m_mappings = {
   j = { "<cmd>silent BookmarkNext<cr>", "Next" },
   k = { "<cmd>silent BookmarkPrev<cr>", "Prev" },
   x = { "<cmd>BookmarkClearAll<cr>", "Clear All" },
-  s = { "<cmd>Telescope harpoon marks<cr>", "Search Files" },
-  b = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
   S = { "<cmd>silent BookmarkShowAll<cr>", "Show All" },
-  ["."] = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', "Harpoon Next" },
-  [","] = { '<cmd>lua require("harpoon.ui").nav_prev()<cr>', "Harpoon Prev" },
-  [";"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon UI" },
+  -- s = { "<cmd>Telescope harpoon marks<cr>", "Search Files" },
+  -- b = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
+  -- ["."] = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', "Harpoon Next" },
+  -- [","] = { '<cmd>lua require("harpoon.ui").nav_prev()<cr>', "Harpoon Prev" },
+  -- [";"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon UI" },
   -- l = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
   -- s = {
   --   "<cmd>lua require('telescope').extensions.vim_bookmarks.all({ hide_filename=false, prompt_title=\"bookmarks\", shorten_path=false })<cr>",
@@ -209,24 +225,24 @@ which_key.register(m_mappings, m_opts)
 --   o = { "<cmd>tabonly<cr>", "Only Tab" },
 -- }
 
-lvim.builtin.which_key.mappings["a"] = {
-  name = "AI",
-  --   t = { "<cmd>NeoAI<cr>", "NeoAI" },
-  --   i = { "<cmd>NeoAIInjectCode<cr>", "NeoAIInjectCode" },
-  c = { "<cmd>ChatGPT<cr>", "ChatGPT" },
-  e = { "<cmd>ChatGPTEditWithInstruction<CR>", "Edit with instruction", mode = { "n", "v" } },
-  g = { "<cmd>ChatGPTRun grammar_correction<CR>", "Grammar Correction", mode = { "n", "v" } },
-  t = { "<cmd>ChatGPTRun translate<CR>", "Translate", mode = { "n", "v" } },
-  k = { "<cmd>ChatGPTRun keywords<CR>", "Keywords", mode = { "n", "v" } },
-  d = { "<cmd>ChatGPTRun docstring<CR>", "Docstring", mode = { "n", "v" } },
-  a = { "<cmd>ChatGPTRun add_tests<CR>", "Add Tests", mode = { "n", "v" } },
-  o = { "<cmd>ChatGPTRun optimize_code<CR>", "Optimize Code", mode = { "n", "v" } },
-  s = { "<cmd>ChatGPTRun summarize<CR>", "Summarize", mode = { "n", "v" } },
-  f = { "<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs", mode = { "n", "v" } },
-  x = { "<cmd>ChatGPTRun explain_code<CR>", "Explain Code", mode = { "n", "v" } },
-  r = { "<cmd>ChatGPTRun roxygen_edit<CR>", "Roxygen Edit", mode = { "n", "v" } },
-  l = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "Code Readability Analysis", mode = { "n", "v" } },
-}
+-- lvim.builtin.which_key.mappings["a"] = {
+--   name = "AI",
+--   --   t = { "<cmd>NeoAI<cr>", "NeoAI" },
+--   --   i = { "<cmd>NeoAIInjectCode<cr>", "NeoAIInjectCode" },
+--   c = { "<cmd>ChatGPT<cr>", "ChatGPT" },
+--   e = { "<cmd>ChatGPTEditWithInstruction<CR>", "Edit with instruction", mode = { "n", "v" } },
+--   g = { "<cmd>ChatGPTRun grammar_correction<CR>", "Grammar Correction", mode = { "n", "v" } },
+--   t = { "<cmd>ChatGPTRun translate<CR>", "Translate", mode = { "n", "v" } },
+--   k = { "<cmd>ChatGPTRun keywords<CR>", "Keywords", mode = { "n", "v" } },
+--   d = { "<cmd>ChatGPTRun docstring<CR>", "Docstring", mode = { "n", "v" } },
+--   a = { "<cmd>ChatGPTRun add_tests<CR>", "Add Tests", mode = { "n", "v" } },
+--   o = { "<cmd>ChatGPTRun optimize_code<CR>", "Optimize Code", mode = { "n", "v" } },
+--   s = { "<cmd>ChatGPTRun summarize<CR>", "Summarize", mode = { "n", "v" } },
+--   f = { "<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs", mode = { "n", "v" } },
+--   x = { "<cmd>ChatGPTRun explain_code<CR>", "Explain Code", mode = { "n", "v" } },
+--   r = { "<cmd>ChatGPTRun roxygen_edit<CR>", "Roxygen Edit", mode = { "n", "v" } },
+--   l = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "Code Readability Analysis", mode = { "n", "v" } },
+-- }
 -- lvim.builtin.cmp.enabled = false
 -- lvim.builtin.which_key.mappings["o"] = {
 --   name = "Options",

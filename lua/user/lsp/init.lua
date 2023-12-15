@@ -13,7 +13,7 @@ require "user.lsp.languages.json"
 require "user.lsp.languages.sql"
 require "user.lsp.languages.java"
 
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
+-- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
 
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {

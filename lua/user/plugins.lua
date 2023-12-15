@@ -1,36 +1,23 @@
 lvim.plugins = {
-  -- {
-  --   "anuvyklack/fold-preview.nvim",
-  --   dependencies = "anuvyklack/keymap-amend.nvim",
-  --   config = function()
-  --     local fp = require "fold-preview"
-  --     local map = require("fold-preview").mapping
-  --     local keymap = vim.keymap
-  --     keymap.amend = require "keymap-amend"
+  {
+    "IlyasYOY/obs.nvim",
+    dependencies = {
+      "IlyasYOY/coredor.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      local obs = require "obs"
 
-  --     fp.setup {
-  --       default_keybindings = false,
-  --       -- another settings
-  --     }
-
-  --     keymap.amend("n", "K", function(original)
-  --       if not fp.show_preview() then
-  --         original()
-  --       end
-  --       -- or
-  --       -- if not fp.toggle_preview() then original() end
-  --       -- to close preview on second press on K.
-  --     end)
-  --     keymap.amend("n", "h", map.close_preview_open_fold)
-  --     keymap.amend("n", "l", map.close_preview_open_fold)
-  --     keymap.amend("n", "zo", map.close_preview)
-  --     keymap.amend("n", "zO", map.close_preview)
-  --     keymap.amend("n", "zc", map.close_preview_without_defer)
-  --     keymap.amend("n", "zR", map.close_preview)
-  --     keymap.amend("n", "zM", map.close_preview_without_defer)
-  --   end,
-  -- },
-  "rcarriga/nvim-dap-ui",
+      obs.setup {
+        vault_home = "~/Obsidian/Notes/",
+        journal = {
+          template_name = "daily",
+        },
+      }
+    end,
+  },
+  -- "rcarriga/nvim-dap-ui",
   "mfussenegger/nvim-dap",
   -- -- LSP --
   "lvimuser/lsp-inlayhints.nvim", -- Partial implementation of LSP inlay hint.pl
@@ -42,7 +29,12 @@ lvim.plugins = {
 
   -- -- Useful --
   "tyru/open-browser.vim",
-  "christianchiarulli/harpoon",
+  -- {
+  --     "ThePrimeagen/harpoon",
+  --     branch = "harpoon2",
+  -- },
+  "nvim-lua/plenary.nvim",
+  --'ThePrimeagen/harpoon',
   "MattesGroeger/vim-bookmarks",
   "moll/vim-bbye", -- For close buffer
   "windwp/nvim-spectre", -- Spectre find the enemy and replace them with dark power.
@@ -51,14 +43,15 @@ lvim.plugins = {
   "kevinhwang91/nvim-bqf", -- The goal of nvim-bqf is to make Neovim's quickfix window better.
   -- -- Leap is a general-purpose motion plugin for Neovim, with the ultimate goal of establishing a
   -- -- new standard interface for moving around in the visible area in Vim-like modal editors.
-  "ggandor/leap.nvim", -- plugin fore very fas finc character in line
-  "nacro90/numb.nvim", -- plugin that peeks lines of the buffer in non-obtrusive way.
+  "ggandor/leap.nvim", -- plugin fore very fast find character in line
+  -- "nacro90/numb.nvim", -- plugin that peeks lines of the buffer in non-obtrusive way.
 
   -- -- Scroll --
-  "kevinhwang91/nvim-hlslens", -- hughlite search element in scrollbar
-  "petertriho/nvim-scrollbar", -- Scroll bar in left
+  -- "kevinhwang91/nvim-hlslens", -- hughlite search element in scrollbar
+  -- "petertriho/nvim-scrollbar", -- Scroll bar in left
   "opalmay/vim-smoothie",
   -- "karb94/neoscroll.nvim",
+  --
   -- -- GIT --
   -- -- "TimUntersberger/neogit",
   -- "mattn/vim-gist",
@@ -74,16 +67,24 @@ lvim.plugins = {
   "nvim-treesitter/nvim-tree-docs",
 
   -- -- DAP --
-  -- -- "leoluz/nvim-dap-go",
+  -- "leoluz/nvim-dap-go",
   "mxsdev/nvim-dap-vscode-js",
   "mfussenegger/nvim-dap-python",
 
-  -- -- Colorschemas
+  -- Colorschemas
+  -- "sainnhe/gruvbox-material",
+  {
+    "craftzdog/solarized-osaka.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
   "ellisonleao/gruvbox.nvim",
   "lunarvim/darkplus.nvim",
   "LunarVim/synthwave84.nvim",
   "NvChad/nvim-colorizer.lua",
   "lunarvim/templeos.nvim",
+  "navarasu/onedark.nvim",
 
   -- -- Auto Session
   "rmagatti/auto-session",
@@ -230,52 +231,53 @@ lvim.plugins = {
       require("mini.indentscope").setup(opts)
     end,
   },
-  {
-    "echasnovski/mini.misc",
-    config = true,
-    --stylua: ignore
-    keys = {
-      { "<leader>z", function() require("mini.misc").zoom() end, desc = "Toggle Zoom" },
-    },
-  },
+  -- {
+  --   "echasnovski/mini.misc",
+  --   config = true,
+  --   --stylua: ignore
+  --   keys = {
+  --     { "<leader>z", function() require("mini.misc").zoom() end, desc = "Toggle Zoom" },
+  --   },
+  -- },
   {
     "m-demare/hlargs.nvim",
     event = "VeryLazy",
-    opts = {
-      color = "#ef9062",
-      use_colorpalette = false,
-      disable = function(_, bufnr)
-        if vim.b.semantic_tokens then
-          return true
-        end
-        local clients = vim.lsp.get_active_clients { bufnr = bufnr }
-        for _, c in pairs(clients) do
-          local caps = c.server_capabilities
-          if c.name ~= "null-ls" and caps.semanticTokensProvider and caps.semanticTokensProvider.full then
-            vim.b.semantic_tokens = true
-            return vim.b.semantic_tokens
-          end
-        end
-      end,
-    },
+    -- opts = {
+    --   -- color = "#ef9062",
+    --   color = "#b7221e",
+    --   use_colorpalette = false,
+    --   disable = function(_, bufnr)
+    --     if vim.b.semantic_tokens then
+    --       return true
+    --     end
+    --     local clients = vim.lsp.get_active_clients { bufnr = bufnr }
+    --     for _, c in pairs(clients) do
+    --       local caps = c.server_capabilities
+    --       if c.name ~= "null-ls" and caps.semanticTokensProvider and caps.semanticTokensProvider.full then
+    --         vim.b.semantic_tokens = true
+    --         return vim.b.semantic_tokens
+    --       end
+    --     end
+    --   end,
+    -- },
   },
 
   "folke/todo-comments.nvim", -- Highlights todo comments
-  "j-hui/fidget.nvim", -- Standalone UI for nvim-lsp progress. Eye candy for the impatient.
-  "renerocksai/telekasten.nvim",
-  {
-    "lukas-reineke/headlines.nvim",
-    after = "nvim-treesitter",
-    config = function()
-      require("headlines").setup()
-    end,
-  }, -- This plugin adds highlights for text filetypes, like markdown, orgmode, and neorg.
+  -- "j-hui/fidget.nvim", -- Standalone UI for nvim-lsp progress. Eye candy for the impatient.
+  -- "renerocksai/telekasten.nvim",
+  -- {
+  --   "lukas-reineke/headlines.nvim",
+  --   after = "nvim-treesitter",
+  --   config = function()
+  --     require("headlines").setup()
+  --   end,
+  -- }, -- This plugin adds highlights for text filetypes, like markdown, orgmode, and neorg.
 
   -- -- Dart & Flutter --
-  "dart-lang/dart-vim-plugin",
-  "thosakwe/vim-flutter",
-  "natebosch/vim-lsc",
-  "natebosch/vim-lsc-dart",
+  -- "dart-lang/dart-vim-plugin",
+  -- "thosakwe/vim-flutter",
+  -- "natebosch/vim-lsc",
+  -- "natebosch/vim-lsc-dart",
 
   -- -- LuaSnip --
   "L3MON4D3/LuaSnip",

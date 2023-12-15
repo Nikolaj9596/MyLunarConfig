@@ -21,13 +21,13 @@ local pyright_opts = {
 
 -- require("lvim.lsp.manager").setup("ruff_lsp")
 require("lvim.lsp.manager").setup("pyright", pyright_opts)
--- require("lvim.lsp.manager").setup "sourcery"
+-- require("lvim.lsp.manager").setup("sourcery")
 
 -- Set a formatter.
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  -- { command = "black", filetypes = { "python" } },
-  { command = "blue", filetypes = { "python" } },
+  { command = "black", filetypes = { "python" } },
+  -- { command = "blue", filetypes = { "python" } },
   -- { command = "isort", filetypes = { "python" } },
   { command = "ruff", filetypes = { "python" } },
 }
