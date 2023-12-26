@@ -146,22 +146,22 @@ lvim.icons.kind = {
   String = "",
 }
 
---   git = {
---     LineAdded = "",
---     LineModified = "",
---     LineRemoved = "",
---     FileDeleted = "",
---     FileIgnored = "◌",
---     FileRenamed = "➜",
---     FileStaged = "S",
---     FileUnmerged = "",
---     FileUnstaged = "",
---     FileUntracked = "U",
---     Diff = "",
---     Repo = "",
---     Octoface = "",
---     Branch = "",
---   },
+ lvim.icons.git = {
+    LineAdded = "",
+    LineModified = "",
+    LineRemoved = "",
+    FileDeleted = "",
+    FileIgnored = "◌",
+    FileRenamed = "➜",
+    FileStaged = "S",
+    FileUnmerged = "",
+    FileUnstaged = "",
+    FileUntracked = "U",
+    Diff = "",
+    Repo = "",
+    Octoface = "",
+    Branch = "",
+  }
 --   ui = {
 --     ArrowCircleDown = "",
 --     ArrowCircleLeft = "",

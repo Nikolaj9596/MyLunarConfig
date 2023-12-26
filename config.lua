@@ -22,7 +22,7 @@ reload "user.dap_config"
 reload "user.femaco"
 reload "user.cmp"
 reload "user.go_to_preview"
-reload "user.obs"
+reload "user.obsidian"
 reload "user.hlargs"
 reload "user.solarized_osaka"
 

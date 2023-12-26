@@ -1,23 +1,4 @@
 
--- vim.api.nvim_create_autocmd({ "User" }, {
---   pattern = { "AlphaReady" },
---   callback = function()
---     vim.cmd [[
---       set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
---     ]]
---   end,
--- })
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "lua", "python" }, -- Optional, you can specify a file pattern here.
-  command = function()
-    vim.cmd [[
-        setlocal foldmethod=indent
-        setlocal foldlevel=2
-      ]]
-  end,
-})
-
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   callback = function()
     vim.cmd "set formatoptions-=cro"
@@ -41,17 +22,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     vim.cmd [[
       nnoremap <silent> <buffer> q :close<CR>
       nnoremap <silent> <buffer> <esc> :close<CR>
-      set nobuflisted
-    ]]
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "Jaq" },
-  callback = function()
-    vim.cmd [[
-      nnoremap <silent> <buffer> <m-r> :close<CR>
-      " nnoremap <silent> <buffer> <m-r> <NOP>
       set nobuflisted
     ]]
   end,
@@ -86,14 +56,6 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  pattern = { "term://*" },
-  callback = function()
-    vim.cmd "startinsert!"
-    -- TODO: if java = 2
-    vim.cmd "set cmdheight=1"
-  end,
-})
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "gitcommit", "markdown" },
@@ -170,20 +132,3 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
   end,
 })
 
--- vim.api.nvim_create_autocmd({ "ModeChanged" }, {
---   callback = function()
---     local luasnip = require "luasnip"
---     if luasnip.expand_or_jumpable() then
---       -- ask maintainer for option to make this silent
---       -- luasnip.unlink_current()
---       vim.cmd [[silent! lua require("luasnip").unlink_current()]]
---     end
---   end,
--- })
-
--- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
---   pattern = { "*.ts" },
---   callback = function()
---     vim.lsp.buf.format { async = true }
---   end,
--- })

@@ -29,28 +29,13 @@ lvim.plugins = {
 
   -- -- Useful --
   "tyru/open-browser.vim",
-  -- {
-  --     "ThePrimeagen/harpoon",
-  --     branch = "harpoon2",
-  -- },
   "nvim-lua/plenary.nvim",
-  --'ThePrimeagen/harpoon',
   "MattesGroeger/vim-bookmarks",
   "moll/vim-bbye", -- For close buffer
-  "windwp/nvim-spectre", -- Spectre find the enemy and replace them with dark power.
   "mattn/webapi-vim",
-  -- "folke/zen-mode.nvim",
   "kevinhwang91/nvim-bqf", -- The goal of nvim-bqf is to make Neovim's quickfix window better.
-  -- -- Leap is a general-purpose motion plugin for Neovim, with the ultimate goal of establishing a
-  -- -- new standard interface for moving around in the visible area in Vim-like modal editors.
   "ggandor/leap.nvim", -- plugin fore very fast find character in line
-  -- "nacro90/numb.nvim", -- plugin that peeks lines of the buffer in non-obtrusive way.
-
-  -- -- Scroll --
-  -- "kevinhwang91/nvim-hlslens", -- hughlite search element in scrollbar
-  -- "petertriho/nvim-scrollbar", -- Scroll bar in left
   "opalmay/vim-smoothie",
-  -- "karb94/neoscroll.nvim",
   --
   -- -- GIT --
   -- -- "TimUntersberger/neogit",
@@ -263,22 +248,6 @@ lvim.plugins = {
   },
 
   "folke/todo-comments.nvim", -- Highlights todo comments
-  -- "j-hui/fidget.nvim", -- Standalone UI for nvim-lsp progress. Eye candy for the impatient.
-  -- "renerocksai/telekasten.nvim",
-  -- {
-  --   "lukas-reineke/headlines.nvim",
-  --   after = "nvim-treesitter",
-  --   config = function()
-  --     require("headlines").setup()
-  --   end,
-  -- }, -- This plugin adds highlights for text filetypes, like markdown, orgmode, and neorg.
-
-  -- -- Dart & Flutter --
-  -- "dart-lang/dart-vim-plugin",
-  -- "thosakwe/vim-flutter",
-  -- "natebosch/vim-lsc",
-  -- "natebosch/vim-lsc-dart",
-
   -- -- LuaSnip --
   "L3MON4D3/LuaSnip",
   "saadparwaiz1/cmp_luasnip",
@@ -310,10 +279,12 @@ lvim.plugins = {
       }
     end,
   },
+  -- Telescope
   { "christianchiarulli/telescope-tabs", branch = "chris" },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   { "nvim-telescope/telescope-media-files.nvim" },
-  -- -- CMP --
+
+  -- CMP --
   {
     "roobert/tailwindcss-colorizer-cmp.nvim",
     -- optionally, override the default options:
@@ -343,44 +314,6 @@ lvim.plugins = {
     end,
   },
 
-  {
-    "xiyaowong/nvim-transparent",
-    cmd = { "TransparentEnable", "TransparentDisable", "TransparentToggle" },
-    opts = {
-      extra_groups = { -- table/string: additional groups that should be cleared
-        "BufferlineBufferSelected",
-        "BufferLineFill",
-        "BufferLineBackground",
-        "BufferLineSeparator",
-        "BufferLineIndicatorSelected",
-        "NormalFloat", -- plugins which have float panel such as Lazy, Mason, LspInfo
-        "NvimTreeNormal", -- NvimTree
-      },
-      exclude_groups = {},
-    },
-    config = function(_, opts)
-      require("transparent").setup(opts)
-    end,
-  },
-  {
-    "danymat/neogen",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    config = true,
-    -- Uncomment next line if you want to follow only stable versions
-    -- version = "*"
-  },
-
-  --AI--
-
-  {
-    "jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-  },
   "stevearc/dressing.nvim",
   {
     "ziontee113/icon-picker.nvim",
@@ -402,4 +335,74 @@ lvim.plugins = {
   {
     "rmagatti/goto-preview",
   },
+
+  -- {
+  --   "xiyaowong/nvim-transparent",
+  --   cmd = { "TransparentEnable", "TransparentDisable", "TransparentToggle" },
+  --   opts = {
+  --     extra_groups = { -- table/string: additional groups that should be cleared
+  --       "BufferlineBufferSelected",
+  --       "BufferLineFill",
+  --       "BufferLineBackground",
+  --       "BufferLineSeparator",
+  --       "BufferLineIndicatorSelected",
+  --       "NormalFloat", -- plugins which have float panel such as Lazy, Mason, LspInfo
+  --       "NvimTreeNormal", -- NvimTree
+  --     },
+  --     exclude_groups = {},
+  --   },
+  --   config = function(_, opts)
+  --     require("transparent").setup(opts)
+  --   end,
+  -- },
+  -- {
+  --   "danymat/neogen",
+  --   dependencies = "nvim-treesitter/nvim-treesitter",
+  --   config = true,
+  --   -- Uncomment next line if you want to follow only stable versions
+  --   -- version = "*"
+  -- },
+
+  --AI--
+
+  -- {
+  --   "jackMort/ChatGPT.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = {
+  --     "MunifTanjim/nui.nvim",
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-telescope/telescope.nvim",
+  --   },
+  -- },
+  -- "j-hui/fidget.nvim", -- Standalone UI for nvim-lsp progress. Eye candy for the impatient.
+  -- "renerocksai/telekasten.nvim",
+  -- {
+  --   "lukas-reineke/headlines.nvim",
+  --   after = "nvim-treesitter",
+  --   config = function()
+  --     require("headlines").setup()
+  --   end,
+  -- }, -- This plugin adds highlights for text filetypes, like markdown, orgmode, and neorg.
+
+  -- -- Dart & Flutter --
+  -- "dart-lang/dart-vim-plugin",
+  -- "thosakwe/vim-flutter",
+  -- "natebosch/vim-lsc",
+  -- "natebosch/vim-lsc-dart",
+
+  -- {
+  --     "ThePrimeagen/harpoon",
+  --     branch = "harpoon2",
+  -- },
+  --'ThePrimeagen/harpoon',
+  -- "windwp/nvim-spectre", -- Spectre find the enemy and replace them with dark power.
+  -- "folke/zen-mode.nvim",
+  -- -- Leap is a general-purpose motion plugin for Neovim, with the ultimate goal of establishing a
+  -- -- new standard interface for moving around in the visible area in Vim-like modal editors.
+  -- "nacro90/numb.nvim", -- plugin that peeks lines of the buffer in non-obtrusive way.
+
+  -- -- Scroll --
+  -- "kevinhwang91/nvim-hlslens", -- hughlite search element in scrollbar
+  -- "petertriho/nvim-scrollbar", -- Scroll bar in left
+  -- "karb94/neoscroll.nvim",
 }

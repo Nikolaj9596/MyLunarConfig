@@ -7,9 +7,7 @@ lvim.builtin.which_key.mappings["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" }
 lvim.builtin.which_key.mappings["gy"] = "Link"
 lvim.builtin.which_key.mappings["r"] = {
   name = "Replace",
-  r = { "<cmd>lua require('spectre').open()<cr>", "Replace" },
-  w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word" },
-  f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
+  w = { "<cmd>Lspsaga rename<cr>", "Replace Word" },
 }
 lvim.builtin.which_key.mappings["d"] = {
   name = "Debug",
@@ -103,7 +101,6 @@ lvim.builtin.which_key.mappings["l"] = {
     "<cmd>Telescope lsp_workspace_diagnostics<cr>",
     "Workspace Diagnostics",
   },
-  H = { "<cmd>IlluminationToggle<cr>", "Toggle Doc HL" },
   j = {
     "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>",
     "Next Diagnostic",
@@ -112,13 +109,14 @@ lvim.builtin.which_key.mappings["l"] = {
     "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>",
     "Prev Diagnostic",
   },
-  q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-  r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-  R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
-  u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
-  o = { "<cmd>SymbolsOutline<cr>", "Outline" },
-  t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
-  d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
+  o = { "<cmd>Lspsaga outline<cr>", "Outline" },
+  -- H = { "<cmd>IlluminationToggle<cr>", "Toggle Doc HL" },
+  -- u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
+  -- q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+  -- r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+  -- R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
+  -- t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
+  -- d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
   -- TODO: Remove not needed
   -- F = { "<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat" },
   -- c = { "<cmd>lua require('copilot.suggestion').toggle_auto_trigger()<cr>", "Get Capabilities" },
