@@ -6,10 +6,15 @@ local opts = { noremap = true, silent = true }
 
 local keymap = vim.keymap.set
 
-keymap("n", "<S-h>", "<C-w>h", opts)
-keymap("n", "<S-j>", "<C-w>j", opts)
-keymap("n", "<S-k>", "<C-w>k", opts)
-keymap("n", "<S-l>", "<C-w>l", opts)
+-- keymap("n", "<S-h>", "<C-w>h", opts)
+-- keymap("n", "<S-j>", "<C-w>j", opts)
+-- keymap("n", "<S-k>", "<C-w>k", opts)
+-- keymap("n", "<S-l>", "<C-w>l", opts)
+
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -17,9 +22,9 @@ keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
-keymap("n", "<c-j>", "<c-d>", opts)
-keymap("n", "<c-k>", "<c-u>", opts)
-keymap("n", "<c-m>", "<s-m>", opts)
+-- keymap("n", "<c-j>", "<c-d>", opts)
+-- keymap("n", "<c-k>", "<c-u>", opts)
+-- keymap("n", "<c-m>", "<s-m>", opts)
 
 keymap("n", "*", "*zz", opts)
 keymap("n", "#", "#zz", opts)

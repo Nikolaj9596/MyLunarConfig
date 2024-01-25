@@ -1,8 +1,8 @@
 -- lvim.colorscheme = "lunar"
 -- lvim.colorscheme = "gruvbox"
--- lvim.colorscheme = "darkplus"
+lvim.colorscheme = "darkplus"
 -- lvim.colorscheme = "onedark"
-lvim.colorscheme = "solarized-osaka"
+-- lvim.colorscheme = "solarized-osaka"
 lvim.log.level = "warning"
 
 lvim.builtin.alpha.active = false

@@ -9,7 +9,7 @@ lvim.builtin.which_key.mappings["r"] = {
   name = "Replace",
   w = { "<cmd>Lspsaga rename<cr>", "Replace Word" },
 }
-lvim.builtin.which_key.mappings["d"] = {
+lvim.builtin.which_key.mappings["D"] = {
   name = "Debug",
   b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
   c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
@@ -22,7 +22,7 @@ lvim.builtin.which_key.mappings["d"] = {
   x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
 }
 -- Database
-lvim.builtin.which_key.mappings["D"] = {
+lvim.builtin.which_key.mappings["d"] = {
   name = "Database",
   u = { "<Cmd>DBUIToggle<Cr>", "Toggle UI" },
   f = { "<Cmd>DBUIFindBuffer<Cr>", "Find buffer" },
@@ -117,7 +117,6 @@ lvim.builtin.which_key.mappings["l"] = {
   -- R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
   -- t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
   -- d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
-  -- TODO: Remove not needed
   -- F = { "<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat" },
   -- c = { "<cmd>lua require('copilot.suggestion').toggle_auto_trigger()<cr>", "Get Capabilities" },
   -- c = { "<cmd>lua require('user.lsp').server_capabilities()<cr>", "Get Capabilities" },
@@ -202,8 +201,8 @@ local m_mappings = {
   --   "Show",
   -- },
 }
-
 which_key.register(m_mappings, m_opts)
+
 -- TODO: Remove not needed
 -- lvim.builtin.which_key.mappings["c"] = {
 --   name = "ChatGPT",
