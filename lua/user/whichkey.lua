@@ -33,6 +33,15 @@ lvim.builtin.which_key.mappings["d"] = {
   -- 'redis:///localhost:5432/my-dev-db',
 }
 
+lvim.builtin.which_key.mappings["t"] = {
+  name = "Tab",
+  n = { "<cmd>$tabnew<cr>", "New Empty Tab" },
+  N = { "<cmd>tabnew %<cr>", "New Tab" },
+  o = { "<cmd>tabonly<cr>", "Only" },
+  h = { "<cmd>-tabmove<cr>", "Move Left" },
+  l = { "<cmd>+tabmove<cr>", "Move Right" },
+}
+
 lvim.builtin.which_key.mappings["f"] = {
   name = "Find",
   b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
