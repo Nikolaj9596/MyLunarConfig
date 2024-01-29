@@ -1,7 +1,7 @@
   local obs = require("obs")
 
   obs.setup {
-    vault_home = "~/Obsidian/Notes/",
+    vault_home = "/Users/navagin/Obsidian/Notes/",
     journal = {
       template_name = "daily",
     },

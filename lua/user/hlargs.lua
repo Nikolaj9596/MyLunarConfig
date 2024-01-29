@@ -1,5 +1,5 @@
 require('hlargs').setup {
-  color = '#b7221e',
+  color = '#fc8e08',
   highlight = {},
   excluded_filetypes = {},
   -- disable = function(lang, bufnr) -- If changed, `excluded_filetypes` will be ignored
