@@ -260,7 +260,11 @@ lvim.plugins = {
   "weirongxu/plantuml-previewer.vim",
 
   -- -- Markdown --
-  { "AckslD/nvim-FeMaco.lua", ft = { "markdown" }, opts = {} }, -- Catalyze your Fenced Markdown Code-block editing!
+  {
+    "AckslD/nvim-FeMaco.lua",
+    ft = { "markdown" },
+    opts = {},
+  }, -- Catalyze your Fenced Markdown Code-block editing!
   {
     "iamcco/markdown-preview.nvim",
     ft = { "markdown" },
@@ -281,7 +285,10 @@ lvim.plugins = {
   },
   -- Telescope
   { "christianchiarulli/telescope-tabs", branch = "chris" },
-  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+  },
   { "nvim-telescope/telescope-media-files.nvim" },
 
   -- CMP --
@@ -336,6 +343,9 @@ lvim.plugins = {
     "rmagatti/goto-preview",
   },
 
+  {
+    "ThePrimeagen/harpoon",
+  },
   -- {
   --   "xiyaowong/nvim-transparent",
   --   cmd = { "TransparentEnable", "TransparentDisable", "TransparentToggle" },
@@ -390,10 +400,6 @@ lvim.plugins = {
   -- "natebosch/vim-lsc",
   -- "natebosch/vim-lsc-dart",
 
-  -- {
-  --     "ThePrimeagen/harpoon",
-  --     branch = "harpoon2",
-  -- },
   --'ThePrimeagen/harpoon',
   -- "windwp/nvim-spectre", -- Spectre find the enemy and replace them with dark power.
   -- "folke/zen-mode.nvim",

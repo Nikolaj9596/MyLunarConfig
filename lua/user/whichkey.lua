@@ -4,12 +4,12 @@ lvim.builtin.which_key.mappings["h"] = { "<cmd>nohlsearch<cr>", "nohl" }
 lvim.builtin.which_key.mappings["q"] = { '<cmd>lua require("user.functions").smart_quit()<CR>', "Quit" }
 lvim.builtin.which_key.mappings["/"] = { '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', "Comment" }
 lvim.builtin.which_key.mappings["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" }
-lvim.builtin.which_key.mappings["gy"] = "Link"
+-- lvim.builtin.which_key.mappings["gy"] = "Link"
 lvim.builtin.which_key.mappings["r"] = {
   name = "Replace",
   w = { "<cmd>Lspsaga rename<cr>", "Replace Word" },
 }
-lvim.builtin.which_key.mappings["d"] = {
+lvim.builtin.which_key.mappings["D"] = {
   name = "Debug",
   b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
   c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
@@ -22,7 +22,7 @@ lvim.builtin.which_key.mappings["d"] = {
   x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
 }
 -- Database
-lvim.builtin.which_key.mappings["D"] = {
+lvim.builtin.which_key.mappings["d"] = {
   name = "Database",
   u = { "<Cmd>DBUIToggle<Cr>", "Toggle UI" },
   f = { "<Cmd>DBUIFindBuffer<Cr>", "Find buffer" },
@@ -31,6 +31,13 @@ lvim.builtin.which_key.mappings["D"] = {
   -- 'postgres://postgres:mypassword@localhost:5432/my-dev-db',
   -- 'mysql://root@localhost/wp_awesome',
   -- 'redis:///localhost:5432/my-dev-db',
+}
+
+lvim.builtin.which_key.mappings["a"] = {
+  name = "Tab",
+  n = { "<cmd>$tabnew<cr>", "New Empty Tab" },
+  N = { "<cmd>tabnew %<cr>", "New Tab" },
+  c = { "<cmd>tabclose<cr>", "Tab Close"}
 }
 
 lvim.builtin.which_key.mappings["f"] = {
@@ -54,17 +61,17 @@ lvim.builtin.which_key.mappings["g"] = {
   name = "Git",
   g = { "<cmd>lua require 'user.terminal'.lazygit_toggle()<cr>", "Lazygit" },
   -- g = { "<cmd>Neogit<cr>", "Neogit" },
-  j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-  k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
+  -- j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
+  -- k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
   l = { "<cmd>GitBlameToggle<cr>", "Blame" },
-  p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-  r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-  R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-  s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-  u = {
-    "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-    "Undo Stage Hunk",
-  },
+  -- p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
+  -- r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
+  -- R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+  -- s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+  -- u = {
+    -- "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
+    -- "Undo Stage Hunk",
+  -- },
   n = { ":!git checkout -b ", "Checkout New Branch" },
   o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
   b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -117,7 +124,6 @@ lvim.builtin.which_key.mappings["l"] = {
   -- R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
   -- t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
   -- d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
-  -- TODO: Remove not needed
   -- F = { "<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat" },
   -- c = { "<cmd>lua require('copilot.suggestion').toggle_auto_trigger()<cr>", "Get Capabilities" },
   -- c = { "<cmd>lua require('user.lsp').server_capabilities()<cr>", "Get Capabilities" },
@@ -135,18 +141,6 @@ lvim.builtin.which_key.mappings["t"] = {
   h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
   v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 }
-
--- INFO: this config for Telekasten plugin
--- lvim.builtin.which_key.mappings["n"] = {
---   name = "Notes",
---   c = { "<cmd>Telekasten show_calendar<cr>", "Calendar" },
---   n = { "<cmd>Telekasten new_note<cr>", "Note" },
---   f = { "<cmd>Telekasten find_notes<cr>", "Find" },
---   F = { "<cmd>Telekasten find_daily_notes<cr>", "Find Journal" },
---   j = { "<cmd>Telekasten goto_today<cr>", "Journal" },
---   p = { "<cmd>Telekasten panel<cr>", "Panel" },
---   t = { "<cmd>Telekasten toggle_todo<cr>", "Toggle Todo" },
--- }
 
 lvim.builtin.which_key.mappings["n"] = {
   name = "Notes",
@@ -191,19 +185,14 @@ local m_mappings = {
   k = { "<cmd>silent BookmarkPrev<cr>", "Prev" },
   x = { "<cmd>BookmarkClearAll<cr>", "Clear All" },
   S = { "<cmd>silent BookmarkShowAll<cr>", "Show All" },
-  -- s = { "<cmd>Telescope harpoon marks<cr>", "Search Files" },
-  -- b = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
-  -- ["."] = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', "Harpoon Next" },
-  -- [","] = { '<cmd>lua require("harpoon.ui").nav_prev()<cr>', "Harpoon Prev" },
-  -- [";"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon UI" },
-  -- l = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
-  -- s = {
-  --   "<cmd>lua require('telescope').extensions.vim_bookmarks.all({ hide_filename=false, prompt_title=\"bookmarks\", shorten_path=false })<cr>",
-  --   "Show",
-  -- },
+  s = { "<cmd>Telescope harpoon marks<cr>", "Search Files" },
+  b = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
+  ["."] = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', "Harpoon Next" },
+  [","] = { '<cmd>lua require("harpoon.ui").nav_prev()<cr>', "Harpoon Prev" },
+  [";"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon UI" },
 }
-
 which_key.register(m_mappings, m_opts)
+
 -- TODO: Remove not needed
 -- lvim.builtin.which_key.mappings["c"] = {
 --   name = "ChatGPT",
