@@ -1,4 +1,6 @@
-local noiceOpts = {
+local M = {}
+
+M.opts = {
   lsp = {
     -- override markdown rendering so that **cmp** and other plougins use **Treesitter**
     progress = {
@@ -223,4 +225,4 @@ local noiceOpts = {
   -- },
 }
 
-return noiceOpts
+return M
