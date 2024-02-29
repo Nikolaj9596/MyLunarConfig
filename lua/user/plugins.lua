@@ -41,7 +41,6 @@ lvim.plugins = {
   "nvim-lua/plenary.nvim",
   "MattesGroeger/vim-bookmarks",
   "moll/vim-bbye", -- For close buffer
-  "mattn/webapi-vim",
   "kevinhwang91/nvim-bqf", -- The goal of nvim-bqf is to make Neovim's quickfix window better.
   "ggandor/leap.nvim", -- plugin fore very fast find character in line
   "opalmay/vim-smoothie",
@@ -65,8 +64,9 @@ lvim.plugins = {
   "mxsdev/nvim-dap-vscode-js",
   "mfussenegger/nvim-dap-python",
 
+  "NvChad/nvim-colorizer.lua",
+
   -- Colorschemas
-  -- "sainnhe/gruvbox-material",
   {
     "craftzdog/solarized-osaka.nvim",
     lazy = false,
@@ -75,10 +75,10 @@ lvim.plugins = {
   },
   "ellisonleao/gruvbox.nvim",
   "lunarvim/darkplus.nvim",
-  "LunarVim/synthwave84.nvim",
-  "NvChad/nvim-colorizer.lua",
-  "lunarvim/templeos.nvim",
   "navarasu/onedark.nvim",
+  "christianchiarulli/nvcode-color-schemes.vim",
+  "marko-cerovac/material.nvim",
+  "rafamadriz/neon",
 
   -- -- Auto Session
   "rmagatti/auto-session",
