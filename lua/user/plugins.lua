@@ -28,6 +28,7 @@ lvim.plugins = {
   -- "rcarriga/nvim-dap-ui",
   "mfussenegger/nvim-dap",
   -- -- LSP --
+ -- "mfussenegger/nvim-jdtls",  -- Java
   "lvimuser/lsp-inlayhints.nvim", -- Partial implementation of LSP inlay hint.pl
 
   -- -- Lang --
@@ -274,24 +275,13 @@ lvim.plugins = {
     opts = {},
   }, -- Catalyze your Fenced Markdown Code-block editing!
   {
-    "toppair/peek.nvim",
-    event = { "VeryLazy" },
-    build = "deno task --quiet build:fast",
-    config = function()
-      require("peek").setup()
-      -- refer to `configuration to change defaults`
-      vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
-      vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+    "iamcco/markdown-preview.nvim",
+    ft = { "markdown" },
+    build = "cd app && npm install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
     end,
   },
-  -- {
-  --   "iamcco/markdown-preview.nvim",
-  --   ft = { "markdown" },
-  --   build = "cd app && npm install",
-  --   init = function()
-  --     vim.g.mkdp_filetypes = { "markdown" }
-  --   end,
-  -- },
 
   "MunifTanjim/nui.nvim",
   {
