@@ -1,6 +1,14 @@
 lvim.plugins = {
   -- plugins/rest.lua
   {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    opts = {},
+    config = function(_, opts)
+      require("lsp_signature").setup(opts)
+    end,
+  },
+  {
     "IlyasYOY/obs.nvim",
     dependencies = {
       "IlyasYOY/coredor.nvim",
@@ -267,13 +275,24 @@ lvim.plugins = {
     opts = {},
   }, -- Catalyze your Fenced Markdown Code-block editing!
   {
-    "iamcco/markdown-preview.nvim",
-    ft = { "markdown" },
-    build = "cd app && npm install",
-    init = function()
-      vim.g.mkdp_filetypes = { "markdown" }
+    "toppair/peek.nvim",
+    event = { "VeryLazy" },
+    build = "deno task --quiet build:fast",
+    config = function()
+      require("peek").setup()
+      -- refer to `configuration to change defaults`
+      vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+      vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
     end,
   },
+  -- {
+  --   "iamcco/markdown-preview.nvim",
+  --   ft = { "markdown" },
+  --   build = "cd app && npm install",
+  --   init = function()
+  --     vim.g.mkdp_filetypes = { "markdown" }
+  --   end,
+  -- },
 
   "MunifTanjim/nui.nvim",
   {
@@ -284,6 +303,7 @@ lvim.plugins = {
       }
     end,
   },
+
   -- Telescope
   { "christianchiarulli/telescope-tabs",        branch = "chris" },
   {
