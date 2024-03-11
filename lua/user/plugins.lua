@@ -29,6 +29,7 @@ lvim.plugins = {
   -- "rcarriga/nvim-dap-ui",
   "mfussenegger/nvim-dap",
   -- -- LSP --
+ -- "mfussenegger/nvim-jdtls",  -- Java
   "lvimuser/lsp-inlayhints.nvim", -- Partial implementation of LSP inlay hint.pl
 
   -- -- Lang --
@@ -40,8 +41,7 @@ lvim.plugins = {
   "tyru/open-browser.vim",
   "nvim-lua/plenary.nvim",
   "MattesGroeger/vim-bookmarks",
-  "moll/vim-bbye",         -- For close buffer
-  "mattn/webapi-vim",
+  "moll/vim-bbye", -- For close buffer
   "kevinhwang91/nvim-bqf", -- The goal of nvim-bqf is to make Neovim's quickfix window better.
   "ggandor/leap.nvim",     -- plugin fore very fast find character in line
   "opalmay/vim-smoothie",
@@ -65,8 +65,9 @@ lvim.plugins = {
   "mxsdev/nvim-dap-vscode-js",
   "mfussenegger/nvim-dap-python",
 
+  "NvChad/nvim-colorizer.lua",
+
   -- Colorschemas
-  -- "sainnhe/gruvbox-material",
   {
     "craftzdog/solarized-osaka.nvim",
     lazy = false,
@@ -75,10 +76,10 @@ lvim.plugins = {
   },
   "ellisonleao/gruvbox.nvim",
   "lunarvim/darkplus.nvim",
-  "LunarVim/synthwave84.nvim",
-  "NvChad/nvim-colorizer.lua",
-  "lunarvim/templeos.nvim",
   "navarasu/onedark.nvim",
+  "christianchiarulli/nvcode-color-schemes.vim",
+  "marko-cerovac/material.nvim",
+  "rafamadriz/neon",
 
   -- -- Auto Session
   "rmagatti/auto-session",
@@ -275,24 +276,13 @@ lvim.plugins = {
     opts = {},
   }, -- Catalyze your Fenced Markdown Code-block editing!
   {
-    "toppair/peek.nvim",
-    event = { "VeryLazy" },
-    build = "deno task --quiet build:fast",
-    config = function()
-      require("peek").setup()
-      -- refer to `configuration to change defaults`
-      vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
-      vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+    "iamcco/markdown-preview.nvim",
+    ft = { "markdown" },
+    build = "cd app && npm install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
     end,
   },
-  -- {
-  --   "iamcco/markdown-preview.nvim",
-  --   ft = { "markdown" },
-  --   build = "cd app && npm install",
-  --   init = function()
-  --     vim.g.mkdp_filetypes = { "markdown" }
-  --   end,
-  -- },
 
   "MunifTanjim/nui.nvim",
   {
