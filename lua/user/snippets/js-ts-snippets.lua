@@ -63,7 +63,7 @@ local function addSnippet(leng)
         [[
 import React, {{ FC }} from "react";
 import {{ classNames }} from "shared";
-import cls from "./{}.module.css";
+import cls from "./{}.module.scss";
 
 interface {}Props {{
   className?: string;
