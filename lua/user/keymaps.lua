@@ -7,15 +7,19 @@ local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
 -- keymap("n", "<S-h>", "<C-w>h", opts)
-keymap("n", "<S-j>", "<C-w>j", opts)
-keymap("n", "<S-k>", "<C-w>k", opts)
-keymap("n", "<S-l>", "<C-w>l", opts)
+-- keymap("n", "<S-j>", "<C-w>j", opts)
+-- keymap("n", "<S-k>", "<C-w>k", opts)
+-- keymap("n", "<S-l>", "<C-w>l", opts)
 
--- keymap("n", "<C-h>", "<C-w>h", opts)
--- keymap("n", "<C-j>", "<C-w>j", opts)
--- keymap("n", "<C-k>", "<C-w>k", opts)
--- keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<c-h>", ":wincmd h<CR>", opts)
+keymap("n", "<c-j>", ":wincmd j<CR>", opts)
+keymap("n", "<c-k>", ":wincmd k<CR>", opts)
+keymap("n", "<c-l>", ":wincmd l<CR>", opts)
 
+keymap('n', 'C-h', ':TmuxNavigateLeft<CR>', opts)
+keymap('n', 'C-j', ':TmuxNavigateDown<CR>', opts)
+keymap('n', 'C-k', ':TmuxNavigateUp<CR>', opts)
+keymap('n', 'C-l', ':TmuxNavigateRight<CR>', opts)
 -- Resize with arrows
 -- keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 -- keymap("n", "<C-Down>", ":resize +2<CR>", opts)
