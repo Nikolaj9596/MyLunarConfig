@@ -31,30 +31,30 @@ local group = vim.api.nvim_create_augroup("Python Snippets", { clear = true })
 local lengs = { "javascript", "typescript", "javascriptreact", "typescriptreact" }
 
 local function addSnippet(leng)
---   ls.add_snippets(leng, {
---     s(
---       { trig = "for([%w_]+)", regTrig = true, snippetType = "autosnippet" },
---       fmt(
---         [[
---   for (let {} = 0; {} < {}; {}++) {{
---     {}
---   }}
+  --   ls.add_snippets(leng, {
+  --     s(
+  --       { trig = "for([%w_]+)", regTrig = true, snippetType = "autosnippet" },
+  --       fmt(
+  --         [[
+  --   for (let {} = 0; {} < {}; {}++) {{
+  --     {}
+  --   }}
 
---   {}
---       ]],
---         {
---           d(1, function(_, snip)
---             return sn(1, i(1, snip.captures[1]))
---           end),
---           rep(1),
---           c(2, { i(1, "num"), sn(1, { i(1, "arr"), t ".length" }) }),
---           rep(1),
---           i(3, "// TODO:"),
---           i(4, ""),
---         }
---       )
---     ),
---   })
+  --   {}
+  --       ]],
+  --         {
+  --           d(1, function(_, snip)
+  --             return sn(1, i(1, snip.captures[1]))
+  --           end),
+  --           rep(1),
+  --           c(2, { i(1, "num"), sn(1, { i(1, "arr"), t ".length" }) }),
+  --           rep(1),
+  --           i(3, "// TODO:"),
+  --           i(4, ""),
+  --         }
+  --       )
+  --     ),
+  --   })
 
   ls.add_snippets(leng, {
     s(
@@ -65,13 +65,13 @@ import React, {{ FC }} from "react";
 import {{ classNames }} from "shared";
 import cls from "./{}.module.css";
 
-interface {}Props {
+interface {}Props {{
   className?: string;
-}
+}}
 
-const {}:FC<{}Props> = (props) => {{
+export const {}:FC<{}Props> = (props) => {{
   return (
-    <div className={classNames(cls.{}, {{}}, [props.className ? props.className : ''])}>
+    <div className={{classNames(cls.{}, {{}}, [props.className ? props.className : ''])}}>
     </div>
   );
 }};
@@ -81,7 +81,7 @@ const {}:FC<{}Props> = (props) => {{
           rep(1),
           rep(1),
           rep(1),
-          rep(1),
+          rep(1)
         }
       )
     ),
