@@ -28,7 +28,7 @@ lvim.plugins = {
   -- "rcarriga/nvim-dap-ui",
   "mfussenegger/nvim-dap",
   -- -- LSP --
- -- "mfussenegger/nvim-jdtls",  -- Java
+ "mfussenegger/nvim-jdtls",  -- Java
   "lvimuser/lsp-inlayhints.nvim", -- Partial implementation of LSP inlay hint.pl
 
   -- -- Lang --
@@ -76,9 +76,8 @@ lvim.plugins = {
   "ellisonleao/gruvbox.nvim",
   "lunarvim/darkplus.nvim",
   "navarasu/onedark.nvim",
-  "christianchiarulli/nvcode-color-schemes.vim",
   "marko-cerovac/material.nvim",
-  "rafamadriz/neon",
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
   -- -- Auto Session
   "rmagatti/auto-session",

@@ -12,6 +12,7 @@ require "user.lsp.languages.md"
 require "user.lsp.languages.json"
 require "user.lsp.languages.sql"
 require "user.lsp.languages.java"
+require "user.lsp.languages.csharp"
 
 -- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
 
