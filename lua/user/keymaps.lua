@@ -34,6 +34,9 @@ keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)
 keymap("n", "<F7>", "<cmd>TSHighlightCapturesUnderCursor<cr>", opts)
 keymap("n", "-", ":lua require'lir.float'.toggle()<cr>", opts)
 
+keymap("n", "ss", ":split<cr>", opts)
+keymap("n", "sv", ":vsplit<cr>", opts)
+
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 

@@ -1,40 +1,12 @@
 lvim.plugins = {
-  {
-    "ray-x/lsp_signature.nvim",
-    event = "VeryLazy",
-    opts = {},
-    config = function(_, opts)
-      require("lsp_signature").setup(opts)
-    end,
-  },
-  {
-    "IlyasYOY/obs.nvim",
-    dependencies = {
-      "IlyasYOY/coredor.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function()
-      local obs = require "obs"
-
-      obs.setup {
-        vault_home = "~/Obsidian/Notes/",
-        journal = {
-          template_name = "daily",
-        },
-      }
-    end,
-  },
-  -- "rcarriga/nvim-dap-ui",
-  "mfussenegger/nvim-dap",
   -- -- LSP --
  "mfussenegger/nvim-jdtls",  -- Java
   "lvimuser/lsp-inlayhints.nvim", -- Partial implementation of LSP inlay hint.pl
 
   -- -- Lang --
   "christianchiarulli/nvim-ts-autotag", -- Added auto tag for ts and js
-  "jose-elias-alvarez/typescript.nvim",
-  -- -- "olexsmir/gopher.nvim", -- Minimalistic plugin for Go development in Neovim written in Lua.
+  -- "jose-elias-alvarez/typescript.nvim",
+  -- "olexsmir/gopher.nvim", -- Minimalistic plugin for Go development in Neovim written in Lua.
 
   -- -- Useful --
   "tyru/open-browser.vim",
@@ -59,11 +31,6 @@ lvim.plugins = {
   "nvim-treesitter/nvim-treesitter-refactor",
   "nvim-treesitter/nvim-tree-docs",
 
-  -- -- DAP --
-  -- "leoluz/nvim-dap-go",
-  "mxsdev/nvim-dap-vscode-js",
-  "mfussenegger/nvim-dap-python",
-
   "NvChad/nvim-colorizer.lua",
 
   -- Colorschemas
@@ -80,8 +47,8 @@ lvim.plugins = {
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
   -- -- Auto Session
-  "rmagatti/auto-session",
-  "rmagatti/session-lens",
+  -- "rmagatti/auto-session",
+  -- "rmagatti/session-lens",
 
   -- -- UI --
   {
@@ -282,7 +249,7 @@ lvim.plugins = {
     end,
   },
 
-  "MunifTanjim/nui.nvim",
+  "MunifTanjim/nui.nvim", -- UI Component
   {
     "jinh0/eyeliner.nvim",
     config = function()
@@ -290,7 +257,7 @@ lvim.plugins = {
         highlight_on_key = true,
       }
     end,
-  },
+  }, -- Move faster with unique f/F indicators for each word on the line
 
   -- Telescope
   { "christianchiarulli/telescope-tabs", branch = "chris" },
@@ -329,8 +296,6 @@ lvim.plugins = {
       vim.g.db_ui_use_nerd_fonts = 1
     end,
   },
-
-  "stevearc/dressing.nvim",
   {
     "ziontee113/icon-picker.nvim",
     config = function()
@@ -355,33 +320,6 @@ lvim.plugins = {
   {
     "ThePrimeagen/harpoon",
   },
-  -- {
-  --   "xiyaowong/nvim-transparent",
-  --   cmd = { "TransparentEnable", "TransparentDisable", "TransparentToggle" },
-  --   opts = {
-  --     extra_groups = { -- table/string: additional groups that should be cleared
-  --       "BufferlineBufferSelected",
-  --       "BufferLineFill",
-  --       "BufferLineBackground",
-  --       "BufferLineSeparator",
-  --       "BufferLineIndicatorSelected",
-  --       "NormalFloat", -- plugins which have float panel such as Lazy, Mason, LspInfo
-  --       "NvimTreeNormal", -- NvimTree
-  --     },
-  --     exclude_groups = {},
-  --   },
-  --   config = function(_, opts)
-  --     require("transparent").setup(opts)
-  --   end,
-  -- },
-  -- {
-  --   "danymat/neogen",
-  --   dependencies = "nvim-treesitter/nvim-treesitter",
-  --   config = true,
-  --   -- Uncomment next line if you want to follow only stable versions
-  --   -- version = "*"
-  -- },
-
   --AI--
 
   -- {

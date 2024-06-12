@@ -2,8 +2,8 @@ require "nvim-treesitter.configs".setup {
   tree_docs = {enable = true}
 }
 
-if lvim.colorscheme == "darkplus" then
--- if lvim.colorscheme == "gruvbox" then
+-- if lvim.colorscheme == "darkplus" then
+if lvim.colorscheme == "gruvbox" then
 -- if lvim.colorscheme == "lunar" then
 -- if lvim.colorscheme == "onedark" then
 -- if lvim.colorscheme == "solarized-osaka" then
