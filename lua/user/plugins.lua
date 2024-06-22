@@ -29,8 +29,8 @@ lvim.plugins = {
   "opalmay/vim-smoothie",
   --
   -- -- GIT --
-  -- -- "TimUntersberger/neogit",
-  -- "mattn/vim-gist",
+  "TimUntersberger/neogit",
+  "mattn/vim-gist",
   "lunarvim/github.nvim",
   "sindrets/diffview.nvim",  --Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
   "ruifm/gitlinker.nvim",    --A lua neovim plugin to generate shareable file permalinks (with line ranges) for several git web frontend hosts.
@@ -202,35 +202,9 @@ lvim.plugins = {
       require("mini.indentscope").setup(opts)
     end,
   },
-  -- {
-  --   "echasnovski/mini.misc",
-  --   config = true,
-  --   --stylua: ignore
-  --   keys = {
-  --     { "<leader>z", function() require("mini.misc").zoom() end, desc = "Toggle Zoom" },
-  --   },
-  -- },
   {
     "m-demare/hlargs.nvim",
     event = "VeryLazy",
-    -- opts = {
-    --   -- color = "#ef9062",
-    --   color = "#b7221e",
-    --   use_colorpalette = false,
-    --   disable = function(_, bufnr)
-    --     if vim.b.semantic_tokens then
-    --       return true
-    --     end
-    --     local clients = vim.lsp.get_active_clients { bufnr = bufnr }
-    --     for _, c in pairs(clients) do
-    --       local caps = c.server_capabilities
-    --       if c.name ~= "null-ls" and caps.semanticTokensProvider and caps.semanticTokensProvider.full then
-    --         vim.b.semantic_tokens = true
-    --         return vim.b.semantic_tokens
-    --       end
-    --     end
-    --   end,
-    -- },
   },
 
   "folke/todo-comments.nvim", -- Highlights todo comments
@@ -332,6 +306,10 @@ lvim.plugins = {
   {
     "ThePrimeagen/harpoon",
   },
+  { "stevearc/dressing.nvim" }, -- important for select action
+  {
+    "christoomey/vim-tmux-navigator",
+  }
   --AI--
 
   -- {

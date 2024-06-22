@@ -6,25 +6,15 @@ local opts = { noremap = true, silent = true }
 
 local keymap = vim.keymap.set
 
--- keymap("n", "<S-h>", "<C-w>h", opts)
-keymap("n", "<S-j>", "<C-w>j", opts)
-keymap("n", "<S-k>", "<C-w>k", opts)
-keymap("n", "<S-l>", "<C-w>l", opts)
+keymap("n", "<c-h>", ":wincmd h<CR>", opts)
+keymap("n", "<c-j>", ":wincmd j<CR>", opts)
+keymap("n", "<c-k>", ":wincmd k<CR>", opts)
+keymap("n", "<c-l>", ":wincmd l<CR>", opts)
 
--- keymap("n", "<C-h>", "<C-w>h", opts)
--- keymap("n", "<C-j>", "<C-w>j", opts)
--- keymap("n", "<C-k>", "<C-w>k", opts)
--- keymap("n", "<C-l>", "<C-w>l", opts)
-
--- Resize with arrows
--- keymap("n", "<C-Up>", ":resize -2<CR>", opts)
--- keymap("n", "<C-Down>", ":resize +2<CR>", opts)
--- keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
--- keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
-
--- keymap("n", "<c-j>", "<c-d>", opts)
--- keymap("n", "<c-k>", "<c-u>", opts)
--- keymap("n", "<c-m>", "<s-m>", opts)
+keymap('n', 'C-h', ':TmuxNavigateLeft<CR>', opts)
+keymap('n', 'C-j', ':TmuxNavigateDown<CR>', opts)
+keymap('n', 'C-k', ':TmuxNavigateUp<CR>', opts)
+keymap('n', 'C-l', ':TmuxNavigateRight<CR>', opts)
 
 keymap("n", "*", "*zz", opts)
 keymap("n", "#", "#zz", opts)
@@ -48,31 +38,6 @@ vim.api.nvim_set_keymap("n", "K", "<cmd>Lspsaga hover_doc", opts)
 --Insert--
 keymap("i", "jk", "<ESC>", opts)
 
--- Rest
-vim.keymap.set('n', ',q', function()
-  local pattern = _G._rest_nvim.env_pattern
-  local command = string.format("fd -HI '%s'", pattern)
-  local result = io.popen(command):read('*a')
-
-  local env_list = {}
-  for line in result:gmatch('[^\r\n]+') do
-    table.insert(env_list, line)
-  end
-
-  local rest_functions = require('rest-nvim.functions')
-
-  vim.ui.select(env_list, {
-    prompt = 'Select env file ',
-    format_item = function(item)
-      return item
-    end,
-  }, function(choice)
-    if choice == nil then
-      return
-    end
-    rest_functions.env('set', choice)
-  end)
-end, { desc = '[q]uery envs' })
 
 -- keymap("n", "<C-Space>", "<cmd>WhichKey \\<space><cr>", opts)
 -- keymap("n", "<C-i>", "<C-i>", opts)
@@ -98,7 +63,7 @@ end, { desc = '[q]uery envs' })
 -- keymap("n", "cd", "<cmd>DogeGenerate<CR>", opts)
 
 -- Visual --
-keymap("v", "h", ':HurlRunner<CR>', opts)
+keymap("v", "r", ':HurlRunner<CR>', opts)
 -- keymap("v", "p", '"_dp', opts)
 -- keymap("v", "P", '"_dP', opts)
 
