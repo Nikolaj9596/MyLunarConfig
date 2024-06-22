@@ -48,6 +48,32 @@ vim.api.nvim_set_keymap("n", "K", "<cmd>Lspsaga hover_doc", opts)
 --Insert--
 keymap("i", "jk", "<ESC>", opts)
 
+-- Rest
+vim.keymap.set('n', ',q', function()
+  local pattern = _G._rest_nvim.env_pattern
+  local command = string.format("fd -HI '%s'", pattern)
+  local result = io.popen(command):read('*a')
+
+  local env_list = {}
+  for line in result:gmatch('[^\r\n]+') do
+    table.insert(env_list, line)
+  end
+
+  local rest_functions = require('rest-nvim.functions')
+
+  vim.ui.select(env_list, {
+    prompt = 'Select env file ',
+    format_item = function(item)
+      return item
+    end,
+  }, function(choice)
+    if choice == nil then
+      return
+    end
+    rest_functions.env('set', choice)
+  end)
+end, { desc = '[q]uery envs' })
+
 -- keymap("n", "<C-Space>", "<cmd>WhichKey \\<space><cr>", opts)
 -- keymap("n", "<C-i>", "<C-i>", opts)
 
@@ -72,6 +98,7 @@ keymap("i", "jk", "<ESC>", opts)
 -- keymap("n", "cd", "<cmd>DogeGenerate<CR>", opts)
 
 -- Visual --
+keymap("v", "h", ':HurlRunner<CR>', opts)
 -- keymap("v", "p", '"_dp', opts)
 -- keymap("v", "P", '"_dP', opts)
 

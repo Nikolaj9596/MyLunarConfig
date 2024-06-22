@@ -1,6 +1,17 @@
 lvim.plugins = {
-  -- -- LSP --
- "mfussenegger/nvim-jdtls",  -- Java
+  -- Rest
+  {
+    "jellydn/hurl.nvim",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter"
+    },
+    ft = "hurl",
+  },
+  -- LSP --
+
+  "mfussenegger/nvim-jdtls",      -- Java
   "lvimuser/lsp-inlayhints.nvim", -- Partial implementation of LSP inlay hint.pl
 
   -- -- Lang --
@@ -12,17 +23,17 @@ lvim.plugins = {
   "tyru/open-browser.vim",
   "nvim-lua/plenary.nvim",
   "MattesGroeger/vim-bookmarks",
-  "moll/vim-bbye", -- For close buffer
+  "moll/vim-bbye",         -- For close buffer
   "kevinhwang91/nvim-bqf", -- The goal of nvim-bqf is to make Neovim's quickfix window better.
-  "ggandor/leap.nvim", -- plugin fore very fast find character in line
+  "ggandor/leap.nvim",     -- plugin fore very fast find character in line
   "opalmay/vim-smoothie",
   --
   -- -- GIT --
   -- -- "TimUntersberger/neogit",
   -- "mattn/vim-gist",
   "lunarvim/github.nvim",
-  "sindrets/diffview.nvim", --Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
-  "ruifm/gitlinker.nvim", --A lua neovim plugin to generate shareable file permalinks (with line ranges) for several git web frontend hosts.
+  "sindrets/diffview.nvim",  --Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
+  "ruifm/gitlinker.nvim",    --A lua neovim plugin to generate shareable file permalinks (with line ranges) for several git web frontend hosts.
   "f-person/git-blame.nvim", -- display how last commit this code
 
   -- -- Treesitter --
@@ -44,7 +55,7 @@ lvim.plugins = {
   "lunarvim/darkplus.nvim",
   "navarasu/onedark.nvim",
   "marko-cerovac/material.nvim",
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { "catppuccin/nvim",                   name = "catppuccin", priority = 1000 },
 
   -- -- Auto Session
   -- "rmagatti/auto-session",
@@ -93,8 +104,8 @@ lvim.plugins = {
         hover = {
           enabled = false,
           silent = true, -- set to true to not show a message if hover is not available
-          view = nil, -- when nil, use defaults from documentation
-          opts = {}, -- merged with defaults from documentation
+          view = nil,    -- when nil, use defaults from documentation
+          opts = {},     -- merged with defaults from documentation
         },
         signature = {
           enabled = false,
@@ -102,10 +113,10 @@ lvim.plugins = {
             enabled = true,
             trigger = true, -- Automatically show signature help when typing a trigger character from the LSP
             luasnip = true, -- Will open signature help when jumping to Luasnip insert nodes
-            throttle = 50, -- Debounce lsp signature help request by 50ms
+            throttle = 50,  -- Debounce lsp signature help request by 50ms
           },
-          view = nil, -- when nil, use defaults from documentation
-          opts = {}, -- merged with defaults from documentation
+          view = nil,       -- when nil, use defaults from documentation
+          opts = {},        -- merged with defaults from documentation
         },
         message = {
           -- Messages shown by lsp servers
@@ -127,17 +138,17 @@ lvim.plugins = {
       },
 
       presets = {
-        bottom_search = true, -- use a classic bottom cmdline for search
-        command_palette = true, -- position the cmdline and popupmenu together
+        bottom_search = true,         -- use a classic bottom cmdline for search
+        command_palette = true,       -- position the cmdline and popupmenu together
         long_message_to_split = true, -- long messages will be sent to a split
-        inc_rename = true, -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = true, -- add a border to hover docs and signature help
+        inc_rename = true,            -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = true,        -- add a border to hover docs and signature help
       },
 
       cmdline = {
-        enabled = true, -- enables the Noice cmdline UI
+        enabled = true,         -- enables the Noice cmdline UI
         view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
-        opts = {}, -- global options for the cmdline. See section on views
+        opts = {},              -- global options for the cmdline. See section on views
         format = {
           -- conceal: (default=true) This will hide the text in the cmdline that matches the pattern.
           -- view: (default is cmdline view)
@@ -158,15 +169,15 @@ lvim.plugins = {
       messages = {
         -- NOTE: If you enable messages, then the cmdline is enabled automatically.
         -- This is a current Neovim limitation.
-        enabled = true, -- enables the Noice messages UI
-        view = "notify", -- default view for messages
-        view_error = "notify", -- view for errors
-        view_warn = "notify", -- view for warnings
-        view_history = "messages", -- view for :messages
+        enabled = true,              -- enables the Noice messages UI
+        view = "notify",             -- default view for messages
+        view_error = "notify",       -- view for errors
+        view_warn = "notify",        -- view for warnings
+        view_history = "messages",   -- view for :messages
         view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
       },
       popupmenu = {
-        enabled = true, -- enables the Noice popupmenu UI
+        enabled = true,  -- enables the Noice popupmenu UI
         backend = "nui", -- backend to use to show regular cmdline completions
         kind_icons = {}, -- set to `false` to disable icons
       },
@@ -263,7 +274,8 @@ lvim.plugins = {
   { "christianchiarulli/telescope-tabs", branch = "chris" },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
-    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    build =
+    "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   },
   { "nvim-telescope/telescope-media-files.nvim" },
 
@@ -282,7 +294,7 @@ lvim.plugins = {
   {
     "kristijanhusak/vim-dadbod-ui",
     dependencies = {
-      { "tpope/vim-dadbod", lazy = true },
+      { "tpope/vim-dadbod",                     lazy = true },
       { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
     },
     cmd = {

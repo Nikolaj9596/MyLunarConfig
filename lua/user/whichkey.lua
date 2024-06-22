@@ -8,6 +8,19 @@ lvim.builtin.which_key.mappings["r"] = {
   name = "Replace",
   w = { "<cmd>Lspsaga rename<cr>", "Replace Word" },
 }
+
+lvim.builtin.which_key.mappings["R"] = {
+  name = "Rest",
+  r = { "<cmd>HurlRunner<CR>", "Run All requests" },
+  a = { "<cmd>HurlRunnerAt<cr>", "Run Api request" },
+  e = { "<cmd>HurlRunnerToEntry<cr>", "Run Api request to entry" },
+  t = { "<cmd>HurlToggleMode<cr>", "Hurl Toggle Mode" },
+  v = { "<cmd>HurlVerbose<cr>", "Hurl Verbose" },
+  l = { "<cmd>HurlShowLastResponse<cr>", "Hurl Show Last Response" },
+  m = { "<cmd>HurlManageVariable<cr>", "Hurl Manage Variable" },
+  s = { ":HurlSetVariable ", "Hurl Set Variable" },
+}
+
 lvim.builtin.which_key.mappings["D"] = {
   name = "Debug",
   b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },

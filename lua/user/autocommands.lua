@@ -1,7 +1,15 @@
-
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   callback = function()
     vim.cmd "set formatoptions-=cro"
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = {
+    "*.hurl", "*.http"
+  },
+  callback = function()
+    vim.cmd "set filetype=http"
   end,
 })
 
@@ -55,7 +63,6 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     vim.opt.titlestring = get_project_dir() .. " - nvim"
   end,
 })
-
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "gitcommit", "markdown" },
@@ -131,4 +138,3 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
     end
   end,
 })
-

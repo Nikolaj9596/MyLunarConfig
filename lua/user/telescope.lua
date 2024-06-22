@@ -243,5 +243,7 @@ lvim.builtin.telescope.load_extension(
   "session-lens",
   "telescope-tabs",
   "lsp_handlers",
-  "harpoon"
+  "harpoon",
+  "rest"
 )
+-- lvim.builtin.telescope.extensions.rest.select_env()

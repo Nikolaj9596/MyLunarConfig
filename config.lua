@@ -22,6 +22,7 @@ reload "user.femaco"
 reload "user.cmp"
 reload "user.go_to_preview"
 reload "user.hlargs"
+reload "user.hurl"
 
 -- reload "user.solarized_osaka"
 -- reload "user.obsidian"
