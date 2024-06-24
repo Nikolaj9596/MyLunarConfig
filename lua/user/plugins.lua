@@ -1,41 +1,23 @@
 lvim.plugins = {
-  -- plugins/rest.lua
+  -- Rest
   {
-    "ray-x/lsp_signature.nvim",
-    event = "VeryLazy",
-    opts = {},
-    config = function(_, opts)
-      require("lsp_signature").setup(opts)
-    end,
-  },
-  {
-    "IlyasYOY/obs.nvim",
+    "jellydn/hurl.nvim",
     dependencies = {
-      "IlyasYOY/coredor.nvim",
+      "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
+      "nvim-treesitter/nvim-treesitter"
     },
-    config = function()
-      local obs = require "obs"
-
-      obs.setup {
-        vault_home = "~/Obsidian/Notes/",
-        journal = {
-          template_name = "daily",
-        },
-      }
-    end,
+    ft = "hurl",
   },
-  -- "rcarriga/nvim-dap-ui",
-  "mfussenegger/nvim-dap",
-  -- -- LSP --
-  -- "mfussenegger/nvim-jdtls",  -- Java
+  -- LSP --
+
+  "mfussenegger/nvim-jdtls",      -- Java
   "lvimuser/lsp-inlayhints.nvim", -- Partial implementation of LSP inlay hint.pl
 
   -- -- Lang --
   "christianchiarulli/nvim-ts-autotag", -- Added auto tag for ts and js
-  "jose-elias-alvarez/typescript.nvim",
-  -- -- "olexsmir/gopher.nvim", -- Minimalistic plugin for Go development in Neovim written in Lua.
+  -- "jose-elias-alvarez/typescript.nvim",
+  -- "olexsmir/gopher.nvim", -- Minimalistic plugin for Go development in Neovim written in Lua.
 
   -- -- Useful --
   "tyru/open-browser.vim",
@@ -47,8 +29,8 @@ lvim.plugins = {
   "opalmay/vim-smoothie",
   --
   -- -- GIT --
-  -- -- "TimUntersberger/neogit",
-  -- "mattn/vim-gist",
+  "TimUntersberger/neogit",
+  "mattn/vim-gist",
   "lunarvim/github.nvim",
   "sindrets/diffview.nvim",  --Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
   "ruifm/gitlinker.nvim",    --A lua neovim plugin to generate shareable file permalinks (with line ranges) for several git web frontend hosts.
@@ -59,11 +41,6 @@ lvim.plugins = {
   "nvim-treesitter/nvim-treesitter-textobjects",
   "nvim-treesitter/nvim-treesitter-refactor",
   "nvim-treesitter/nvim-tree-docs",
-
-  -- -- DAP --
-  -- "leoluz/nvim-dap-go",
-  "mxsdev/nvim-dap-vscode-js",
-  "mfussenegger/nvim-dap-python",
 
   "NvChad/nvim-colorizer.lua",
 
@@ -84,11 +61,11 @@ lvim.plugins = {
     opts = {},
   },
   "marko-cerovac/material.nvim",
-  "rafamadriz/neon",
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
   -- -- Auto Session
-  "rmagatti/auto-session",
-  "rmagatti/session-lens",
+  -- "rmagatti/auto-session",
+  -- "rmagatti/session-lens",
 
   -- -- UI --
   {
@@ -231,35 +208,9 @@ lvim.plugins = {
       require("mini.indentscope").setup(opts)
     end,
   },
-  -- {
-  --   "echasnovski/mini.misc",
-  --   config = true,
-  --   --stylua: ignore
-  --   keys = {
-  --     { "<leader>z", function() require("mini.misc").zoom() end, desc = "Toggle Zoom" },
-  --   },
-  -- },
   {
     "m-demare/hlargs.nvim",
     event = "VeryLazy",
-    -- opts = {
-    --   -- color = "#ef9062",
-    --   color = "#b7221e",
-    --   use_colorpalette = false,
-    --   disable = function(_, bufnr)
-    --     if vim.b.semantic_tokens then
-    --       return true
-    --     end
-    --     local clients = vim.lsp.get_active_clients { bufnr = bufnr }
-    --     for _, c in pairs(clients) do
-    --       local caps = c.server_capabilities
-    --       if c.name ~= "null-ls" and caps.semanticTokensProvider and caps.semanticTokensProvider.full then
-    --         vim.b.semantic_tokens = true
-    --         return vim.b.semantic_tokens
-    --       end
-    --     end
-    --   end,
-    -- },
   },
 
   "folke/todo-comments.nvim", -- Highlights todo comments
@@ -289,7 +240,7 @@ lvim.plugins = {
     end,
   },
 
-  "MunifTanjim/nui.nvim",
+  "MunifTanjim/nui.nvim", -- UI Component
   {
     "jinh0/eyeliner.nvim",
     config = function()
@@ -297,7 +248,7 @@ lvim.plugins = {
         highlight_on_key = true,
       }
     end,
-  },
+  }, -- Move faster with unique f/F indicators for each word on the line
 
   -- Telescope
   { "christianchiarulli/telescope-tabs",        branch = "chris" },
@@ -337,8 +288,6 @@ lvim.plugins = {
       vim.g.db_ui_use_nerd_fonts = 1
     end,
   },
-
-  "stevearc/dressing.nvim",
   {
     "ziontee113/icon-picker.nvim",
     config = function()
@@ -365,82 +314,8 @@ lvim.plugins = {
   },
   {
     "christoomey/vim-tmux-navigator",
-  }
-  -- {
-  --   "rest-nvim/rest.nvim",
-  --   config = function()
-  --     require("rest-nvim").setup({
-  --       -- Open request results in a horizontal split
-  --       result_split_horizontal = false,
-  --       -- Keep the http file buffer above|left when split horizontal|vertical
-  --       result_split_in_place = false,
-  --       -- stay in current windows (.http file) or change to results window (default)
-  --       stay_in_current_window_after_split = false,
-  --       -- Skip SSL verification, useful for unknown certificates
-  --       skip_ssl_verification = false,
-  --       -- Encode URL before making request
-  --       encode_url = true,
-  --       -- Highlight request on run
-  --       highlight = {
-  --         enabled = true,
-  --         timeout = 150,
-  --       },
-  --       result = {
-  --         -- toggle showing URL, HTTP info, headers at top the of result window
-  --         show_url = true,
-  --         -- show the generated curl command in case you want to launch
-  --         -- the same request via the terminal (can be verbose)
-  --         show_curl_command = false,
-  --         show_http_info = true,
-  --         show_headers = true,
-  --         -- table of curl `--write-out` variables or false if disabled
-  --         -- for more granular control see Statistics Spec
-  --         show_statistics = false,
-  --         -- executables or functions for formatting response body [optional]
-  --         -- set them to false if you want to disable them
-  --         formatters = {
-  --           json = "jq",
-  --           html = function(body)
-  --             return vim.fn.system({ "tidy", "-i", "-q", "-" }, body)
-  --           end
-  --         },
-  --       },
-  --       -- Jump to request line on run
-  --       jump_to_request = false,
-  --       env_file = '.env',
-  --       custom_dynamic_variables = {},
-  --       yank_dry_run = true,
-  --       search_back = true
-  --     })
-  --   end
-  -- },
-  -- {
-  --   "xiyaowong/nvim-transparent",
-  --   cmd = { "TransparentEnable", "TransparentDisable", "TransparentToggle" },
-  --   opts = {
-  --     extra_groups = { -- table/string: additional groups that should be cleared
-  --       "BufferlineBufferSelected",
-  --       "BufferLineFill",
-  --       "BufferLineBackground",
-  --       "BufferLineSeparator",
-  --       "BufferLineIndicatorSelected",
-  --       "NormalFloat", -- plugins which have float panel such as Lazy, Mason, LspInfo
-  --       "NvimTreeNormal", -- NvimTree
-  --     },
-  --     exclude_groups = {},
-  --   },
-  --   config = function(_, opts)
-  --     require("transparent").setup(opts)
-  --   end,
-  -- },
-  -- {
-  --   "danymat/neogen",
-  --   dependencies = "nvim-treesitter/nvim-treesitter",
-  --   config = true,
-  --   -- Uncomment next line if you want to follow only stable versions
-  --   -- version = "*"
-  -- },
-
+  },
+  { "stevearc/dressing.nvim" }, -- important for select action
   --AI--
 
   -- {
@@ -468,7 +343,6 @@ lvim.plugins = {
   -- "natebosch/vim-lsc",
   -- "natebosch/vim-lsc-dart",
 
-  --'ThePrimeagen/harpoon',
   -- "windwp/nvim-spectre", -- Spectre find the enemy and replace them with dark power.
   -- "folke/zen-mode.nvim",
   -- -- Leap is a general-purpose motion plugin for Neovim, with the ultimate goal of establishing a

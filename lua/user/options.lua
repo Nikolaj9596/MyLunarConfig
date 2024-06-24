@@ -4,6 +4,7 @@ lvim.colorscheme = "darkplus"
 -- lvim.colorscheme = "onedark"
 -- lvim.colorscheme = "gruvbox"
 -- lvim.colorscheme = "solarized-osaka"
+lvim.colorscheme = "catppuccin-macchiato"
 lvim.log.level = "warning"
 
 lvim.builtin.alpha.active = false

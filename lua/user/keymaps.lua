@@ -20,15 +20,6 @@ keymap('n', 'C-h', ':TmuxNavigateLeft<CR>', opts)
 keymap('n', 'C-j', ':TmuxNavigateDown<CR>', opts)
 keymap('n', 'C-k', ':TmuxNavigateUp<CR>', opts)
 keymap('n', 'C-l', ':TmuxNavigateRight<CR>', opts)
--- Resize with arrows
--- keymap("n", "<C-Up>", ":resize -2<CR>", opts)
--- keymap("n", "<C-Down>", ":resize +2<CR>", opts)
--- keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
--- keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
-
--- keymap("n", "<c-j>", "<c-d>", opts)
--- keymap("n", "<c-k>", "<c-u>", opts)
--- keymap("n", "<c-m>", "<s-m>", opts)
 
 keymap("n", "*", "*zz", opts)
 keymap("n", "#", "#zz", opts)
@@ -37,6 +28,9 @@ keymap("n", "g#", "g#zz", opts)
 keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)
 keymap("n", "<F7>", "<cmd>TSHighlightCapturesUnderCursor<cr>", opts)
 keymap("n", "-", ":lua require'lir.float'.toggle()<cr>", opts)
+
+keymap("n", "ss", ":split<cr>", opts)
+keymap("n", "sv", ":vsplit<cr>", opts)
 
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
@@ -48,6 +42,7 @@ vim.api.nvim_set_keymap("n", "K", "<cmd>Lspsaga hover_doc", opts)
 
 --Insert--
 keymap("i", "jk", "<ESC>", opts)
+
 
 -- keymap("n", "<C-Space>", "<cmd>WhichKey \\<space><cr>", opts)
 -- keymap("n", "<C-i>", "<C-i>", opts)
@@ -73,6 +68,7 @@ keymap("i", "jk", "<ESC>", opts)
 -- keymap("n", "cd", "<cmd>DogeGenerate<CR>", opts)
 
 -- Visual --
+keymap("v", "r", ':HurlRunner<CR>', opts)
 -- keymap("v", "p", '"_dp', opts)
 -- keymap("v", "P", '"_dP', opts)
 

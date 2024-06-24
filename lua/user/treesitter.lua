@@ -50,6 +50,9 @@ lvim.builtin.treesitter.ensure_installed = {
   "scss",
   "sql",
   "htmldjango",
+  "http",
+  "graphql",
+  "latex"
 }
 lvim.builtin.treesitter.autotag.enable = true
 lvim.builtin.treesitter.auto_install = true
