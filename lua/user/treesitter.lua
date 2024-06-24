@@ -6,8 +6,8 @@ require "nvim-treesitter.configs".setup {
 -- if lvim.colorscheme == "lunar" then
 -- if lvim.colorscheme == "onedark" then
 -- if lvim.colorscheme == "solarized-osaka" then
-if lvim.colorscheme == "tokyonight-night" then
--- if lvim.colorscheme == "darkplus" then
+-- if lvim.colorscheme == "tokyonight-night" then
+if lvim.colorscheme == "darkplus" then
   lvim.builtin.treesitter.rainbow = {
     enable = true,
     extended_mode = false,
@@ -20,10 +20,10 @@ if lvim.colorscheme == "tokyonight-night" then
   }
 end
 
--- lvim.builtin.treesitter.highlight = {
---   enable = true,
---   additional_vim_regex_highlighting = { "php" },
--- }
+lvim.builtin.treesitter.highlight = {
+  enable = true,
+  -- additional_vim_regex_highlighting = { "php" },
+}
 
 lvim.builtin.treesitter.ensure_installed = {
   "javascript",
