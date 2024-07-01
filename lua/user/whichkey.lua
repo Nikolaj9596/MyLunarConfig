@@ -18,7 +18,7 @@ lvim.builtin.which_key.mappings["R"] = {
   v = { "<cmd>HurlVerbose<cr>", "Hurl Verbose" },
   l = { "<cmd>HurlShowLastResponse<cr>", "Hurl Show Last Response" },
   m = { "<cmd>HurlManageVariable<cr>", "Hurl Manage Variable" },
-  s = { ":HurlSetVariable ", "Hurl Set Variable" },
+  s = { ":HurlSetEnvFile ", "Hurl Set Env File" },
 }
 
 lvim.builtin.which_key.mappings["D"] = {

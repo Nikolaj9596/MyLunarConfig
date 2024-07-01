@@ -1,4 +1,15 @@
 lvim.plugins = {
+  -- Obsidian
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*",
+    lazy = true,
+    ft = "markdown",
+    dependencies = {
+      "nvim-lua/plenary.nvim"
+    }
+
+  },
   -- Rest
   {
     "jellydn/hurl.nvim",
@@ -61,7 +72,7 @@ lvim.plugins = {
     opts = {},
   },
   "marko-cerovac/material.nvim",
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { "catppuccin/nvim",                   name = "catppuccin", priority = 1000 },
 
   -- -- Auto Session
   -- "rmagatti/auto-session",
@@ -251,7 +262,7 @@ lvim.plugins = {
   }, -- Move faster with unique f/F indicators for each word on the line
 
   -- Telescope
-  { "christianchiarulli/telescope-tabs",        branch = "chris" },
+  { "christianchiarulli/telescope-tabs", branch = "chris" },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
     build =
