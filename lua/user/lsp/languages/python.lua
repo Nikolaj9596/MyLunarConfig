@@ -12,7 +12,7 @@ local pyright_opts = {
         autoImportCompletions = true,
         autoSearchPaths = true,
         diagnosticMode = "workspace", -- openFilesOnly, workspace
-        typeCheckingMode = "basic", -- off, basic, strict
+        typeCheckingMode = "basic",   -- off, basic, strict
         useLibraryCodeForTypes = true,
       },
     },
@@ -36,7 +36,7 @@ local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
   -- { command = "flake8", filetypes = { "python" } },
   -- { command = "ruff", filetypes = { "python" } },
-  { command = "cspell", filetypes = { "python", "sh", "cs", "javascript", "typescript", "markdown" } },
+  { command = "cspell", filetypes = { "python", "sh", "cs", "javascript", "typescript", "markdown", "lua" } },
   -- {
   --   command = "codespell",
   --   filetypes = { "lua" },

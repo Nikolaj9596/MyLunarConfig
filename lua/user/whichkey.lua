@@ -3,10 +3,20 @@ lvim.builtin.which_key.mappings["h"] = { "<cmd>nohlsearch<cr>", "nohl" }
 -- lvim.builtin.which_key.mappings["q"] = { '<cmd>lua require("user.functions").smart_quit()<CR>', "Quit" }
 lvim.builtin.which_key.mappings["/"] = { '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', "Comment" }
 lvim.builtin.which_key.mappings["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" }
-lvim.builtin.which_key.mappings["gy"] = "Link"
+-- lvim.builtin.which_key.mappings["gy"] = "Link"
 lvim.builtin.which_key.mappings["r"] = {
   name = "Replace",
   w = { "<cmd>Lspsaga rename<cr>", "Replace Word" },
+}
+
+lvim.builtin.which_key.mappings["o"] = {
+  name = "Obsidian",
+  n = { "<cmd>ObsidianNew<CR>", "Create new note" },
+  s = { "<cmd>ObsidianSearch<CR>", "Search note" },
+  t = { "<cmd>ObsidianToday<CR>", "Crate delay note" },
+  T = { "<cmd>ObsidianTags<CR>", "Search note by tags" },
+  l = { "<cmd>ObsidianLink<CR>", "Create link on note" },
+  r = { "<cmd>ObsidianRename<CR>", "Rename note" },
 }
 
 lvim.builtin.which_key.mappings["R"] = {
@@ -69,6 +79,7 @@ lvim.builtin.which_key.mappings["f"] = {
   C = { "<cmd>Telescope commands<cr>", "Commands" },
   i = { "<cmd>IconPickerNormal<cr>", "Icon" },
 }
+
 lvim.builtin.which_key.mappings["g"] = {
   name = "Git",
   g = { "<cmd>lua require 'user.terminal'.lazygit_toggle()<cr>", "Lazygit" },
@@ -103,6 +114,7 @@ lvim.builtin.which_key.mappings["g"] = {
   --   p = { "<cmd>Gist -b -p<cr>", "Create Private" },
   -- },
 }
+
 lvim.builtin.which_key.mappings["l"] = {
   name = "LSP",
   a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -129,10 +141,10 @@ lvim.builtin.which_key.mappings["l"] = {
     "Prev Diagnostic",
   },
   o = { "<cmd>Lspsaga outline<cr>", "Outline" },
+  r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
   -- H = { "<cmd>IlluminationToggle<cr>", "Toggle Doc HL" },
   -- u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
   -- q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-  -- r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
   -- R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
   -- t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
   -- d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
@@ -141,6 +153,7 @@ lvim.builtin.which_key.mappings["l"] = {
   -- c = { "<cmd>lua require('user.lsp').server_capabilities()<cr>", "Get Capabilities" },
   -- v = { "<cmd>lua require('lsp_lines').toggle()<cr>", "Virtual Text" },
 }
+
 lvim.builtin.which_key.mappings["t"] = {
   name = "Terminal",
   u = { "<cmd>lua require 'user.terminal'.ncdu_toggle()<cr>", "NCDU" },
