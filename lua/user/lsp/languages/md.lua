@@ -8,8 +8,8 @@ formatters.setup {
 }
 
 -- Set a linter.
-local linters = require "lvim.lsp.null-ls.linters"
-linters.setup {
-  { command = "markdownlint", filetypes = { "markdown", "md" } },
-}
+-- local linters = require "lvim.lsp.null-ls.linters"
+-- linters.setup {
+--   { command = "markdownlint", filetypes = { "markdown", "md" } },
+-- }
 

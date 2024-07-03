@@ -31,15 +31,6 @@ vim.diagnostic.config {
   },
 }
 
--- lvim.builtin.nvimtree.setup.view.mappings.list = {
---   { key = { "l", "<CR>", "o" }, action = "edit", mode = "n" },
---   { key = "h", action = "close_node" },
---   { key = "v", action = "vsplit" },
---   { key = "<C-k>", action = "" },
---   { key = "C", action = "cd" }
--- }
-
-
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
@@ -54,7 +45,7 @@ local options = {
   clipboard = "unnamedplus", -- allows neovim to access the system clipboard
   cmdheight = 1, -- more space in the neovim command line for displaying messages
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
-  conceallevel = 0, -- so that `` is visible in markdown files
+  conceallevel = 2, -- so that `` is visible in markdown files
   fileencoding = "utf-8", -- the encoding written to a file
   hlsearch = true, -- highlight all matches on previous search pattern
   ignorecase = true, -- ignore case in search patterns

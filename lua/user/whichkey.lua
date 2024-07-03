@@ -9,6 +9,16 @@ lvim.builtin.which_key.mappings["r"] = {
   w = { "<cmd>Lspsaga rename<cr>", "Replace Word" },
 }
 
+lvim.builtin.which_key.mappings["o"] = {
+  name = "Obsidian",
+  n = { "<cmd>ObsidianNew<CR>", "Create new note" },
+  s = { "<cmd>ObsidianSearch<CR>", "Search note" },
+  t = { "<cmd>ObsidianToday<CR>", "Create delay note" },
+  T = { "<cmd>ObsidianTags<CR>", "Search note by tags" },
+  l = { "<cmd>ObsidianLink<CR>", "Create link on note" },
+  r = { "<cmd>ObsidianRename<CR>", "Rename note" },
+}
+
 lvim.builtin.which_key.mappings["R"] = {
   name = "Rest",
   r = { "<cmd>HurlRunner<CR>", "Run All requests" },
@@ -19,6 +29,7 @@ lvim.builtin.which_key.mappings["R"] = {
   l = { "<cmd>HurlShowLastResponse<cr>", "Hurl Show Last Response" },
   m = { "<cmd>HurlManageVariable<cr>", "Hurl Manage Variable" },
   s = { ":HurlSetVariable ", "Hurl Set Variable" },
+  f = { ":HurlSetEnvFile ", "Hurl Set Env File" },
 }
 
 lvim.builtin.which_key.mappings["D"] = {
@@ -49,7 +60,7 @@ lvim.builtin.which_key.mappings["a"] = {
   name = "Tab",
   n = { "<cmd>$tabnew<cr>", "New Empty Tab" },
   N = { "<cmd>tabnew %<cr>", "New Tab" },
-  c = { "<cmd>tabclose<cr>", "Tab Close"}
+  c = { "<cmd>tabclose<cr>", "Tab Close" }
 }
 
 lvim.builtin.which_key.mappings["f"] = {
@@ -81,8 +92,8 @@ lvim.builtin.which_key.mappings["g"] = {
   -- R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
   -- s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
   -- u = {
-    -- "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-    -- "Undo Stage Hunk",
+  -- "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
+  -- "Undo Stage Hunk",
   -- },
   n = { ":!git checkout -b ", "Checkout New Branch" },
   o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
@@ -176,12 +187,12 @@ lvim.builtin.which_key.mappings["s"] = nil
 -- lvim.builtin.which_key.mappings["w"] = nil
 
 local m_opts = {
-  mode = "n", -- NORMAL mode
+  mode = "n",     -- NORMAL mode
   prefix = "m",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
+  buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true,  -- use `silent` when creating keymaps
   noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
+  nowait = true,  -- use `nowait` when creating keymaps
 }
 
 local status_ok, which_key = pcall(require, "which-key")
