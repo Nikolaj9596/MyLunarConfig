@@ -5,9 +5,9 @@ require "nvim-treesitter.configs".setup {
 -- if lvim.colorscheme == "darkplus" then
 -- if lvim.colorscheme == "gruvbox" then
 -- if lvim.colorscheme == "lunar" then
--- if lvim.colorscheme == "onedark" then
+if lvim.colorscheme == "onedark" then
 -- if lvim.colorscheme == "solarized-osaka" then
-if lvim.colorscheme == "catppuccin-macchiato" then
+-- if lvim.colorscheme == "catppuccin-macchiato" then
   lvim.builtin.treesitter.rainbow = {
     enable = true,
     extended_mode = false,

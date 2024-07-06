@@ -17,6 +17,7 @@ lvim.builtin.which_key.mappings["o"] = {
   T = { "<cmd>ObsidianTags<CR>", "Search note by tags" },
   l = { "<cmd>ObsidianLink<CR>", "Create link on note" },
   r = { "<cmd>ObsidianRename<CR>", "Rename note" },
+  c = { "<cmd>ObsidianToggleCheckbox<CR>", "Toggle Checkbox" },
 }
 
 lvim.builtin.which_key.mappings["R"] = {
@@ -215,52 +216,3 @@ local m_mappings = {
   [";"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon UI" },
 }
 which_key.register(m_mappings, m_opts)
-
--- TODO: Remove not needed
--- lvim.builtin.which_key.mappings["c"] = {
---   name = "ChatGPT",
---   c = { "<cmd>ChatGPT<cr>", "Chat" },
---   a = { "<cmd>ChatGPTActAs<cr>", "Act As" },
---   e = { "<cmd>ChatGPTEditWithInstructions<cr>", "Edit" },
---   r = { "<cmd>ChatRunCustomCodeAction<cr>", "Code Action" },
--- }
--- lvim.builtin.which_key.mappings["t"] = {
---   name = "Tab",
---   t = {
---     "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
---     "Find Tab",
---   },
---   n = { "<cmd>tabnew %<cr>", "New Tab" },
---   c = { "<cmd>tabclose<cr>", "Close Tab" },
---   o = { "<cmd>tabonly<cr>", "Only Tab" },
--- }
-
--- lvim.builtin.which_key.mappings["a"] = {
---   name = "AI",
---   --   t = { "<cmd>NeoAI<cr>", "NeoAI" },
---   --   i = { "<cmd>NeoAIInjectCode<cr>", "NeoAIInjectCode" },
---   c = { "<cmd>ChatGPT<cr>", "ChatGPT" },
---   e = { "<cmd>ChatGPTEditWithInstruction<CR>", "Edit with instruction", mode = { "n", "v" } },
---   g = { "<cmd>ChatGPTRun grammar_correction<CR>", "Grammar Correction", mode = { "n", "v" } },
---   t = { "<cmd>ChatGPTRun translate<CR>", "Translate", mode = { "n", "v" } },
---   k = { "<cmd>ChatGPTRun keywords<CR>", "Keywords", mode = { "n", "v" } },
---   d = { "<cmd>ChatGPTRun docstring<CR>", "Docstring", mode = { "n", "v" } },
---   a = { "<cmd>ChatGPTRun add_tests<CR>", "Add Tests", mode = { "n", "v" } },
---   o = { "<cmd>ChatGPTRun optimize_code<CR>", "Optimize Code", mode = { "n", "v" } },
---   s = { "<cmd>ChatGPTRun summarize<CR>", "Summarize", mode = { "n", "v" } },
---   f = { "<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs", mode = { "n", "v" } },
---   x = { "<cmd>ChatGPTRun explain_code<CR>", "Explain Code", mode = { "n", "v" } },
---   r = { "<cmd>ChatGPTRun roxygen_edit<CR>", "Roxygen Edit", mode = { "n", "v" } },
---   l = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "Code Readability Analysis", mode = { "n", "v" } },
--- }
--- lvim.builtin.cmp.enabled = false
--- lvim.builtin.which_key.mappings["o"] = {
---   name = "Options",
---   c = { "<cmd>lua lvim.builtin.cmp.active = false<cr>", "Completion off" },
---   C = { "<cmd>lua lvim.builtin.cmp.active = true<cr>", "Completion on" },
--- w = { '<cmd>lua require("user.functions").toggle_option("wrap")<cr>', "Wrap" },
--- r = { '<cmd>lua require("user.functions").toggle_option("relativenumber")<cr>', "Relative" },
--- l = { '<cmd>lua require("user.functions").toggle_option("cursorline")<cr>', "Cursorline" },
--- s = { '<cmd>lua require("user.functions").toggle_option("spell")<cr>', "Spell" },
--- t = { '<cmd>lua require("user.functions").toggle_tabline()<cr>', "Tabline" },
--- }
