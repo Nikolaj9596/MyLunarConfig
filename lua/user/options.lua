@@ -1,10 +1,11 @@
 -- lvim.colorscheme = "lunar"
 -- lvim.colorscheme = "tokyonight-night"
 -- lvim.colorscheme = "darkplus"
--- lvim.colorscheme = "onedark"
-lvim.colorscheme = "gruvbox"
+lvim.colorscheme = "onedark"
+-- lvim.colorscheme = "gruvbox"
 -- lvim.colorscheme = "solarized-osaka"
 -- lvim.colorscheme = "catppuccin-macchiato"
+-- lvim.colorscheme = "catppuccin"
 lvim.log.level = "warning"
 
 lvim.builtin.alpha.active = false
@@ -92,7 +93,7 @@ local options = {
   -- colorcolumn = "80",
   -- colorcolumn = "120",
 }
-
+vim.g.skip_ts_context_commentstring_module = true
 vim.opt.showtabline = 0
 vim.opt.fillchars.eob = " "
 vim.opt.fillchars = vim.opt.fillchars + "vertleft: "

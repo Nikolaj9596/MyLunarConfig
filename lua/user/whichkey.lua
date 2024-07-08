@@ -17,6 +17,7 @@ lvim.builtin.which_key.mappings["o"] = {
   T = { "<cmd>ObsidianTags<CR>", "Search note by tags" },
   l = { "<cmd>ObsidianLink<CR>", "Create link on note" },
   r = { "<cmd>ObsidianRename<CR>", "Rename note" },
+  c = { "<cmd>lua require'obsidian'.util.toggle_checkbox()<cr>", "Toggle Checkbox" },
 }
 
 lvim.builtin.which_key.mappings["R"] = {

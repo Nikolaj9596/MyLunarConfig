@@ -13,7 +13,7 @@ vim.filetype.add {
 
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-  { command = "cspell", filetypes = { "sh", "zsh" } },
+  { command = "cspell",     filetypes = { "sh", "zsh" } },
   { command = "shellcheck", filetypes = { "sh", "zsh" } },
 }
 

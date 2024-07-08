@@ -2,12 +2,13 @@ require "nvim-treesitter.configs".setup {
   tree_docs = {enable = true}
 }
 
-if lvim.colorscheme == "gruvbox" then
+-- if lvim.colorscheme == "gruvbox" then
 -- if lvim.colorscheme == "lunar" then
--- if lvim.colorscheme == "onedark" then
+if lvim.colorscheme == "onedark" then
 -- if lvim.colorscheme == "solarized-osaka" then
 -- if lvim.colorscheme == "tokyonight-night" then
 -- if lvim.colorscheme == "darkplus" then
+-- if lvim.colorscheme == "catppuccin-macchiato" then
   lvim.builtin.treesitter.rainbow = {
     enable = true,
     extended_mode = false,
@@ -57,7 +58,7 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.autotag.enable = true
 lvim.builtin.treesitter.auto_install = true
 
--- lvim.builtin.treesitter.ignore_install = { "markdown" }
+lvim.builtin.treesitter.ignore_install = { "markdown" }
 
 lvim.builtin.treesitter.textobjects = {
   select = {

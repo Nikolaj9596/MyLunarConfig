@@ -2,17 +2,18 @@
 -- require "user.lsp.languages.go"
 -- require "user.lsp.languages.docker"
 -- require "user.lsp.languages.php"
+-- require "user.lsp.languages.csharp"
+-- require "user.lsp.languages.java"
+
 require "user.lsp.languages.js-ts"
+require "user.lsp.languages.md"
 require "user.lsp.languages.python"
-require "user.lsp.languages.csharp"
+require "user.lsp.languages.json"
+require "user.lsp.languages.sql"
 require "user.lsp.languages.sh"
 require "user.lsp.languages.emmet"
 require "user.lsp.languages.css"
 require "user.lsp.languages.yaml"
-require "user.lsp.languages.md"
-require "user.lsp.languages.json"
-require "user.lsp.languages.sql"
-require "user.lsp.languages.java"
 
 -- vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
 
