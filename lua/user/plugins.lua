@@ -1,4 +1,31 @@
 lvim.plugins = {
+
+  -- Screanshot
+  {
+    "michaelrommel/nvim-silicon",
+    lazy = true,
+    cmd = "Silicon",
+    config = function()
+      require("silicon").setup({
+        disable_defaults = false,
+        debug = false,
+        font = "Hack Nerd Font Mono=34",
+        theme = "Visual Studio Dark+",
+        background = "#94e2d5",
+        language = function()
+          return vim.bo.filetype
+        end,
+        shadow_color = "#100808",
+        window_title = function()
+          return vim.fn.fnamemodify(
+            vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()),
+            ":t"
+          )
+        end,
+      })
+    end
+  },
+
   -- Obsidian
   {
     "epwalsh/obsidian.nvim",
