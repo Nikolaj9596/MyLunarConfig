@@ -15,7 +15,6 @@ keymap("n", "<c-h>", ":wincmd h<CR>", opts)
 keymap("n", "<c-j>", ":wincmd j<CR>", opts)
 keymap("n", "<c-k>", ":wincmd k<CR>", opts)
 keymap("n", "<c-l>", ":wincmd l<CR>", opts)
-
 keymap('n', 'C-h', ':TmuxNavigateLeft<CR>', opts)
 keymap('n', 'C-j', ':TmuxNavigateDown<CR>', opts)
 keymap('n', 'C-k', ':TmuxNavigateUp<CR>', opts)

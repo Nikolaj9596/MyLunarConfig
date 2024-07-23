@@ -65,10 +65,46 @@ export const {}:FC<{}Props> = (props) => {{
     ),
   })
 
+
+  ls.add_snippets(leng, {
+    s(
+      { trig = "rs", snippetType = "snippet" },
+      fmt(
+        [[
+import {{ createSlice }} from "@reduxjs/toolkit"
+
+const initialState: {}Schema = {{
+  isLoading: false,
+  error: undefined,
+  data: undefined
+}}
+
+export const {}Slice = createSlice({{
+  name: "{}",
+  initialState,
+  reducers: {{}},
+}})
+
+export const {{ actions: {}Actions }} = {}Slice
+export const {{ reducer: {}Reducer }} = {}Slice 
+    ]],
+        {
+          i(1, "Slice Name"),
+          rep(1),
+          rep(1),
+          rep(1),
+          rep(1),
+          rep(1),
+          rep(1)
+        }
+      )
+    ),
+  })
+
   ls.add_snippets(leng, {
     s(
       { trig = "rsf", snippetType = "snippet" },
-      fmt(
+      fmt(kkk
         [[
 
 {} {} = ({}) => {{

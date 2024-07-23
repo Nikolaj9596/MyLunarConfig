@@ -24,6 +24,16 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   end,
 })
 
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = {
+    "*.md"
+  },
+  callback = function()
+    vim.cmd "set conceallevel=2"
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = {
     "Jaq",
