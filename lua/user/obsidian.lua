@@ -1,3 +1,30 @@
+vim.api.nvim_create_autocmd({ "Colorscheme" }, {
+  callback = function()
+    vim.api.nvim_set_hl(0, 'EyelinerPrimary', { fg = '#ff00ff', bold = true, underline = false })
+    vim.api.nvim_set_hl(0, 'EyelinerSecondary', { fg = '#00ffff', underline = false })
+    vim.api.nvim_set_hl(0, 'ObsidianBullet', { bold = true, fg = "#89ddff" })
+    vim.api.nvim_set_hl(0, 'ObsidianTodo', { bold = true, fg = "#f78c6c" })
+    vim.api.nvim_set_hl(0, 'ObsidianDone', { bold = true, fg = "#89ddff" })
+    vim.api.nvim_set_hl(0, 'ObsidianRightArrow', { bold = true, fg = "#f78c6c" })
+    vim.api.nvim_set_hl(0, 'ObsidianTilde', { bold = true, fg = "#ff5370" })
+    vim.api.nvim_set_hl(0, 'ObsidianImportant', { bold = true, fg = "#d73128" })
+    vim.api.nvim_set_hl(0, 'ObsidianRefText', { underline = true, fg = "#c792ea" })
+    vim.api.nvim_set_hl(0, 'ObsidianExtLinkIcon', { fg = "#c792ea" })
+    vim.api.nvim_set_hl(0, 'ObsidianTag', { italic = true, fg = "#89ddff" })
+    vim.api.nvim_set_hl(0, 'ObsidianBlockID', { italic = true, fg = "#89ddff" })
+    vim.api.nvim_set_hl(0, 'ObsidianHighlightText', { bg = "#75662e" })
+    vim.api.nvim_set_hl(0, 'markdownH2Delimiterxxx', { bg = "#89ddff" })
+  end,
+})
+
+
+
+-- markdownH1Delimiterxxx links to markdownHeadingDelimiter
+-- markdownH2Delimiterxxx links to markdownHeadingDelimiter
+-- markdownH3Delimiterxxx links to markdownHeadingDelimiter
+-- markdownH4Delimiterxxx links to markdownHeadingDelimiter
+-- markdownH5Delimiterxxx links to markdownHeadingDelimiter
+-- markdownH6Delimiterxxx links to markdownHeadingDelimiter
 require("obsidian").setup({
   workspaces = {
     {
@@ -211,13 +238,13 @@ require("obsidian").setup({
   -- -- Optional, configure additional syntax highlighting / extmarks.
   -- -- This requires you have `conceallevel` set to 1 or 2. See `:help conceallevel` for more details.
   ui = {
-    enable = true,          -- set to false to disable all additional syntax features
-    update_debounce = 200,  -- update delay after a text change (in milliseconds)
+    enable = true,         -- set to false to disable all additional syntax features
+    update_debounce = 200, -- update delay after a text change (in milliseconds)
     -- max_file_length = 5000, -- disable UI features for files with more than this many lines
     -- Define how various check-boxes are displayed
     checkboxes = {
       -- NOTE: the 'char' value has to be a single character, and the highlight groups are defined below.
-      [" "] = { char = "󰄱" , hl_group = "ObsidianTodo" },
+      [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
       -- ["x"] = { char = "", hl_group = "ObsidianDone" },
       ["x"] = { char = "✔", hl_group = "ObsidianDone" },
       [">"] = { char = "", hl_group = "ObsidianRightArrow" },

@@ -37,7 +37,7 @@ local function addSnippet(leng)
       { trig = "rc", snippetType = "snippet" },
       fmt(
         [[
-import {{ FC }} from "react";
+import {{ FC, memo }} from "react";
 import {{ useTranslation }} from "react-i18next";
 import {{ classNames }} from "shared";
 import cls from "./{}.module.scss";
@@ -46,13 +46,13 @@ interface {}Props {{
   className?: string;
 }}
 
-export const {}:FC<{}Props> = (props) => {{
+export const {}:FC<{}Props> = memo((props) => {{
   const {{ t }} = useTranslation()
   return (
     <div className={{classNames(cls.{}, {{}}, [props.className])}}>
     </div>
   );
-}};
+}});
     ]],
         {
           i(1, "ComponentName"),
@@ -66,61 +66,61 @@ export const {}:FC<{}Props> = (props) => {{
   })
 
 
-  ls.add_snippets(leng, {
-    s(
-      { trig = "rs", snippetType = "snippet" },
-      fmt(
-        [[
-import {{ createSlice }} from "@reduxjs/toolkit"
+--   ls.add_snippets(leng, {
+--     s(
+--       { trig = "rs", snippetType = "snippet" },
+--       fmt(
+--         [[
+-- import {{ createSlice }} from "@reduxjs/toolkit"
 
-const initialState: {}Schema = {{
-  isLoading: false,
-  error: undefined,
-  data: undefined
-}}
+-- const initialState: {}Schema = {{
+--   isLoading: false,
+--   error: undefined,
+--   data: undefined
+-- }}
 
-export const {}Slice = createSlice({{
-  name: "{}",
-  initialState,
-  reducers: {{}},
-}})
+-- export const {}Slice = createSlice({{
+--   name: "{}",
+--   initialState,
+--   reducers: {{}},
+-- }})
 
-export const {{ actions: {}Actions }} = {}Slice
-export const {{ reducer: {}Reducer }} = {}Slice 
-    ]],
-        {
-          i(1, "Slice Name"),
-          rep(1),
-          rep(1),
-          rep(1),
-          rep(1),
-          rep(1),
-          rep(1)
-        }
-      )
-    ),
-  })
+-- export const {{ actions: {}Actions }} = {}Slice
+-- export const {{ reducer: {}Reducer }} = {}Slice 
+--     ]],
+--         {
+--           i(1, "Slice Name"),
+--           rep(1),
+--           rep(1),
+--           rep(1),
+--           rep(1),
+--           rep(1),
+--           rep(1)
+--         }
+--       )
+--     ),
+--   })
 
-  ls.add_snippets(leng, {
-    s(
-      { trig = "rsf", snippetType = "snippet" },
-      fmt(kkk
-        [[
+--   ls.add_snippets(leng, {
+--     s(
+--       { trig = "rsf", snippetType = "snippet" },
+--       fmt(kkk
+--         [[
 
-{} {} = ({}) => {{
-  return {}
-  }};
+-- {} {} = ({}) => {{
+--   return {}
+--   }};
 
-    ]],
-        {
-          i(1, "let"),
-          i(2, ""),
-          i(3, "FunctioName"),
-          i(4, "Return"),
-        }
-      )
-    ),
-  })
+--     ]],
+--         {
+--           i(1, "let"),
+--           i(2, ""),
+--           i(3, "FunctioName"),
+--           i(4, "Return"),
+--         }
+--       )
+--     ),
+--   })
 end
 
 for leng = 1, 4 do
