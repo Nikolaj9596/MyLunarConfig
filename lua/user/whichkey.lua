@@ -156,14 +156,16 @@ lvim.builtin.which_key.mappings["l"] = {
 lvim.builtin.which_key.mappings["t"] = {
   name = "Terminal",
   u = { "<cmd>lua require 'user.terminal'.ncdu_toggle()<cr>", "NCDU" },
-  n = { "<cmd>lua require 'user.terminal'.node_toggle()<cr>", "Node" },
   t = { "<cmd>lua require 'user.terminal'.htop_toggle()<cr>", "Htop" },
-  c = { "<cmd>lua require 'user.terminal'.ctop_toggle()<cr>", "Ctop" },
   d = { "<cmd>lua require 'user.terminal'.lazydocker_toggle()<cr>", "Lazydocker" },
   p = { "<cmd>lua require 'user.terminal'.ipython_toggle()<cr>", "IPython" },
+  k = { "<cmd>lua require 'user.terminal'.k9s_toggle()<cr>", "K9s" },
   f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-  h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-  v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+  
+  -- n = { "<cmd>lua require 'user.terminal'.node_toggle()<cr>", "Node" },
+  -- c = { "<cmd>lua require 'user.terminal'.ctop_toggle()<cr>", "Ctop" },
+  -- h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
+  -- v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 }
 
 lvim.builtin.which_key.mappings["n"] = {

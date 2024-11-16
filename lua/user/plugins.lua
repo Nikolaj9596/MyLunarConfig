@@ -1,4 +1,5 @@
 lvim.plugins = {
+
   -- Obsidian
  {
     "epwalsh/obsidian.nvim",
@@ -47,10 +48,12 @@ lvim.plugins = {
   "f-person/git-blame.nvim", -- display how last commit this code
 
   -- -- Treesitter --
-  "nvim-treesitter/playground",
-  "nvim-treesitter/nvim-treesitter-textobjects",
-  "nvim-treesitter/nvim-treesitter-refactor",
-  "nvim-treesitter/nvim-tree-docs",
+
+  "nvim-treesitter/nvim-treesitter",
+  --"nvim-treesitter/playground",
+  --"nvim-treesitter/nvim-treesitter-textobjects",
+  --"nvim-treesitter/nvim-treesitter-refactor",
+  --"nvim-treesitter/nvim-tree-docs",
 
   "NvChad/nvim-colorizer.lua",
 

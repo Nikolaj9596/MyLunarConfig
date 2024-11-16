@@ -61,7 +61,7 @@ local function addSnippet(leng)
       { trig = "rc", snippetType = "snippet" },
       fmt(
         [[
-import React, {{ FC }} from "react";
+import {{ FC }} from "react";
 import {{ classNames }} from "shared";
 import cls from "./{}.module.scss";
 
@@ -70,8 +70,9 @@ interface {}Props {{
 }}
 
 export const {}:FC<{}Props> = (props) => {{
+  const {{className,}} = props
   return (
-    <div className={{classNames(cls.{}, {{}}, [props.className ? props.className : ''])}}>
+    <div className={{classNames(cls.{}, {{}}, [className])}}>
     </div>
   );
 }};
