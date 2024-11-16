@@ -12,8 +12,9 @@ vim.g.bookmark_show_warning = 0
 vim.g.bookmark_center = 1
 vim.g.bookmark_location_list = 0
 vim.g.bookmark_disable_ctrlp = 1
-vim.g.bookmark_display_annotation = 0
--- vim.g.bookmark_auto_save_file = '~/.config/lvim/bookmarks'
+vim.g.bookmark_display_annotation = 1
+vim.g.bookmark_auto_save_file = '~/.config/lvim/bookmarks'
+
 reload("bookmark").setup {
   sign = "",
   highlight = "Function",

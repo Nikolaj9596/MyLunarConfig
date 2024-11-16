@@ -11,10 +11,10 @@ keymap("n", "<c-j>", ":wincmd j<CR>", opts)
 keymap("n", "<c-k>", ":wincmd k<CR>", opts)
 keymap("n", "<c-l>", ":wincmd l<CR>", opts)
 
-keymap('n', 'C-h', ':TmuxNavigateLeft<CR>', opts)
-keymap('n', 'C-j', ':TmuxNavigateDown<CR>', opts)
-keymap('n', 'C-k', ':TmuxNavigateUp<CR>', opts)
-keymap('n', 'C-l', ':TmuxNavigateRight<CR>', opts)
+keymap("n", "C-h", ":TmuxNavigateLeft<CR>", opts)
+keymap("n", "C-j", ":TmuxNavigateDown<CR>", opts)
+keymap("n", "C-k", ":TmuxNavigateUp<CR>", opts)
+keymap("n", "C-l", ":TmuxNavigateRight<CR>", opts)
 
 keymap("n", "*", "*zz", opts)
 keymap("n", "#", "#zz", opts)
@@ -23,21 +23,21 @@ keymap("n", "g#", "g#zz", opts)
 keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)
 keymap("n", "<F7>", "<cmd>TSHighlightCapturesUnderCursor<cr>", opts)
 keymap("n", "-", ":lua require'lir.float'.toggle()<cr>", opts)
-
+keymap("n", "K", "<cmd>Lspsaga hover_doc", opts)
 keymap("n", "ss", ":split<cr>", opts)
 keymap("n", "sv", ":vsplit<cr>", opts)
+-- Leap custom keymap
+keymap("n", "cs", ":lua require('leap.treesitter').select()<CR>", opts)
 
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
-
-keymap("x", "p", [["_dP]])
-
--- vim.api.nvim_set_keymap("n", "K", ":lua require('user.keymaps').show_documentation()<CR>", opts)
-vim.api.nvim_set_keymap("n", "K", "<cmd>Lspsaga hover_doc", opts)
+keymap("x", "p", [["_dP]], opts)
 
 --Insert--
 keymap("i", "jk", "<ESC>", opts)
 
+-- Visual --
+keymap("v", "r", ":HurlRunner<CR>", opts)
+keymap("v", "<", "<gv", opts)
+keymap("v", ">", ">gv", opts)
 
 -- keymap("n", "<C-Space>", "<cmd>WhichKey \\<space><cr>", opts)
 -- keymap("n", "<C-i>", "<C-i>", opts)
@@ -55,18 +55,13 @@ keymap("i", "jk", "<ESC>", opts)
 
 -- vim.cmd "autocmd! TermOpen term://* lua set_terminal_keymaps()"
 
-
-
 -- keymap("n", "n", "nzz", opts)
 -- keymap("n", "N", "Nzz", opts)
 -- Doc String
 -- keymap("n", "cd", "<cmd>DogeGenerate<CR>", opts)
 
--- Visual --
-keymap("v", "r", ':HurlRunner<CR>', opts)
 -- keymap("v", "p", '"_dp', opts)
 -- keymap("v", "P", '"_dP', opts)
-
 
 -- keymap(
 --   "n",
