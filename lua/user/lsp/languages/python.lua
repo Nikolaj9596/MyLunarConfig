@@ -12,7 +12,7 @@ local pyright_opts = {
         autoImportCompletions = true,
         autoSearchPaths = true,
         diagnosticMode = "workspace", -- openFilesOnly, workspace
-        typeCheckingMode = "strict",   -- off, basic, strict
+        typeCheckingMode = "basic",   -- off, basic, strict
         useLibraryCodeForTypes = true,
       },
     },

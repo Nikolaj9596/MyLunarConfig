@@ -1,4 +1,5 @@
 require "user.lsp.languages.sql"
+require "user.lsp.languages.proto"
 require "user.lsp.languages.setup_lua"
 require "user.lsp.languages.sh"
 require "user.lsp.languages.yaml"

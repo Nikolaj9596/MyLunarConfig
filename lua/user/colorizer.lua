@@ -4,7 +4,7 @@ if not ok then
 end
 
 colorizer.setup {
-  filetypes = { "*" },
+  filetypes = { "*", "!lua" },
   user_default_options = {
     RGB = true, -- #RGB hex codes
     RRGGBB = true, -- #RRGGBB hex codes

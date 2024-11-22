@@ -24,12 +24,13 @@ lvim.plugins = {
 
   -- LSP -- *
   "mfussenegger/nvim-jdtls", -- Java
+
   "lvimuser/lsp-inlayhints.nvim", -- Partial implementation of LSP inlay hint.pl
 
   -- Lang -- *
   "christianchiarulli/nvim-ts-autotag", -- Added auto tag to end for ts, js html
 
-  -- Leap
+  -- Leap *
   {
     "ggandor/flit.nvim",
     enabled = true,
@@ -60,32 +61,33 @@ lvim.plugins = {
       vim.keymap.del({ "x", "o" }, "X")
     end,
   },
-  -- Useful --
+  -- Useful -- *
   "tyru/open-browser.vim",
   "nvim-lua/plenary.nvim",
   "MattesGroeger/vim-bookmarks",
   "moll/vim-bbye", -- For close buffer
   "kevinhwang91/nvim-bqf", -- The goal of nvim-bqf is to make Neovim's quickfix window better.
-  -- "ggandor/leap.nvim",     -- plugin fore very fast find character in line
   "opalmay/vim-smoothie",
-  --
-  -- -- GIT --
-  "TimUntersberger/neogit",
-  "mattn/vim-gist",
+  "mattn/webapi-vim",
+
+  -- GIT -- *
+  "TimUntersberger/neogit", -- TODO: set up neogit
+
+  "ruifm/gitlinker.nvim", --A lua neovim plugin to generate shareable file permalinks (with line ranges) for several git web frontend hosts.
   "lunarvim/github.nvim",
   "sindrets/diffview.nvim", --Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
-  "ruifm/gitlinker.nvim", --A lua neovim plugin to generate shareable file permalinks (with line ranges) for several git web frontend hosts.
   "f-person/git-blame.nvim", -- display how last commit this code
+  -- "mattn/vim-gist",
 
-  -- -- Treesitter --
-
-  "nvim-treesitter/nvim-treesitter",
+  -- Treesitter --
+  -- "nvim-treesitter/nvim-treesitter",
   --"nvim-treesitter/playground",
   --"nvim-treesitter/nvim-treesitter-textobjects",
   --"nvim-treesitter/nvim-treesitter-refactor",
   --"nvim-treesitter/nvim-tree-docs",
 
-  "NvChad/nvim-colorizer.lua",
+
+  "NvChad/nvim-colorizer.lua", -- Colorize rgb color
 
   -- Colorschemas
   {
@@ -100,11 +102,8 @@ lvim.plugins = {
   "marko-cerovac/material.nvim",
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
-  -- -- Auto Session
-  -- "rmagatti/auto-session",
-  -- "rmagatti/session-lens",
 
-  -- -- UI --
+  -- UI --
   {
     "rcarriga/nvim-notify",
     event = "VeryLazy",
@@ -352,6 +351,11 @@ lvim.plugins = {
   {
     "christoomey/vim-tmux-navigator",
   },
+
+  -- -- Auto Session
+  -- "rmagatti/auto-session",
+  -- "rmagatti/session-lens",
+
   --AI--
 
   -- {
