@@ -12,7 +12,7 @@ local pyright_opts = {
         autoImportCompletions = true,
         autoSearchPaths = true,
         diagnosticMode = "workspace", -- openFilesOnly, workspace
-        typeCheckingMode = "basic",   -- off, basic, strict
+        typeCheckingMode = "basic", -- off, basic, strict
         useLibraryCodeForTypes = true,
       },
     },
@@ -25,14 +25,16 @@ require("lvim.lsp.manager").setup("pyright", pyright_opts)
 -- Set a formatter.
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  { command = "black", filetypes = { "python" } },
-  { command = "isort", filetypes = { "python" } },
+
+  { command = "ruff", filetypes = { "python" } },
+  -- { command = "black", filetypes = { "python" } },
+  -- { command = "isort", filetypes = { "python" } },
 }
 
 -- Set a linter.
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-  -- { command = "ruff",   filetypes = { "python" } },
+  { command = "ruff", filetypes = { "python" } },
   { command = "cspell", filetypes = { "python", "sh", "cs", "javascript", "typescript", "markdown", "paml" } },
 }
 
