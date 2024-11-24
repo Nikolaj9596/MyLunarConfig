@@ -72,20 +72,10 @@ lvim.plugins = {
   "mattn/webapi-vim",
 
   -- GIT -- *
-  "TimUntersberger/neogit", -- TODO: set up neogit
-
+  "TimUntersberger/neogit",
   "ruifm/gitlinker.nvim", --A lua neovim plugin to generate shareable file permalinks (with line ranges) for several git web frontend hosts.
   "sindrets/diffview.nvim", --Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
-  "f-person/git-blame.nvim", -- display how last commit this code
-  -- "mattn/vim-gist",
-
-  -- Treesitter --
-  -- "nvim-treesitter/nvim-treesitter",
-  --"nvim-treesitter/playground",
-  --"nvim-treesitter/nvim-treesitter-textobjects",
-  --"nvim-treesitter/nvim-treesitter-refactor",
-  --"nvim-treesitter/nvim-tree-docs",
-
+  "lewis6991/gitsigns.nvim", -- Super fast git decorations implemented purely in Lua.
 
   "NvChad/nvim-colorizer.lua", -- Colorize rgb color
 
@@ -352,6 +342,15 @@ lvim.plugins = {
     "christoomey/vim-tmux-navigator",
   },
 
+  -- "mattn/vim-gist",
+
+  -- Treesitter --
+  -- "nvim-treesitter/nvim-treesitter",
+  --"nvim-treesitter/playground",
+  --"nvim-treesitter/nvim-treesitter-textobjects",
+  --"nvim-treesitter/nvim-treesitter-refactor",
+  --"nvim-treesitter/nvim-tree-docs",
+
   -- -- Auto Session
   -- "rmagatti/auto-session",
   -- "rmagatti/session-lens",
@@ -394,4 +393,5 @@ lvim.plugins = {
   -- "kevinhwang91/nvim-hlslens", -- hughlite search element in scrollbar
   -- "petertriho/nvim-scrollbar", -- Scroll bar in left
   -- "karb94/neoscroll.nvim",
+  -- "f-person/git-blame.nvim", -- display how last commit this code
 }
