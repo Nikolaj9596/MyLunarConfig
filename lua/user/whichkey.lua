@@ -81,10 +81,11 @@ lvim.builtin.which_key.mappings["f"] = {
   C = { "<cmd>Telescope commands<cr>", "Commands" },
   i = { "<cmd>IconPickerNormal<cr>", "Icon" },
 }
+
 lvim.builtin.which_key.mappings["g"] = {
   name = "Git",
   g = { "<cmd>lua require 'user.terminal'.lazygit_toggle()<cr>", "Lazygit" },
-  l = { "<cmd>GitBlameToggle<cr>", "Gitsigns toggle_current_line_blame<cr>" },
+  l = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Git Blame" },
   n = { ":!git checkout -b ", "Checkout New Branch" },
   o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
   b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },

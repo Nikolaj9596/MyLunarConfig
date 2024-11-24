@@ -27,6 +27,8 @@ reload "user.gitlinker"
 reload "user.colorizer"
 reload "user.neogit"
 reload "user.gitsigns"
+reload "user.noice"
+
 
 -- reload "user.solarized_osaka"
 -- reload "user.harpoon"
