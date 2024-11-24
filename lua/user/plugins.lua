@@ -117,7 +117,7 @@ lvim.plugins = {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {},
-  },
+  }, -- Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
 
   {
     "echasnovski/mini.indentscope",
@@ -138,12 +138,14 @@ lvim.plugins = {
       require("mini.indentscope").setup(opts)
     end,
   },
+
   {
     "m-demare/hlargs.nvim",
     event = "VeryLazy",
   },
 
   "folke/todo-comments.nvim", -- Highlights todo comments
+
   -- -- LuaSnip --
   "L3MON4D3/LuaSnip",
   "saadparwaiz1/cmp_luasnip",
@@ -161,14 +163,6 @@ lvim.plugins = {
     ft = { "markdown" },
     opts = {},
   }, -- Catalyze your Fenced Markdown Code-block editing!
-  -- {
-  --   "iamcco/markdown-preview.nvim",
-  --   ft = { "markdown" },
-  --   build = "cd app && npm install",
-  --   init = function()
-  --     vim.g.mkdp_filetypes = { "markdown" }
-  --   end,
-  -- },
 
   "MunifTanjim/nui.nvim", -- UI Component
   {
@@ -246,6 +240,14 @@ lvim.plugins = {
     "christoomey/vim-tmux-navigator",
   },
 
+  -- {
+  --   "iamcco/markdown-preview.nvim",
+  --   ft = { "markdown" },
+  --   build = "cd app && npm install",
+  --   init = function()
+  --     vim.g.mkdp_filetypes = { "markdown" }
+  --   end,
+  -- },
   -- "mattn/vim-gist",
 
   -- Treesitter --
