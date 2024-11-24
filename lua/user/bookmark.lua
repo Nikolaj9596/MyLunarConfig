@@ -1,3 +1,12 @@
+local status_ok, bookmark = pcall(require, "bookmark")
+if not status_ok then
+  return
+end
+
+bookmark.setup {
+  sign = "",
+  highlight = "Function",
+}
 
 -- highlight BookmarkSign ctermbg=NONE ctermfg=160
 -- highlight BookmarkLine ctermbg=194 ctermfg=NONE
@@ -7,15 +16,10 @@ vim.g.bookmark_auto_save = 0
 vim.g.bookmark_auto_close = 0
 vim.g.bookmark_manage_per_buffer = 0
 vim.g.bookmark_save_per_working_dir = 0
--- vim.g.bookmark_highlight_lines = 1
+vim.g.bookmark_highlight_lines = 1
 vim.g.bookmark_show_warning = 0
 vim.g.bookmark_center = 1
 vim.g.bookmark_location_list = 0
 vim.g.bookmark_disable_ctrlp = 1
 vim.g.bookmark_display_annotation = 1
-vim.g.bookmark_auto_save_file = '~/.config/lvim/bookmarks'
-
-reload("bookmark").setup {
-  sign = "",
-  highlight = "Function",
-}
+vim.g.bookmark_auto_save_file = "~/.config/lvim/bookmarks"

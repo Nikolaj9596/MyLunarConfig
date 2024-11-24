@@ -61,6 +61,7 @@ lvim.plugins = {
       vim.keymap.del({ "x", "o" }, "X")
     end,
   },
+
   -- Useful -- *
   "tyru/open-browser.vim",
   "nvim-lua/plenary.nvim",
@@ -74,7 +75,6 @@ lvim.plugins = {
   "TimUntersberger/neogit", -- TODO: set up neogit
 
   "ruifm/gitlinker.nvim", --A lua neovim plugin to generate shareable file permalinks (with line ranges) for several git web frontend hosts.
-  "lunarvim/github.nvim",
   "sindrets/diffview.nvim", --Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
   "f-person/git-blame.nvim", -- display how last commit this code
   -- "mattn/vim-gist",

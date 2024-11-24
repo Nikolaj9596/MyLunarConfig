@@ -94,7 +94,7 @@ lvim.builtin.which_key.mappings["g"] = {
     "<cmd>Gitsigns diffthis HEAD<cr>",
     "Diff",
   },
-  -- g = { "<cmd>Neogit<cr>", "Neogit" },
+  G = { "<cmd>Neogit<cr>", "Neogit" },
   -- j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
   -- k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
   -- p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
