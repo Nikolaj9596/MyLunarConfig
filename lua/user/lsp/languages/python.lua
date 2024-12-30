@@ -20,7 +20,6 @@ local pyright_opts = {
 }
 
 require("lvim.lsp.manager").setup("pyright", pyright_opts)
--- require("lvim.lsp.manager").setup("sourcery")
 
 -- Set a formatter.
 local formatters = require "lvim.lsp.null-ls.formatters"
@@ -34,8 +33,8 @@ formatters.setup {
 -- Set a linter.
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-  { command = "ruff", filetypes = { "python" } },
   { command = "cspell", filetypes = { "python", "sh", "cs", "javascript", "typescript", "markdown", "paml" } },
+  { command = "ruff", filetypes = { "python" } },
 }
 
 -- Setup dap for python
