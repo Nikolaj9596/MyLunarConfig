@@ -20,8 +20,8 @@ lvim.builtin.which_key.mappings["o"] = {
   c = { "<cmd>ObsidianToggleCheckbox<CR>", "Toggle Checkbox" },
 }
 
-lvim.builtin.which_key.mappings["R"] = {
-  name = "Rest",
+lvim.builtin.which_key.mappings["A"] = {
+  name = "Api",
   r = { "<cmd>HurlRunner<CR>", "Run All requests" },
   a = { "<cmd>HurlRunnerAt<cr>", "Run Api request" },
   e = { "<cmd>HurlRunnerToEntry<cr>", "Run Api request to entry" },
@@ -31,6 +31,7 @@ lvim.builtin.which_key.mappings["R"] = {
   m = { "<cmd>HurlManageVariable<cr>", "Hurl Manage Variable" },
   s = { ":HurlSetVariable ", "Hurl Set Variable" },
   f = { ":HurlSetEnvFile ", "Hurl Set Env File" },
+  g = { ":Grpc<cr>", "Grpc" },
 }
 
 lvim.builtin.which_key.mappings["D"] = {
@@ -61,7 +62,7 @@ lvim.builtin.which_key.mappings["a"] = {
   name = "Tab",
   n = { "<cmd>$tabnew<cr>", "New Empty Tab" },
   N = { "<cmd>tabnew %<cr>", "New Tab" },
-  c = { "<cmd>tabclose<cr>", "Tab Close" }
+  c = { "<cmd>tabclose<cr>", "Tab Close" },
 }
 
 lvim.builtin.which_key.mappings["f"] = {
@@ -103,8 +104,8 @@ lvim.builtin.which_key.mappings["g"] = {
   R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
   s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
   u = {
-  "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-  "Undo Stage Hunk",
+    "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
+    "Undo Stage Hunk",
   },
   -- G = {
   --   name = "Gist",
@@ -146,7 +147,6 @@ lvim.builtin.which_key.mappings["l"] = {
   -- H = { "<cmd>IlluminationToggle<cr>", "Toggle Doc HL" },
   -- u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
   -- q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-  -- r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
   -- R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
   -- t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
   -- d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
@@ -155,15 +155,16 @@ lvim.builtin.which_key.mappings["l"] = {
   -- c = { "<cmd>lua require('user.lsp').server_capabilities()<cr>", "Get Capabilities" },
   -- v = { "<cmd>lua require('lsp_lines').toggle()<cr>", "Virtual Text" },
 }
+
 lvim.builtin.which_key.mappings["t"] = {
   name = "Terminal",
   u = { "<cmd>lua require 'user.terminal'.ncdu_toggle()<cr>", "NCDU" },
-  t = { "<cmd>lua require 'user.terminal'.htop_toggle()<cr>", "Htop" },
+  -- t = { "<cmd>lua require 'user.terminal'.htop_toggle()<cr>", "Htop" },
   d = { "<cmd>lua require 'user.terminal'.lazydocker_toggle()<cr>", "Lazydocker" },
   p = { "<cmd>lua require 'user.terminal'.ipython_toggle()<cr>", "IPython" },
   k = { "<cmd>lua require 'user.terminal'.k9s_toggle()<cr>", "K9s" },
   f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-  
+
   -- n = { "<cmd>lua require 'user.terminal'.node_toggle()<cr>", "Node" },
   -- c = { "<cmd>lua require 'user.terminal'.ctop_toggle()<cr>", "Ctop" },
   -- h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
@@ -192,12 +193,12 @@ lvim.builtin.which_key.mappings["s"] = nil
 -- lvim.builtin.which_key.mappings["w"] = nil
 
 local m_opts = {
-  mode = "n",     -- NORMAL mode
+  mode = "n", -- NORMAL mode
   prefix = "m",
-  buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true,  -- use `silent` when creating keymaps
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
   noremap = true, -- use `noremap` when creating keymaps
-  nowait = true,  -- use `nowait` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
 }
 
 local status_ok, which_key = pcall(require, "which-key")

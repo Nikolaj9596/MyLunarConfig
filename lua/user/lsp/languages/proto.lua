@@ -1,7 +1,6 @@
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "bufls", })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "bufls" })
 
-
-require("lvim.lsp.manager").setup("bufls")
+require("lvim.lsp.manager").setup "bufls"
 
 -- Set a formatter.
 local formatters = require "lvim.lsp.null-ls.formatters"
@@ -12,6 +11,5 @@ formatters.setup {
 -- Set a linter.
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-  { command = "buf", filetypes = { "proto",} },
+  { command = "buf", filetypes = { "proto" } },
 }
-

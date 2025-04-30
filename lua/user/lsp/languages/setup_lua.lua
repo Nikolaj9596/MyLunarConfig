@@ -1,5 +1,5 @@
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "lua_ls" })
-require("lvim.lsp.manager").setup("lua_ls")
+require("lvim.lsp.manager").setup "lua_ls"
 
 -- Set a formatter.
 local formatters = require "lvim.lsp.null-ls.formatters"

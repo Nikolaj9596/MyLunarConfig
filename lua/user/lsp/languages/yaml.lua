@@ -1,5 +1,5 @@
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "yaml-ls" })
-require("lvim.lsp.manager").setup("yaml-ls")
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "yamlls" })
+require("lvim.lsp.manager").setup "yamlls"
 
 -- Set a formatter.
 local formatters = require "lvim.lsp.null-ls.formatters"

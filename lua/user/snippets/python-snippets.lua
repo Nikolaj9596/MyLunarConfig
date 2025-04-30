@@ -28,6 +28,26 @@ local group = vim.api.nvim_create_augroup("Python Snippets", { clear = true })
 -- local snippets, autosnipets = {}, {}
 -- local file_pattern = ".lua"
 
+-- Python repository
+ls.add_snippets("python", {
+  s(
+    "pr",
+    fmt(
+      [[
+from app.core import database
+
+
+class {}Repository:
+    def __init__(self, db: database.Database):
+        self._db = db
+  ]],
+      {
+        i(1, "Base"),
+      }
+    )
+  ),
+})
+
 -- Python function
 ls.add_snippets("python", {
   s(

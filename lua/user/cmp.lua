@@ -1,5 +1,11 @@
+  -- format = require("tailwindcss-colorizer-cmp").formatter,
 lvim.builtin.cmp.formatting = {
-  format = require("tailwindcss-colorizer-cmp").formatter
+  format = require('lspkind').cmp_format({
+              mode = "symbol",
+              maxwidth = 50,
+              ellipsis_char = '...',
+              symbol_map = { Codeium = "", }
+          })
 }
 lvim.builtin.cmp.window.documentation = true
 lvim.builtin.cmp.window.documentation = {
@@ -22,4 +28,7 @@ lvim.builtin.cmp.formatting.source_names = {
   tmux = "",
   copilot = "",
   treesitter = "",
+  codium = "codium"
 }
+
+

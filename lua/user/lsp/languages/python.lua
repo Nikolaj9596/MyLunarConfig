@@ -33,7 +33,7 @@ formatters.setup {
 -- Set a linter.
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-  { command = "cspell", filetypes = { "python", "sh", "cs", "javascript", "typescript", "markdown", "paml" } },
+  { command = "cspell", filetypes = { "python", "sh", "cs", "javascript", "typescript", "markdown", "paml", "md" } },
   { command = "ruff", filetypes = { "python" } },
 }
 

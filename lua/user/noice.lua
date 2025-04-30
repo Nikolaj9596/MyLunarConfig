@@ -4,7 +4,6 @@ if not status_ok then
 end
 
 noice.setup {
-
   lsp = {
     -- override markdown rendering so that **cmp** and other plougins use **Treesitter**
     progress = {
