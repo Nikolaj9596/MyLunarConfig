@@ -10,8 +10,8 @@ lvim.builtin.treesitter.auto_install = true
 
 -- if lvim.colorscheme == "darkplus" then
 -- if lvim.colorscheme == "gruvbox" then
-if lvim.colorscheme == "lunar" then
-  -- if lvim.colorscheme == "onedark" then
+-- if lvim.colorscheme == "lunar" then
+  if lvim.colorscheme == "onedark" then
   -- if lvim.colorscheme == "solarized-osaka" then
   -- if lvim.colorscheme == "catppuccin-macchiato" then
   lvim.builtin.treesitter.rainbow = {
@@ -34,9 +34,7 @@ end
 lvim.builtin.treesitter.ensure_installed = {
   "javascript",
   "bash",
-  "c",
   "json",
-  "java",
   "lua",
   "python",
   "typescript",
@@ -47,10 +45,8 @@ lvim.builtin.treesitter.ensure_installed = {
   "markdown",
   "markdown_inline",
   "html",
-  "dart",
   "toml",
   "dockerfile",
-  "c_sharp",
   "gitignore",
   "gitcommit",
   "scss",

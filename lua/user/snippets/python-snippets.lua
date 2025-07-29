@@ -1,32 +1,65 @@
 local ls = require "luasnip"
 local s = ls.snippet
-local sn = ls.snippet_node
-local isn = ls.indent_snippet_node
-local t = ls.text_node
 local i = ls.insert_node
-local f = ls.function_node
-local c = ls.choice_node
-local d = ls.dynamic_node
-local r = ls.restore_node
-local events = require "luasnip.util.events"
-local ai = require "luasnip.nodes.absolute_indexer"
 local extras = require "luasnip.extras"
-local l = extras.lambda
 local rep = extras.rep
-local p = extras.partial
-local m = extras.match
-local n = extras.nonempty
-local dl = extras.dynamic_lambda
 local fmt = require("luasnip.extras.fmt").fmt
-local fmta = require("luasnip.extras.fmt").fmta
-local conds = require "luasnip.extras.expand_conditions"
-local postfix = require("luasnip.extras.postfix").postfix
-local types = require "luasnip.util.types"
-local parse = require("luasnip.util.parser").parse_snippet
-local ms = ls.multi_snippet
-local group = vim.api.nvim_create_augroup("Python Snippets", { clear = true })
--- local snippets, autosnipets = {}, {}
--- local file_pattern = ".lua"
+
+-- Python register resources
+ls.add_snippets("python", {
+  s(
+    "frr",
+    fmt(
+      [[
+def register_{}_resources(container: punq.Container) -> None:
+    container.register(service={}.service.{}Service)
+    container.register(service={}.repository.{}Repository)
+    container.register(service={}.router.{}Router)
+  ]],
+      {
+        i(1, "base"),
+        i(2, "api_base"),
+        i(3, "Base"),
+        rep(2),
+        rep(3),
+        rep(2),
+        rep(3),
+      }
+    )
+  ),
+})
+
+-- Python fastapi router
+ls.add_snippets("python", {
+  s(
+    "pfr",
+    fmt(
+      [[
+import fastapi
+
+class {}Router:
+    def __init__(self, service: service.{}Service):
+        self._service = service
+
+    @property
+    def router(self) -> fastapi.APIRouter:
+        router = fastapi.APIRouter(
+            prefix="/{}", default_response_class=fastapi.responses.ORJSONResponse
+        )
+        self._include_router(router)
+        return router
+
+    def _include_router(self, router: fastapi.APIRouter) -> None:
+        ...
+  ]],
+      {
+        i(1, "Base"),
+        rep(1),
+        i(2, "prefix"),
+      }
+    )
+  ),
+})
 
 -- Python repository
 ls.add_snippets("python", {
@@ -35,6 +68,9 @@ ls.add_snippets("python", {
     fmt(
       [[
 from app.core import database
+from app.core.database import models
+import sqlalchemy
+import typing
 
 
 class {}Repository:
@@ -43,6 +79,25 @@ class {}Repository:
   ]],
       {
         i(1, "Base"),
+      }
+    )
+  ),
+})
+
+-- Python service
+ls.add_snippets("python", {
+  s(
+    "ps",
+    fmt(
+      [[
+
+class {}Service:
+    def __init__(self, repository: repository.{}Repository):
+        self._repository = repository
+  ]],
+      {
+        i(1, "Base"),
+        rep(1),
       }
     )
   ),

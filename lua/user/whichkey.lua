@@ -4,10 +4,6 @@ lvim.builtin.which_key.mappings["q"] = { '<cmd>lua require("user.functions").sma
 lvim.builtin.which_key.mappings["/"] = { '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', "Comment" }
 lvim.builtin.which_key.mappings["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" }
 lvim.builtin.which_key.mappings["gy"] = "Link"
-lvim.builtin.which_key.mappings["r"] = {
-  name = "Replace",
-  w = { "<cmd>Lspsaga rename<cr>", "Replace Word" },
-}
 
 lvim.builtin.which_key.mappings["o"] = {
   name = "Obsidian",
@@ -20,32 +16,6 @@ lvim.builtin.which_key.mappings["o"] = {
   c = { "<cmd>ObsidianToggleCheckbox<CR>", "Toggle Checkbox" },
 }
 
-lvim.builtin.which_key.mappings["A"] = {
-  name = "Api",
-  r = { "<cmd>HurlRunner<CR>", "Run All requests" },
-  a = { "<cmd>HurlRunnerAt<cr>", "Run Api request" },
-  e = { "<cmd>HurlRunnerToEntry<cr>", "Run Api request to entry" },
-  t = { "<cmd>HurlToggleMode<cr>", "Hurl Toggle Mode" },
-  v = { "<cmd>HurlVerbose<cr>", "Hurl Verbose" },
-  l = { "<cmd>HurlShowLastResponse<cr>", "Hurl Show Last Response" },
-  m = { "<cmd>HurlManageVariable<cr>", "Hurl Manage Variable" },
-  s = { ":HurlSetVariable ", "Hurl Set Variable" },
-  f = { ":HurlSetEnvFile ", "Hurl Set Env File" },
-  g = { ":Grpc<cr>", "Grpc" },
-}
-
-lvim.builtin.which_key.mappings["D"] = {
-  name = "Debug",
-  b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
-  c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
-  i = { "<cmd>lua require'dap'.step_into()<cr>", "Into" },
-  o = { "<cmd>lua require'dap'.step_over()<cr>", "Over" },
-  O = { "<cmd>lua require'dap'.step_out()<cr>", "Out" },
-  r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Repl" },
-  l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
-  u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
-  x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
-}
 -- Database
 lvim.builtin.which_key.mappings["d"] = {
   name = "Database",
@@ -144,9 +114,9 @@ lvim.builtin.which_key.mappings["l"] = {
     "Prev Diagnostic",
   },
   o = { "<cmd>Lspsaga outline<cr>", "Outline" },
-  -- H = { "<cmd>IlluminationToggle<cr>", "Toggle Doc HL" },
+  H = { "<cmd>IlluminationToggle<cr>", "Toggle Doc HL" },
+  q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
   -- u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
-  -- q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
   -- R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
   -- t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
   -- d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
@@ -159,12 +129,12 @@ lvim.builtin.which_key.mappings["l"] = {
 lvim.builtin.which_key.mappings["t"] = {
   name = "Terminal",
   u = { "<cmd>lua require 'user.terminal'.ncdu_toggle()<cr>", "NCDU" },
-  -- t = { "<cmd>lua require 'user.terminal'.htop_toggle()<cr>", "Htop" },
   d = { "<cmd>lua require 'user.terminal'.lazydocker_toggle()<cr>", "Lazydocker" },
   p = { "<cmd>lua require 'user.terminal'.ipython_toggle()<cr>", "IPython" },
   k = { "<cmd>lua require 'user.terminal'.k9s_toggle()<cr>", "K9s" },
   f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
 
+  -- t = { "<cmd>lua require 'user.terminal'.htop_toggle()<cr>", "Htop" },
   -- n = { "<cmd>lua require 'user.terminal'.node_toggle()<cr>", "Node" },
   -- c = { "<cmd>lua require 'user.terminal'.ctop_toggle()<cr>", "Ctop" },
   -- h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
@@ -187,10 +157,10 @@ lvim.builtin.which_key.mappings["n"] = {
 }
 
 lvim.builtin.which_key.mappings[";"] = nil
--- lvim.builtin.which_key.mappings["c"] = nil
 lvim.builtin.which_key.mappings["L"] = nil
-lvim.builtin.which_key.mappings["s"] = nil
+-- lvim.builtin.which_key.mappings["s"] = nil
 -- lvim.builtin.which_key.mappings["w"] = nil
+-- lvim.builtin.which_key.mappings["c"] = nil
 
 local m_opts = {
   mode = "n", -- NORMAL mode
@@ -221,3 +191,40 @@ local m_mappings = {
   [";"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon UI" },
 }
 which_key.register(m_mappings, m_opts)
+
+
+
+
+-- lvim.builtin.which_key.mappings["r"] = {
+--   name = "Replace",
+--   w = { "<cmd>Lspsaga rename<cr>", "Replace Word" },
+-- }
+
+
+-- lvim.builtin.which_key.mappings["A"] = {
+--   name = "Api",
+--   r = { "<cmd>HurlRunner<CR>", "Run All requests" },
+--   a = { "<cmd>HurlRunnerAt<cr>", "Run Api request" },
+--   e = { "<cmd>HurlRunnerToEntry<cr>", "Run Api request to entry" },
+--   t = { "<cmd>HurlToggleMode<cr>", "Hurl Toggle Mode" },
+--   v = { "<cmd>HurlVerbose<cr>", "Hurl Verbose" },
+--   l = { "<cmd>HurlShowLastResponse<cr>", "Hurl Show Last Response" },
+--   m = { "<cmd>HurlManageVariable<cr>", "Hurl Manage Variable" },
+--   s = { ":HurlSetVariable ", "Hurl Set Variable" },
+--   f = { ":HurlSetEnvFile ", "Hurl Set Env File" },
+--   g = { ":Grpc<cr>", "Grpc" },
+-- }
+
+
+-- lvim.builtin.which_key.mappings["D"] = {
+--   name = "Debug",
+--   b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
+--   c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+--   i = { "<cmd>lua require'dap'.step_into()<cr>", "Into" },
+--   o = { "<cmd>lua require'dap'.step_over()<cr>", "Over" },
+--   O = { "<cmd>lua require'dap'.step_out()<cr>", "Out" },
+--   r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Repl" },
+--   l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
+--   u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
+--   x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
+-- }
